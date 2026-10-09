@@ -3,3 +3,6 @@ __pycache__/
 .env
 .venv/
 docs/Phase1_course_instructions.pdf
+research/.source_pdfs/
+research/.external_data/
+submission/.preview/

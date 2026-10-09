@@ -1,31 +1,18 @@
-# Phase 1 reading shortlist (research aid, not submission prose)
+# Phase 1 paper record
 
-The course requires at least ten **2025–2026 peer reviewed research articles**. These ten 2025 proceedings records are a starting set for the group to read. Verify the full paper, its exact tables, and its fit to FaultPilot before including it in the submitted review. A proceedings entry confirms publication; it does not substitute for a critical reading.
+The manuscript reviews these ten 2025 peer-reviewed research papers. The base paper is starred. Its [ICSE 2025 Research Track record](https://conf.researchr.org/details/icse-2025/icse-2025-research-track/160/RepairAgent-An-Autonomous-LLM-Based-Agent-for-Program-Repair) and the [official CORE 2023 ranking portal](https://portal.core.edu.au/conf-ranks/?by=all&page=1&search=&sort=arank&source=CORE2023) establish venue and A* rank. The PDF gives critical summaries, results, limitations, and IEEE-style references; this list is for source navigation.
 
-| # | Candidate paper and primary publication record | Why it is relevant | Group reading status |
+| # | Paper | Venue | Role in FaultPilot |
 |---|---|---|---|
-| 1 ★ | [RepairAgent: An Autonomous, LLM-Based Agent for Program Repair — ICSE 2025 Research Track](https://conf.researchr.org/details/icse-2025/icse-2025-research-track/160/RepairAgent-An-Autonomous-LLM-Based-Agent-for-Program-Repair) | Autonomous tool use and patch validation; proposed base comparison | Not yet read and summarized by group |
-| 2 | [UniDebugger: Hierarchical Multi-Agent Framework for Unified Software Debugging — EMNLP 2025](https://aclanthology.org/2025.emnlp-main.921/) | Agent roles across debugging stages | Not yet read and summarized by group |
-| 3 | [COAST: Enhancing the Code Debugging Ability of LLMs through Communicative Agent Based Data Synthesis — Findings of NAACL 2025](https://aclanthology.org/2025.findings-naacl.139/) | Multi-stage debugging evaluation and data synthesis | Not yet read and summarized by group |
-| 4 | [SynFix: Dependency-Aware Program Repair via RelationGraph Analysis — Findings of ACL 2025](https://aclanthology.org/2025.findings-acl.252/) | Structured context and patch validation | Not yet read and summarized by group |
-| 5 | [MLDebugging: Towards Benchmarking Code Debugging Across Multi-Library Scenarios — Findings of ACL 2025](https://aclanthology.org/2025.findings-acl.305/) | Python multi-library debugging benchmark | Not yet read and summarized by group |
-| 6 | [Hierarchical Knowledge Injection for Improving LLM-based Program Repair — ASE 2025 Research Papers](https://conf.researchr.org/details/ase-2025/ase-2025-papers/56/Hierarchical-Knowledge-Injection-for-Improving-LLM-based-Program-Repair) | Repository context and BugsInPy evaluation | Not yet read and summarized by group |
-| 7 | [Understanding Software Engineering Agents: A Study of Thought-Action-Result Trajectories — ASE 2025 Research Papers](https://conf.researchr.org/details/ase-2025/ase-2025-papers/40/Understanding-Software-Engineering-Agents-A-Study-of-Thought-Action-Result-Trajector) | Agent failure modes, tool use, and feedback | Not yet read and summarized by group |
-| 8 | [Fixing Broken Graphs: LLM-Powered Automatic Code Optimization for DNN Programs — ASE 2025 Research Papers](https://conf.researchr.org/details/ase-2025/ase-2025-papers/183/Fixing-Broken-Graphs-LLM-Powered-Automatic-Code-Optimization-for-DNN-Programs) | Multi-agent work on DNN Python programs | Not yet read and summarized by group |
-| 9 | [RepoDebug: Repository-Level Multi-Task and Multi-Language Debugging Evaluation of Large Language Models — Findings of EMNLP 2025](https://aclanthology.org/2025.findings-emnlp.1294/) | Repository-level benchmark beyond toy snippets | Not yet read and summarized by group |
-| 10 | [Template-Guided Program Repair in the Era of Large Language Models — ICSE 2025 Research Track](https://conf.researchr.org/details/icse-2025/icse-2025-research-track/11/Template-Guided-Program-Repair-in-the-Era-of-Large-Language-Models) | A simpler structured-repair comparison | Not yet read and summarized by group |
+| 1 ★ | [RepairAgent](https://doi.org/10.1109/ICSE55347.2025.00157) | ICSE 2025 | Tool-use and state-control base |
+| 2 | [UniDebugger](https://doi.org/10.18653/v1/2025.emnlp-main.921) | EMNLP 2025 | Staged agent roles |
+| 3 | [COAST / DEBUGEVAL](https://doi.org/10.18653/v1/2025.findings-naacl.139) | NAACL Findings 2025 | Stage-specific diagnosis measurement |
+| 4 | [SynFix](https://doi.org/10.18653/v1/2025.findings-acl.252) | ACL Findings 2025 | Dependency context and regression checks |
+| 5 | [MLDebugging](https://doi.org/10.18653/v1/2025.findings-acl.305) | ACL Findings 2025 | Primary confirmed Python benchmark |
+| 6 | [Hierarchical Knowledge Injection](https://doi.org/10.1109/ASE63991.2025.00122) | ASE 2025 | Conditional context retrieval |
+| 7 | [Understanding Software Engineering Agents](https://doi.org/10.1109/ASE63991.2025.00234) | ASE 2025 | Tool and token efficiency |
+| 8 | [GraphGlue](https://doi.org/10.1109/ASE63991.2025.00144) | ASE 2025 | AI-specific execution checks |
+| 9 | [RepoDebug](https://doi.org/10.18653/v1/2025.findings-emnlp.1294) | EMNLP Findings 2025 | Diagnosis versus repair evaluation |
+| 10 | [DSDBench](https://doi.org/10.18653/v1/2025.emnlp-main.878) | EMNLP 2025 | Cause versus symptom localization |
 
-★ Proposed base paper: *RepairAgent*. Its publication record identifies the ICSE 2025 **Research Track**. The [official CORE/ICORE ranking portal](https://portal.core.edu.au/conf-ranks/?by=all&page=1&search=&sort=arank&source=CORE2023) lists **International Conference on Software Engineering (ICSE)** as **A\*** in CORE 2023. The group should cite both records in the submitted base-paper discussion. Its Defects4J Java setting differs from FaultPilot's proposed Python AI/ML setting, so direct numerical comparison would be invalid without a shared evaluation set or reproduced method.
-
-## Extraction sheet for each paper
-
-Record the exact paper page or table for every claim. Write the assessed analysis yourself.
-
-1. Full IEEE citation, DOI, publication URL, and evidence of peer review.
-2. Research question and system/method architecture.
-3. Dataset, language, number of cases, split, and reproducibility details.
-4. Exact metric definitions, baselines, and numerical results with table/page numbers.
-5. Limitations stated by the authors; then separately record your own concerns.
-6. Specific link to one of FaultPilot's three proposed gaps.
-
-Do not treat a benchmark paper's reported model failures as evidence that FaultPilot fixes them. The group must test that claim on a confirmed, provenance-tracked dataset.
+The studies use different languages, tasks, denominators, and oracles. Their scores should not be treated as one leaderboard. The course brief prohibits AI-generated assessed writing; the prose draft needs the student's own review and rewrite before submission.

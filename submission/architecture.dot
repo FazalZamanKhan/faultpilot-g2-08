@@ -1,0 +1,36 @@
+digraph FaultPilot {
+  graph [rankdir=TB, bgcolor="white", pad="0.18", nodesep="0.22", ranksep="0.35", fontname="DejaVu Sans", fontsize=11];
+  node [shape=box, style="rounded,filled", color="#29465b", fillcolor="#edf5fa", fontname="DejaVu Sans", fontsize=10, margin="0.09,0.06"];
+  edge [color="#445968", arrowsize=0.7, fontname="DejaVu Sans", fontsize=8];
+  input [label="Python case\ncode + traceback + tests"];
+  output [label="Evidence report\nstatus + checks + abstention", fillcolor="#e6f2e5"];
+  input -> baseline_rule;
+  input -> state;
+
+  subgraph cluster_baseline {
+    label="Phase 1 baseline: implemented"; style="rounded,filled"; color="#7ba7be"; fillcolor="#f4f9fc";
+    baseline_rule [label="Keyword taxonomy\nrule matcher"];
+    baseline_run [label="Local reproducer\n5 s timeout"];
+    baseline_rule -> baseline_run;
+  }
+  baseline_run -> output [label="diagnosis only"];
+
+  subgraph cluster_agent {
+    label="Proposed agent: staged implementation"; style="rounded,dashed"; color="#a48742";
+    state [label="Case state + budgets\ntrace, history, evidence"];
+    diagnose [label="Gap 1: evidence retriever\n+ diagnosis agent", fillcolor="#fff1d6"];
+    patch [label="Candidate repair\nplanner"];
+    verify [label="Gap 2: isolated test tool\n+ regression checks", fillcolor="#fff1d6"];
+    gate [shape=diamond, label="Gap 3: evidence /\nbudget gate", fillcolor="#fff1d6"];
+    state -> diagnose -> patch -> verify -> gate;
+    gate -> diagnose [label="bounded retry", style=dashed, constraint=false];
+    gate -> output [label="verified or abstain"];
+  }
+  source [label="Pinned MLDebugging data\n+ library/project context", shape=folder, fillcolor="#f4eefb"];
+  provider [label="Configured LLM provider\n(optional; not yet live)", shape=component, fillcolor="#f4eefb"];
+  source -> diagnose [style=dashed];
+  provider -> diagnose [style=dashed];
+  provider -> patch [style=dashed];
+  tests [label="Trusted tests /\ndisposable workspace", shape=folder, fillcolor="#f4eefb"];
+  tests -> verify [style=dashed];
+}

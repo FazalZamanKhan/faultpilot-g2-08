@@ -1,1 +1,11 @@
-id,title,authors,year,venue,doi_or_url,peer_review_proof,base_paper_rank_proof,dataset,method,metric,exact_result,limitations,student_summary_done
+id,title,year,venue,doi,role
+1,"RepairAgent: An Autonomous, LLM-Based Agent for Program Repair",2025,ICSE,10.1109/ICSE55347.2025.00157,base paper
+2,"UniDebugger: Hierarchical Multi-Agent Framework for Unified Software Debugging",2025,EMNLP,10.18653/v1/2025.emnlp-main.921,agent roles
+3,"COAST: Enhancing the Code Debugging Ability of LLMs through Communicative Agent Based Data Synthesis",2025,NAACL Findings,10.18653/v1/2025.findings-naacl.139,stage evaluation
+4,"SynFix: Dependency-Aware Program Repair via RelationGraph Analysis",2025,ACL Findings,10.18653/v1/2025.findings-acl.252,structured context
+5,"MLDebugging: Towards Benchmarking Code Debugging Across Multi-Library Scenarios",2025,ACL Findings,10.18653/v1/2025.findings-acl.305,primary dataset
+6,"Hierarchical Knowledge Injection for Improving LLM-based Program Repair",2025,ASE,10.1109/ASE63991.2025.00122,conditional retrieval
+7,"Understanding Software Engineering Agents: A Study of Thought-Action-Result Trajectories",2025,ASE,10.1109/ASE63991.2025.00234,tool efficiency
+8,"Fixing Broken Graphs: LLM-Powered Automatic Code Optimization for DNN Programs",2025,ASE,10.1109/ASE63991.2025.00144,AI fault checks
+9,"RepoDebug: Repository-Level Multi-Task and Multi-Language Debugging Evaluation of Large Language Models",2025,EMNLP Findings,10.18653/v1/2025.findings-emnlp.1294,repository benchmark
+10,"Why Stop at One Error? Benchmarking LLMs as Data Science Code Debuggers for Multi-Hop and Multi-Bug Errors",2025,EMNLP,10.18653/v1/2025.emnlp-main.878,multi-bug benchmark

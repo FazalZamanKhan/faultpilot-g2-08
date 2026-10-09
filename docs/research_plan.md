@@ -1,5 +1,5 @@
-# Literature verification protocol
+# Literature and source verification
 
-Search ICSE, FSE, ASE, ISSTA, ICLR, ICML, NeurIPS, AAAI, ACL and Q1 software-engineering journals for 2025–2026 peer-reviewed work on automated program repair, agentic debugging, Python ML failure diagnosis, execution-guided repair, repair verification, confidence calibration and selective prediction. Verify every candidate via publisher/proceedings record and inspect its evaluation tables before extracting results. Verify base-paper CORE A/A* or journal Q1 ranking from an authoritative ranking source and save proof. Preprints need supervisor approval and are not assumed eligible.
+The [paper record](../research/source_shortlist.md) links the ten 2025 peer-reviewed studies used in the Phase 1 manuscript. The [PDF](../submission/Phase1_G2-08_22I-2362.pdf) contains critical reviews, a comparison table, gap synthesis, and IEEE-style references. RepairAgent is the base paper; the manuscript cites its ICSE Research Track record and official CORE A* ranking.
 
-The package intentionally does not fabricate ten citations, metrics, or venue rankings. Maintain your reviewed sources in `research/papers.csv`.
+The assessed writing rule in the course brief prohibits AI-generated prose. The manuscript is a research-backed draft that Fazal must check against each primary paper and rewrite in his own words before submission. Confirm the original results, limitations, and reference details while revising; do not merge scores from different benchmarks into one ranking.
