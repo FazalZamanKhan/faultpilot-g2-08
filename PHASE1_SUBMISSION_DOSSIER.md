@@ -6,7 +6,7 @@ Project: G2-08 — FaultPilot: A Taxonomy-Grounded Agentic Debugging Assistant f
 Group head name / roll number: [FILL]
 Other group members' names / roll numbers: [FILL OR CONFIRM SOLO]
 Supervisor: [VERIFY]
-GitHub URL: [CREATE AND FILL]
+GitHub URL: https://github.com/FazalZamanKhan/faultpilot-g2-08
 
 ## Deliverable A: Literature review and research gaps
 
