@@ -21,4 +21,4 @@ Proposed scope: Python AI/ML fault diagnosis, taxonomy-grounded retrieval, contr
 Repository: https://github.com/FazalZamanKhan/faultpilot-g2-08. Add this link to the same Google Classroom submission as the PDF. The group head is responsible for submission.
 
 ## Submission
-Course requires ONE PDF with A (literature review and gaps) then B (proposal), plus GitHub URL. File name `Phase1_G2-08_<GroupHeadRollNo>.pdf`. Include the project code, title, all member names and roll numbers on page one. The assessed prose must be written by the group.
+Course requires ONE PDF with A (literature review and gaps) then B (proposal), plus GitHub URL. The group head is Fazal Zaman Khan (22I-2362), so the final file name is `Phase1_G2-08_22I-2362.pdf`. Include the project code, title, and all member names and roll numbers on page one. The assessed prose must be written by the group.

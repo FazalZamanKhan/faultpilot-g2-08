@@ -3,10 +3,11 @@
 > NOT FOR DIRECT SUBMISSION. The course prohibits AI-generated writing in the submitted literature review and proposal. Fill these prompts in your own words after reading each paper.
 
 Project: G2-08 — FaultPilot: A Taxonomy-Grounded Agentic Debugging Assistant for Python AI Applications
-Group head name / roll number: [FILL]
+Group head name / roll number: Fazal Zaman Khan / 22I-2362
 Other group members' names / roll numbers: [FILL OR CONFIRM SOLO]
 Supervisor: [VERIFY]
 GitHub URL: https://github.com/FazalZamanKhan/faultpilot-g2-08
+Required final PDF filename: `Phase1_G2-08_22I-2362.pdf`
 
 ## Deliverable A: Literature review and research gaps
 
