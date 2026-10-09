@@ -1,0 +1,13 @@
+{
+  "case_id": "demo_shape_001",
+  "category": "shape_mismatch",
+  "diagnosis": "Inspect tensor dimensions and the expected layer input width.",
+  "repair_hint": "Inspect tensor dimensions and the expected layer input width.",
+  "confidence_proxy": "rule_match",
+  "exit_code": 1,
+  "reproduction_failed": true,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: shape mismatch: input width 8 but layer expects 16\n",
+  "category_correct": true,
+  "status": "diagnosis_only_no_repair_attempted"
+}

@@ -1,0 +1,7 @@
+{
+  "case_id": "demo_device_001",
+  "description": "Synthetic device placement mismatch smoke case",
+  "traceback": "RuntimeError: Expected all tensors to be on the same device, but found cuda:0 and cpu",
+  "expected_category": "device_mismatch",
+  "reproducer": ["python", "-c", "raise RuntimeError('Expected all tensors to be on the same device: cuda:0 and cpu')"]
+}

@@ -1,0 +1,3 @@
+# Evaluation protocol
+
+Start with the four supplied reproducible synthetic cases for plumbing only; they are not a valid research benchmark. The smoke report is generated with `python -m faultpilot.evaluation --cases cases --output outputs/smoke_evaluation.json`. Build a provenance-tracked set of 50–100 independent Python AI/ML fault cases; hold out 20% for evaluation and freeze before ablations. Record seed, environment, license and original source. Compare baseline taxonomy-only, LLM-only, taxonomy+LLM, verification loop, and verification+abstention; same cases and budgets. Report per-class macro F1, repair-test pass, regression, abstention coverage, wall time and provider cost. Never present demonstration-case success as research performance.

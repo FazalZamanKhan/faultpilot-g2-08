@@ -1,0 +1,46 @@
+{
+  "scope": "synthetic_smoke_cases_only_not_research_accuracy",
+  "cases": 4,
+  "category_accuracy": 1.0,
+  "reproduction_rate": 1.0,
+  "class_counts": {
+    "device_mismatch": 1,
+    "missing_dependency": 1,
+    "shape_mismatch": 1,
+    "unknown": 1
+  },
+  "results": [
+    {
+      "case_id": "demo_device_001",
+      "expected_category": "device_mismatch",
+      "predicted_category": "device_mismatch",
+      "category_correct": true,
+      "reproduction_failed": true,
+      "status": "diagnosis_only_no_repair_attempted"
+    },
+    {
+      "case_id": "demo_dependency_001",
+      "expected_category": "missing_dependency",
+      "predicted_category": "missing_dependency",
+      "category_correct": true,
+      "reproduction_failed": true,
+      "status": "diagnosis_only_no_repair_attempted"
+    },
+    {
+      "case_id": "demo_shape_001",
+      "expected_category": "shape_mismatch",
+      "predicted_category": "shape_mismatch",
+      "category_correct": true,
+      "reproduction_failed": true,
+      "status": "diagnosis_only_no_repair_attempted"
+    },
+    {
+      "case_id": "demo_unknown_001",
+      "expected_category": "unknown",
+      "predicted_category": "unknown",
+      "category_correct": true,
+      "reproduction_failed": true,
+      "status": "diagnosis_only_no_repair_attempted"
+    }
+  ]
+}

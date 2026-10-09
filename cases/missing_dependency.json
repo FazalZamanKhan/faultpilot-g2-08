@@ -1,0 +1,7 @@
+{
+  "case_id": "demo_dependency_001",
+  "description": "Synthetic absent package smoke case",
+  "traceback": "ModuleNotFoundError: No module named 'faultpilot_demo_missing_package'",
+  "expected_category": "missing_dependency",
+  "reproducer": ["python", "-c", "import faultpilot_demo_missing_package"]
+}

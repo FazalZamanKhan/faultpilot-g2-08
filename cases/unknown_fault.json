@@ -1,0 +1,7 @@
+{
+  "case_id": "demo_unknown_001",
+  "description": "Synthetic unrecognized fault to exercise abstention",
+  "traceback": "ValueError: unsupported activation mode",
+  "expected_category": "unknown",
+  "reproducer": ["python", "-c", "raise ValueError('unsupported activation mode')"]
+}

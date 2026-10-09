@@ -1,0 +1,11 @@
+{
+  "case_id": "demo_shape_001",
+  "description": "Synthetic Python AI/ML tensor dimension mismatch demo",
+  "traceback": "RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x8 and 16x2)",
+  "expected_category": "shape_mismatch",
+  "reproducer": [
+    "python",
+    "-c",
+    "assert 8 == 16, \"shape mismatch: input width 8 but layer expects 16\""
+  ]
+}

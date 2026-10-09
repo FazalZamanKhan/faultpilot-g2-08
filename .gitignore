@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+docs/Phase1_course_instructions.pdf
