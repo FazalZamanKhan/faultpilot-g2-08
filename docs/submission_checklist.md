@@ -1,8 +1,8 @@
 # Course submission checklist
 
 - [ ] One combined PDF: Deliverable A then Deliverable B
-- [ ] `Phase1_G2-08_<GroupHeadRollNo>.pdf`
-- [ ] Title, project code, all names and roll numbers on page one
+- [ ] `Phase1_G2-08_22I-2362.pdf`
+- [ ] Title, project code, Fazal Zaman Khan and 22I-2362 on page one
 - [ ] 10 qualifying 2025–2026 research papers and student-written 150–250 word critical reviews
 - [ ] Q1 or CORE A/A* base paper with ranking proof
 - [ ] Comparison matrix and three testable evidence-based gaps

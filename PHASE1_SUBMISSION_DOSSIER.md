@@ -4,8 +4,8 @@
 
 Project: G2-08 — FaultPilot: A Taxonomy-Grounded Agentic Debugging Assistant for Python AI Applications
 Group head name / roll number: Fazal Zaman Khan / 22I-2362
-Other group members' names / roll numbers: [FILL OR CONFIRM SOLO]
-Supervisor: [VERIFY]
+Other group members' names / roll numbers: None — solo project
+Supervisor: Meemon Khan (listed for G2 projects in the course brief)
 GitHub URL: https://github.com/FazalZamanKhan/faultpilot-g2-08
 Required final PDF filename: `Phase1_G2-08_22I-2362.pdf`
 
@@ -51,5 +51,5 @@ Proposed base: RepairAgent (ICSE 2025 Research Track). Its [publication record](
 - [ ] benchmark beyond synthetic demo with provenance
 - [ ] actual model integration demonstrated (currently absent)
 - [x] deterministic end-to-end local baseline and unit tests
-- [ ] GitHub repository published and supervisor granted access
+- [x] public GitHub repository published and accessible to supervisor
 - [ ] final PDF formatted and named with roll number
