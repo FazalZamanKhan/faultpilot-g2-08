@@ -1,0 +1,129 @@
+{
+  "dataset_sha256": "52b076ad3230911208483df7af95543ed81b92ffec077db792315f680490df07",
+  "training_groups": "sha256(task_id) modulo 5 in {2,3,4}",
+  "validation_groups": "sha256(task_id) modulo 5 == 1",
+  "train_count": 643,
+  "validation_count": 298,
+  "selection_metric": "multi-label macro F1",
+  "selected": {
+    "alpha": 0.0,
+    "threshold": 0.45,
+    "macro_f1": 0.42886
+  },
+  "trials": [
+    {
+      "alpha": 0.0,
+      "threshold": 0.25,
+      "macro_f1": 0.3235
+    },
+    {
+      "alpha": 0.0,
+      "threshold": 0.35,
+      "macro_f1": 0.36607
+    },
+    {
+      "alpha": 0.0,
+      "threshold": 0.45,
+      "macro_f1": 0.42886
+    },
+    {
+      "alpha": 0.0,
+      "threshold": 0.55,
+      "macro_f1": 0.39972
+    },
+    {
+      "alpha": 0.2,
+      "threshold": 0.25,
+      "macro_f1": 0.3412
+    },
+    {
+      "alpha": 0.2,
+      "threshold": 0.35,
+      "macro_f1": 0.39877
+    },
+    {
+      "alpha": 0.2,
+      "threshold": 0.45,
+      "macro_f1": 0.39819
+    },
+    {
+      "alpha": 0.2,
+      "threshold": 0.55,
+      "macro_f1": 0.3528
+    },
+    {
+      "alpha": 0.4,
+      "threshold": 0.25,
+      "macro_f1": 0.37528
+    },
+    {
+      "alpha": 0.4,
+      "threshold": 0.35,
+      "macro_f1": 0.37499
+    },
+    {
+      "alpha": 0.4,
+      "threshold": 0.45,
+      "macro_f1": 0.34175
+    },
+    {
+      "alpha": 0.4,
+      "threshold": 0.55,
+      "macro_f1": 0.31963
+    },
+    {
+      "alpha": 0.6,
+      "threshold": 0.25,
+      "macro_f1": 0.35211
+    },
+    {
+      "alpha": 0.6,
+      "threshold": 0.35,
+      "macro_f1": 0.36027
+    },
+    {
+      "alpha": 0.6,
+      "threshold": 0.45,
+      "macro_f1": 0.31672
+    },
+    {
+      "alpha": 0.6,
+      "threshold": 0.55,
+      "macro_f1": 0.30432
+    }
+  ],
+  "gate_selection_rule": "Maximum selective exact match subject to >=0.50 coverage on development validation",
+  "selected_gate": {
+    "confidence_floor": 0.4,
+    "coverage": 0.78859,
+    "selective_exact_match": 0.08085
+  },
+  "gate_trials": [
+    {
+      "confidence_floor": 0.4,
+      "coverage": 0.78859,
+      "selective_exact_match": 0.08085
+    },
+    {
+      "confidence_floor": 0.5,
+      "coverage": 0.72483,
+      "selective_exact_match": 0.0787
+    },
+    {
+      "confidence_floor": 0.6,
+      "coverage": 0.41611,
+      "selective_exact_match": 0.09677
+    },
+    {
+      "confidence_floor": 0.7,
+      "coverage": 0.12081,
+      "selective_exact_match": 0.13889
+    },
+    {
+      "confidence_floor": 0.8,
+      "coverage": 0.01007,
+      "selective_exact_match": 0.66667
+    }
+  ],
+  "note": "Chosen without reading or scoring the held-out test set."
+}
