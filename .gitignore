@@ -6,3 +6,14 @@ docs/Phase1_course_instructions.pdf
 research/.source_pdfs/
 research/.external_data/
 submission/.preview/
+paper/main.aux
+paper/main.log
+paper/main.out
+paper/main.bbl
+paper/main.blg
+paper/main.synctex.gz
+paper/main.pdf
+results/test_preflight_initial.jsonl
+results/test_preflight_v2.jsonl
+results/development_pilot_line_edit.jsonl
+results/development_pilot_line_edit_retry.jsonl

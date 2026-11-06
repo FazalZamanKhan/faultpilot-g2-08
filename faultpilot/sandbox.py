@@ -21,7 +21,8 @@ def run_tests(code: str, test_code: str, timeout: float = 12.0) -> dict:
         (work / "runner.py").write_bytes(RUNNER.read_bytes())
         command = ["bwrap", "--unshare-all", "--die-with-parent", "--clearenv"]
         for host_path in SYSTEM_BINDS:
-            command += ["--ro-bind", host_path, host_path]
+            if Path(host_path).exists():
+                command += ["--ro-bind", host_path, host_path]
         command += [
             "--tmpfs", "/tmp", "--proc", "/proc", "--dev", "/dev",
             "--bind", temp, "/work", "--chdir", "/work",

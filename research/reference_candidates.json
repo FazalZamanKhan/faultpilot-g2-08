@@ -1,0 +1,3070 @@
+[
+  {
+    "doi": "10.1109/ICSE55347.2025.00157",
+    "title": "RepairAgent: An Autonomous, LLM-Based Agent for Program Repair",
+    "year": 2025,
+    "venue": "2025 IEEE/ACM 47th International Conference on Software Engineering (ICSE)",
+    "authors": [
+      {
+        "given": "Islem",
+        "family": "Bouzenia",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of Stuttgart,Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Premkumar",
+        "family": "Devanbu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UC Davis,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michael",
+        "family": "Pradel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Stuttgart,Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.18653/v1/2025.emnlp-main.921",
+    "title": "UniDebugger: Hierarchical Multi-Agent Framework for Unified Software Debugging",
+    "year": 2025,
+    "venue": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    "authors": [
+      {
+        "given": "Cheryl",
+        "family": "Lee",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chunqiu Steven",
+        "family": "Xia",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Longji",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jen-tse",
+        "family": "Huang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhouruixing",
+        "family": "Zhu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lingming",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michael R.",
+        "family": "Lyu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.18653/v1/2025.findings-naacl.139",
+    "title": "COAST: Enhancing the Code Debugging Ability of LLMs through Communicative Agent Based Data Synthesis",
+    "year": 2025,
+    "venue": "Findings of the Association for Computational Linguistics: NAACL 2025",
+    "authors": [
+      {
+        "given": "Weiqing",
+        "family": "Yang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hanbin",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhenghao",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xinze",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yukun",
+        "family": "Yan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shuo",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yu",
+        "family": "Gu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Minghe",
+        "family": "Yu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhiyuan",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ge",
+        "family": "Yu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.18653/v1/2025.findings-acl.252",
+    "title": "SynFix: Dependency-Aware Program Repair via RelationGraph Analysis",
+    "year": 2025,
+    "venue": "Findings of the Association for Computational Linguistics: ACL 2025",
+    "authors": [
+      {
+        "given": "Xunzhu",
+        "family": "Tang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Jiechao",
+        "family": "Gao",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Jin",
+        "family": "Xu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Tiezhu",
+        "family": "Sun",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yewei",
+        "family": "Song",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Saad",
+        "family": "Ezzini",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Wendk\u00fbuni C.",
+        "family": "Ou\u00e9draogo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Jacques",
+        "family": "Klein",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Tegawend\u00e9 F.",
+        "family": "Bissyand\u00e9",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.18653/v1/2025.findings-acl.305",
+    "title": "MLDebugging: Towards Benchmarking Code Debugging Across Multi-Library Scenarios",
+    "year": 2025,
+    "venue": "Findings of the Association for Computational Linguistics: ACL 2025",
+    "authors": [
+      {
+        "given": "JinYang",
+        "family": "Huang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Xiachong",
+        "family": "Feng",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Qiguang",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Hanjie",
+        "family": "Zhao",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Zihui",
+        "family": "Cheng",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Jiesong",
+        "family": "Bai",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Jingxuan",
+        "family": "Zhou",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Min",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Libo",
+        "family": "Qin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1109/ASE63991.2025.00122",
+    "title": "Hierarchical Knowledge Injection for Improving LLM-based Program Repair",
+    "year": 2025,
+    "venue": "2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+    "authors": [
+      {
+        "given": "Ramtin",
+        "family": "Ehsani",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Drexel University,Philadelphia,PA,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Esteban",
+        "family": "Parra",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Belmont University,Nashville,TN,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sonia",
+        "family": "Haiduc",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Florida State University,Tallahassee,FL,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Preetha",
+        "family": "Chatterjee",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Drexel University,Philadelphia,PA,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1109/ASE63991.2025.00234",
+    "title": "Understanding Software Engineering Agents: A Study of Thought-Action-Result Trajectories",
+    "year": 2025,
+    "venue": "2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+    "authors": [
+      {
+        "given": "Islem",
+        "family": "Bouzenia",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "CISPA Helmholtz Center for Information Security,Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michael",
+        "family": "Pradel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "CISPA Helmholtz Center for Information Security,Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1109/ASE63991.2025.00144",
+    "title": "Fixing Broken Graphs: LLM-Powered Automatic Code Optimization for DNN Programs",
+    "year": 2025,
+    "venue": "2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+    "authors": [
+      {
+        "given": "Haotian",
+        "family": "Wang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Nankai University,College of Software,Tianjin,China"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yicheng",
+        "family": "Sui",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Nankai University,College of Software,Tianjin,China"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yudong",
+        "family": "Xie",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Nankai University,College of Software,Tianjin,China"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yicong",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Nankai University,College of Software,Tianjin,China"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yufei",
+        "family": "Sun",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Nankai University,College of Software,Tianjin,China"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Changqing",
+        "family": "Shi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Nankai University,College of Software,Tianjin,China"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yuzhi",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Nankai University,College of Software,Tianjin,China"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.18653/v1/2025.findings-emnlp.1294",
+    "title": "RepoDebug: Repository-Level Multi-Task and Multi-Language Debugging Evaluation of Large Language Models",
+    "year": 2025,
+    "venue": "Findings of the Association for Computational Linguistics: EMNLP 2025",
+    "authors": [
+      {
+        "given": "Jingjing",
+        "family": "Liu",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Zeming",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Zihao",
+        "family": "Cheng",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Mengliang",
+        "family": "He",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Xiaoming",
+        "family": "Shi",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yuhang",
+        "family": "Guo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Xiangrong",
+        "family": "Zhu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yuanfang",
+        "family": "Guo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Yunhong",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Haifeng",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.18653/v1/2025.emnlp-main.878",
+    "title": "Why Stop at One Error? Benchmarking LLMs as Data Science Code Debuggers for Multi-Hop and Multi-Bug Errors",
+    "year": 2025,
+    "venue": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    "authors": [
+      {
+        "given": "Zhiyu",
+        "family": "Yang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shuo",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yukun",
+        "family": "Yan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yang",
+        "family": "Deng",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3318162",
+    "title": "Automated program repair",
+    "year": 2019,
+    "venue": "Communications of the ACM",
+    "authors": [
+      {
+        "given": "Claire",
+        "family": "Le Goues",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Carnegie Mellon University, Pittsburgh, PA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michael",
+        "family": "Pradel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Stuttgart, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Abhik",
+        "family": "Roychoudhury",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "National University of Singapore"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1145/3293882.3330577",
+    "title": "TBar: revisiting template-based automated program repair",
+    "year": 2019,
+    "venue": "Proceedings of the 28th ACM SIGSOFT International Symposium on Software Testing and Analysis",
+    "authors": [
+      {
+        "given": "Kui",
+        "family": "Liu",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of Luxembourg, Luxembourg"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Anil",
+        "family": "Koyuncu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Luxembourg, Luxembourg"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Dongsun",
+        "family": "Kim",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Luxembourg, Luxembourg"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tegawend\u00e9 F.",
+        "family": "Bissyand\u00e9",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Luxembourg, Luxembourg"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3360585",
+    "title": "Getafix: learning to fix bugs automatically",
+    "year": 2019,
+    "venue": "Proceedings of the ACM on Programming Languages",
+    "authors": [
+      {
+        "given": "Johannes",
+        "family": "Bader",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Facebook, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andrew",
+        "family": "Scott",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Facebook, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michael",
+        "family": "Pradel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Facebook, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Satish",
+        "family": "Chandra",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Facebook, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1145/3338906.3338952",
+    "title": "Phoenix: automated data-driven synthesis of repairs for static analysis violations",
+    "year": 2019,
+    "venue": "Proceedings of the 2019 27th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering",
+    "authors": [
+      {
+        "given": "Rohan",
+        "family": "Bavishi",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of California at Berkeley, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hiroaki",
+        "family": "Yoshida",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fujitsu Labs, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mukul R.",
+        "family": "Prasad",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fujitsu Labs, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3379597.3387491",
+    "title": "How Often Do Single-Statement Bugs Occur?",
+    "year": 2020,
+    "venue": "Proceedings of the 17th International Conference on Mining Software Repositories",
+    "authors": [
+      {
+        "given": "Rafael-Michael",
+        "family": "Karampatsis",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of Edinburgh, Edinburgh, United Kingdom"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Charles",
+        "family": "Sutton",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Google Research, University of Edinburgh and The Alan, Turing Institute, Mountain View, CA, United States"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1109/TSE.2019.2940179",
+    "title": "SEQUENCER: Sequence-to-Sequence Learning for End-to-End Program Repair",
+    "year": 2021,
+    "venue": "IEEE Transactions on Software Engineering",
+    "authors": [
+      {
+        "given": "Zimin",
+        "family": "Chen",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Theoretical Computer Science (TCS), Kungliga Tekniska Hogskolan, 7655 Stockholm, Stockholm Sweden (e-mail: zimin@kth.se)"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Steve James",
+        "family": "Kommrusch",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Computer Science, Colorado State University, 3447 Fort Collins, Colorado United States 80523-1019 (e-mail: steve.kommrusch@gmail.com)"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michele",
+        "family": "Tufano",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Computer Science, College of William and Mary, 8604 Williamsburg, Virginia United States 23187-8795 (e-mail: mtufano@email.wm.edu)"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Louis-Noel",
+        "family": "Pouchet",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Computer Science, colorado state university, Fort Collins, Colorado United States (e-mail: pouchet@cs.ucla.edu)"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Denys",
+        "family": "Poshyvanyk",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Computer Science, William and Mary, Williamsburg, Virginia United States 23188 (e-mail: denys@cs.wm.edu)"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Martin",
+        "family": "Monperrus",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Theoretical Computer Science (TCS), KTH Royal Institute of Technology, 7655 Stockholm, Stockholm Sweden (e-mail: martin.monperrus@csc.kth.se)"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1145/3565971",
+    "title": "Code Search: A Survey of Techniques for Finding Code",
+    "year": 2023,
+    "venue": "ACM Computing Surveys",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-5306-8645",
+        "authenticated-orcid": false,
+        "given": "Luca",
+        "family": "Di Grazia",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, University of Stuttgart, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1623-498X",
+        "authenticated-orcid": false,
+        "given": "Michael",
+        "family": "Pradel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, University of Stuttgart, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1145/3468264.3468544",
+    "title": "A syntax-guided edit decoder for neural program repair",
+    "year": 2021,
+    "venue": "Proceedings of the 29th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering",
+    "authors": [
+      {
+        "given": "Qihao",
+        "family": "Zhu",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Peking University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zeyu",
+        "family": "Sun",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Peking University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yuan-an",
+        "family": "Xiao",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Peking University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Wenjie",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Peking University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kang",
+        "family": "Yuan",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Stony Brook University, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yingfei",
+        "family": "Xiong",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Peking University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lu",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Peking University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3551349.3556926",
+    "title": "SelfAPR: Self-supervised Program Repair with Test Execution Diagnostics",
+    "year": 2022,
+    "venue": "Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-9082-3208",
+        "authenticated-orcid": false,
+        "given": "He",
+        "family": "Ye",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "KTH Royal Institute of Technology, Sweden"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Matias",
+        "family": "Martinez",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Universit\u00e9 Polytechnique Hauts-de-France, France"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xiapu",
+        "family": "Luo",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "The Hong Kong Polytechnic University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-6272-4069",
+        "authenticated-orcid": false,
+        "given": "Tao",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Macau University of Science and Technology, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Martin",
+        "family": "Monperrus",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "KTH Royal Institute of Technology, Sweden"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1109/SANER.2016.76",
+    "title": "History Driven Program Repair",
+    "year": 2016,
+    "venue": "2016 IEEE 23rd International Conference on Software Analysis, Evolution, and Reengineering (SANER)",
+    "authors": [
+      {
+        "given": "Xuan Bach D.",
+        "family": "Le",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "David",
+        "family": "Lo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Claire",
+        "family": "Le Goues",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3180155.3180250",
+    "title": "Static automated program repair for heap properties",
+    "year": 2018,
+    "venue": "Proceedings of the 40th International Conference on Software Engineering",
+    "authors": [
+      {
+        "given": "Rijnard",
+        "family": "van Tonder",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Carnegie Mellon University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Claire",
+        "family": "Le Goues",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Carnegie Mellon University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3551349.3556893",
+    "title": "TransplantFix: Graph Differencing-based Code Transplantation for Automated Program Repair",
+    "year": 2022,
+    "venue": "Proceedings of the 37th IEEE/ACM International Conference on Automated Software Engineering",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-8383-1939",
+        "authenticated-orcid": false,
+        "given": "Deheng",
+        "family": "Yang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "National University of Defense Technology, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xiaoguang",
+        "family": "Mao",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "National University of Defense Technology, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Liqian",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "National University of Defense Technology, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xuezheng",
+        "family": "Xu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Academy of Military Sciences, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yan",
+        "family": "Lei",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Chongqing University, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "David",
+        "family": "Lo",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Singapore Management University, Singapore"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jiayu",
+        "family": "He",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "National University of Defense Technology, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3563330",
+    "title": "Seq2Parse: neurosymbolic parse error repair",
+    "year": 2022,
+    "venue": "Proceedings of the ACM on Programming Languages",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-1071-8038",
+        "authenticated-orcid": false,
+        "given": "Georgios",
+        "family": "Sakkas",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of California at San Diego, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-4618-4939",
+        "authenticated-orcid": false,
+        "given": "Madeline",
+        "family": "Endres",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Michigan, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-4579-5754",
+        "authenticated-orcid": false,
+        "given": "Philip J.",
+        "family": "Guo",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of California at San Diego, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-6749-2204",
+        "authenticated-orcid": false,
+        "given": "Westley",
+        "family": "Weimer",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Michigan, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1802-9421",
+        "authenticated-orcid": false,
+        "given": "Ranjit",
+        "family": "Jhala",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of California at San Diego, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1109/ICSE48619.2023.00194",
+    "title": "Large Language Models are Few-shot Testers: Exploring LLM-based General Bug Reproduction",
+    "year": 2023,
+    "venue": "2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)",
+    "authors": [
+      {
+        "given": "Sungmin",
+        "family": "Kang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "School of Computing, KAIST,Daejeon,Republic of Korea"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Juyeon",
+        "family": "Yoon",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computing, KAIST,Daejeon,Republic of Korea"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shin",
+        "family": "Yoo",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computing, KAIST,Daejeon,Republic of Korea"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1109/ICSE43902.2021.00043",
+    "title": "AUTOTRAINER: An Automatic DNN Training Problem Detection and Repair System",
+    "year": 2021,
+    "venue": "2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)",
+    "authors": [
+      {
+        "given": "Xiaoyu",
+        "family": "Zhang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Juan",
+        "family": "Zhai",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shiqing",
+        "family": "Ma",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chao",
+        "family": "Shen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3387940.3392181",
+    "title": "Learning to Fix Build Errors with Graph2Diff Neural Networks",
+    "year": 2020,
+    "venue": "Proceedings of the IEEE/ACM 42nd International Conference on Software Engineering Workshops",
+    "authors": [
+      {
+        "given": "Daniel",
+        "family": "Tarlow",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Google"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Subhodeep",
+        "family": "Moitra",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Google"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andrew",
+        "family": "Rice",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Cambridge &amp; Google"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zimin",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "KTH Royal Institute of Technology and Google"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Pierre-Antoine",
+        "family": "Manzagol",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Google"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Charles",
+        "family": "Sutton",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Google"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Edward",
+        "family": "Aftandilian",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Google"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3586030",
+    "title": "Grounded Copilot: How Programmers Interact with Code-Generating Models",
+    "year": 2023,
+    "venue": "Proceedings of the ACM on Programming Languages",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-8663-5175",
+        "authenticated-orcid": false,
+        "given": "Shraddha",
+        "family": "Barke",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of California at San Diego, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0007-2219-9355",
+        "authenticated-orcid": false,
+        "given": "Michael B.",
+        "family": "James",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of California at San Diego, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5571-173X",
+        "authenticated-orcid": false,
+        "given": "Nadia",
+        "family": "Polikarpova",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of California at San Diego, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1109/ICSE48619.2023.00125",
+    "title": "Impact of Code Language Models on Automated Program Repair",
+    "year": 2023,
+    "venue": "2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)",
+    "authors": [
+      {
+        "given": "Nan",
+        "family": "Jiang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Purdue University,West Lafayette,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kevin",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Lynbrook High School,San Jose,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Thibaud",
+        "family": "Lutellier",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Alberta,Alberta,Canada"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lin",
+        "family": "Tan",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Purdue University,West Lafayette,USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3650212.3680323",
+    "title": "Automated Program Repair via Conversation: Fixing 162 out of 337 Bugs for $0.42 Each using ChatGPT",
+    "year": 2024,
+    "venue": "Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-8660-9324",
+        "authenticated-orcid": false,
+        "given": "Chunqiu Steven",
+        "family": "Xia",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of Illinois at Urbana-Champaign, Urbana, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5175-2702",
+        "authenticated-orcid": false,
+        "given": "Lingming",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Illinois at Urbana-Champaign, Urbana, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3660783",
+    "title": "Evaluating and Improving ChatGPT for Unit Test Generation",
+    "year": 2024,
+    "venue": "Proceedings of the ACM on Software Engineering",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-6497-9380",
+        "authenticated-orcid": false,
+        "given": "Zhiqiang",
+        "family": "Yuan",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-3462-997X",
+        "authenticated-orcid": false,
+        "given": "Mingwei",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0007-7781-4095",
+        "authenticated-orcid": false,
+        "given": "Shiji",
+        "family": "Ding",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0002-6414-2174",
+        "authenticated-orcid": false,
+        "given": "Kaixin",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0006-8804-1828",
+        "authenticated-orcid": false,
+        "given": "Yixuan",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-3376-2581",
+        "authenticated-orcid": false,
+        "given": "Xin",
+        "family": "Peng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-4066-3365",
+        "authenticated-orcid": false,
+        "given": "Yiling",
+        "family": "Lou",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1145/3597503.3639121",
+    "title": "Fuzz4All: Universal Fuzzing with Large Language Models",
+    "year": 2024,
+    "venue": "Proceedings of the IEEE/ACM 46th International Conference on Software Engineering",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-8660-9324",
+        "authenticated-orcid": false,
+        "given": "Chunqiu Steven",
+        "family": "Xia",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "UIUC, Urbana, Illinois, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-2266-453X",
+        "authenticated-orcid": false,
+        "given": "Matteo",
+        "family": "Paltenghi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Stuttgart, Stuttgart, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-3778-5812",
+        "authenticated-orcid": false,
+        "given": "Jia",
+        "family": "Le Tian",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UIUC, Urbana, Illinois, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1623-498X",
+        "authenticated-orcid": false,
+        "given": "Michael",
+        "family": "Pradel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Stuttgart, Stuttgart, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5175-2702",
+        "authenticated-orcid": false,
+        "given": "Lingming",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UIUC, Urbana, Illinois, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3236009",
+    "title": "A Survey of Methods for Explaining Black Box Models",
+    "year": 2018,
+    "venue": "ACM Computing Surveys",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-2827-7613",
+        "authenticated-orcid": false,
+        "given": "Riccardo",
+        "family": "Guidotti",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "KDDLab, University of Pisa, Pisa, PI, Italy"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Anna",
+        "family": "Monreale",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "KDDLab, University of Pisa, Pisa, PI, Italy"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Salvatore",
+        "family": "Ruggieri",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "KDDLab, University of Pisa, Pisa, PI, Italy"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Franco",
+        "family": "Turini",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "KDDLab, University of Pisa, Pisa, PI, Italy"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Fosca",
+        "family": "Giannotti",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "KDDLab, ISTI-CNR, Pisa, PI, Italy"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Dino",
+        "family": "Pedreschi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "KDDLab, University of Pisa, Pisa, PI, Italy"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1145/3639372",
+    "title": "Explainability for Large Language Models: A Survey",
+    "year": 2024,
+    "venue": "ACM Transactions on Intelligent Systems and Technology",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0009-0006-5358-6895",
+        "authenticated-orcid": false,
+        "given": "Haiyan",
+        "family": "Zhao",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "New Jersey Institute of Technology, Newark, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0001-5547-6634",
+        "authenticated-orcid": false,
+        "given": "Hanjie",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Johns Hopkins University, Baltimore, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-3442-754X",
+        "authenticated-orcid": false,
+        "given": "Fan",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Wake Forest University, Winston-Salem, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-9170-2424",
+        "authenticated-orcid": false,
+        "given": "Ninghao",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Georgia, Athens, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2946-6678",
+        "authenticated-orcid": false,
+        "given": "Huiqi",
+        "family": "Deng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7147-5666",
+        "authenticated-orcid": false,
+        "given": "Hengyi",
+        "family": "Cai",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Institute of Computing Technology, CAS, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-9212-1947",
+        "authenticated-orcid": false,
+        "given": "Shuaiqiang",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Baidu Inc., Beijing, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-6813-680X",
+        "authenticated-orcid": false,
+        "given": "Dawei",
+        "family": "Yin",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Baidu Inc., Beijing, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1614-6069",
+        "authenticated-orcid": false,
+        "given": "Mengnan",
+        "family": "Du",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "New Jersey Institute of Technology, Newark, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  },
+  {
+    "doi": "10.1145/3663529.3663841",
+    "title": "Exploring LLM-Based Agents for Root Cause Analysis",
+    "year": 2024,
+    "venue": "Companion Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering",
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-3704-8898",
+        "authenticated-orcid": false,
+        "given": "Devjeet",
+        "family": "Roy",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Washington State University, Pullman, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0002-1492-0476",
+        "authenticated-orcid": false,
+        "given": "Xuchao",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft Research, Redmond, United States"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0007-6021-5555",
+        "authenticated-orcid": false,
+        "given": "Rashi",
+        "family": "Bhave",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft Research, Bengaluru, India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-0102-8139",
+        "authenticated-orcid": false,
+        "given": "Chetan",
+        "family": "Bansal",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft Research, Redmond, United States"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7590-3736",
+        "authenticated-orcid": false,
+        "given": "Pedro",
+        "family": "Las-Casas",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft, Sao Paolo, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-9662-2661",
+        "authenticated-orcid": false,
+        "given": "Rodrigo",
+        "family": "Fonseca",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft Research, Redmond, United States"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2019-213X",
+        "authenticated-orcid": false,
+        "given": "Saravan",
+        "family": "Rajmohan",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Microsoft 365, Redmond, United States"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3468264.3468597",
+    "title": "Vulnerability detection with fine-grained interpretations",
+    "year": 2021,
+    "venue": "Proceedings of the 29th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering",
+    "authors": [
+      {
+        "given": "Yi",
+        "family": "Li",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "New Jersey Institute of Technology, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shaohua",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "New Jersey Institute of Technology, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tien N.",
+        "family": "Nguyen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Texas at Dallas, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "proceedings-article"
+  },
+  {
+    "doi": "10.1145/3460348",
+    "title": "Neural software analysis",
+    "year": 2021,
+    "venue": "Communications of the ACM",
+    "authors": [
+      {
+        "given": "Michael",
+        "family": "Pradel",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of Stuttgart, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Satish",
+        "family": "Chandra",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Facebook, Menlo Park, CA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "type": "journal-article"
+  }
+]

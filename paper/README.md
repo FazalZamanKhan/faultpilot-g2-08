@@ -1,0 +1,17 @@
+# IEEE conference paper source scaffold
+
+`main.tex` is a structure and figure scaffold, **not a submission-ready paper**. The Phase 2 brief explicitly requires the assessed paper to be written by the group member in their own words and prohibits AI-generated writing. Fazal must write all prose, verify every citation and result, and fill the required 8–10 pages. The title and email should also be checked. The 30 DOI-verified entries in `references.bib` are research leads; cite only works actually discussed, and ensure every cited source appears in the bibliography.
+
+The folder includes a CTAN IEEEtran class and BibTeX style under LPPL 1.3, so it compiles locally and imports into Overleaf. `architecture.dot` is the editable source of `architecture.png`.
+
+After writing and finalizing the manuscript, build with:
+
+```bash
+dot -Tpng architecture.dot -o architecture.png
+pdflatex -interaction=nonstopmode main.tex
+bibtex main
+pdflatex -interaction=nonstopmode main.tex
+pdflatex -interaction=nonstopmode main.tex
+```
+
+Rename the final PDF `Phase2_G2-08_22I-2362_Paper.pdf`, confirm it is 8–10 two-column pages including references, and run both Turnitin reports on that **same final PDF** through the university service. The generated similarity and AI-writing reports must be saved under the exact Phase 2 filenames. Package the final LaTeX project as a ZIP for Classroom.

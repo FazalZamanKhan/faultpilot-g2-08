@@ -13,7 +13,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", default="research/.external_data/MLDebugging.jsonl")
     parser.add_argument("--split", choices=("development", "test"), default="test")
-    parser.add_argument("--timeout", type=float, default=8.0)
+    parser.add_argument("--timeout", type=float, default=12.0)
     parser.add_argument("--output", default="results/test_preflight.jsonl")
     args = parser.parse_args()
     cases = [case for case in load_cases(args.data) if case.split == args.split]

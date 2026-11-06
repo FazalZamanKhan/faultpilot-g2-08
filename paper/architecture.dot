@@ -1,0 +1,18 @@
+digraph FaultPilot {
+  rankdir=TB;
+  graph [fontname="Helvetica", bgcolor="white", pad="0.15", nodesep="0.35", ranksep="0.24"];
+  node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", fillcolor="#EEF4FB", color="#33658A"];
+  edge [fontname="Helvetica", fontsize=9, color="#34495E"];
+  input [label="Bug code\nRuntime feedback\nSupplied tests"];
+  preflight [label="Reproduce original failure\nIsolated sandbox"];
+  diagnosis [label="Seven-label diagnosis\nLocal code evidence"];
+  retrieval [label="Similar development examples\nGap 1: evidence retrieval", fillcolor="#E8F5E9", color="#2E7D32"];
+  gate [label="Evidence gate\nGap 3: abstain or continue", fillcolor="#FFF3E0", color="#EF6C00"];
+  model [label="Local coding model\nJSON edit proposal"];
+  edit [label="Validated single-line edit\nBounded attempts"];
+  verify [label="Run supplied tests\nGap 2: verification", fillcolor="#E3F2FD", color="#1565C0"];
+  report [label="Trace + limited-evidence report", fillcolor="#F3E5F5", color="#6A1B9A"];
+  input -> preflight -> diagnosis -> retrieval -> gate -> model -> edit -> verify -> report;
+  gate -> report [label="abstain"];
+  verify -> model [label="failed, budget left", constraint=false];
+}
