@@ -17,3 +17,5 @@ results/test_preflight_initial.jsonl
 results/test_preflight_v2.jsonl
 results/development_pilot_line_edit.jsonl
 results/development_pilot_line_edit_retry.jsonl
+results/repairs_exploratory_prompt_v1/
+logs/

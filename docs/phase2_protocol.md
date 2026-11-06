@@ -12,7 +12,7 @@ The harness concatenates each code candidate with its supplied `TestCases` unit 
 
 ## Models and settings
 
-The diagnosis classifier is TF-IDF character 3–5 grams and one-vs-rest class-balanced logistic regression. A development-validation grid selects score-fusion weight and label threshold. The evidence gate also uses a development-validation selection rule. The repair model is local Ollama `qwen2.5-coder:0.5b`, JSON output, temperature zero, seed 17, maximum 420 generated tokens, and at most two edit attempts. Its output must identify a numbered source line and supply one replacement line; the validator also accepts the earlier exact one-occurrence old/new contract. Every candidate is tested in a fresh isolated process. A passing patch is labelled **verified by supplied tests**, which does not imply general correctness.
+The diagnosis classifier is TF-IDF character 3–5 grams and one-vs-rest class-balanced logistic regression. A development-validation grid selected score-fusion weight 0.0 and label threshold 0.45. A separate development-validation rule selected evidence-gate confidence floor 0.40 subject to at least 50% validation coverage. The repair model is local Ollama `qwen2.5-coder:0.5b`, digest `4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09`, JSON schema output, temperature zero, seed 17, maximum 420 generated tokens, and at most two edit attempts. The frozen prompt is `line-json-v2`. Its output must identify a numbered source line and supply one replacement line; the validator also accepts the earlier exact one-occurrence old/new contract. Every candidate is tested in a fresh isolated process. A passing patch is labelled **verified by supplied tests**, which does not imply general correctness.
 
 ## Required comparisons
 
@@ -25,7 +25,7 @@ The diagnosis classifier is TF-IDF character 3–5 grams and one-vs-rest class-b
 | E5 | `python3 -m experiments.run_repairs --mode all` runs `E5_no_retrieval`, `E5_no_verification`, and `E5_no_gate` as paired ablations. |
 | E6 | Every mode saves wall time, prompt/output tokens, tool calls, provider errors, and test outcomes. Local inference has no per-call API fee; electricity and hardware cost are unmeasured. |
 
-For the repair modes, `--limit N` selects the first N eligible case IDs in a fixed SHA-256 order. Any limited pilot must disclose N and must not be presented as a full test-set result. Outputs are line-oriented JSON and resumable by case ID. The model is deterministic by configuration, so three-run averaging is required only if a stochastic configuration is introduced; actual repeatability must still be checked before making a determinism claim.
+For the repair modes, `--limit N` selects the first N eligible case IDs in a fixed SHA-256 order. Without a limit, all 234 held-out records receive a trace: the agent attempts model repair on reproduced failures and records explicit blocked or already-passing states for the others. Any limited pilot must disclose N and must not be presented as a full test-set result. Outputs are line-oriented JSON and resumable by case ID. The model is deterministic by configuration, so three-run averaging is required only if a stochastic configuration is introduced; actual repeatability must still be checked before making a determinism claim.
 
 ## Base-paper comparison boundary
 

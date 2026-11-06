@@ -1,0 +1,16 @@
+{
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "logical_cpu_count": 8,
+  "controller_python": "3.12.7",
+  "sandbox_python": "Python 3.12.3",
+  "numpy": "1.26.4",
+  "scikit_learn": "1.5.1",
+  "matplotlib": "3.9.2",
+  "bubblewrap": "bubblewrap 0.9.0",
+  "ollama": "0.40.14",
+  "installed_model_digests": {
+    "qwen2.5-coder:1.5b": "d7372fd828518a4d38b1eb196c673c31a85f2ed302b3d1e406c4c2d1b64a0668",
+    "qwen2.5-coder:0.5b": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "dataset_sha256": "52b076ad3230911208483df7af95543ed81b92ffec077db792315f680490df07",
+  "test_count": 234,
+  "selected_on": "development validation only",
+  "confidence_floor": 0.4,
+  "answered": 194,
+  "abstained": 40,
+  "coverage": 0.82906,
+  "always_answer_exact_match": 0.0812,
+  "selective_exact_match": 0.08247,
+  "exact_match_change": 0.00128,
+  "always_answer_macro_f1": 0.31054,
+  "answered_subset_macro_f1": 0.31562,
+  "note": "Selective scores apply only to answered cases; abstentions remain in the full-set coverage denominator."
+}

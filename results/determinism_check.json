@@ -1,0 +1,48 @@
+{
+  "split": "development_validation",
+  "case_id": "MLDebug476",
+  "model": "qwen2.5-coder:0.5b",
+  "digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09",
+  "temperature": 0.0,
+  "seed": 17,
+  "identical_proposals": true,
+  "calls": [
+    {
+      "proposal": {
+        "line": 26,
+        "new": "Sales Comparison Above Threshold in Categories"
+      },
+      "usage": {
+        "latency_s": 28.551,
+        "prompt_tokens": 1470,
+        "output_tokens": 23,
+        "eval_duration_ns": 1456489000
+      }
+    },
+    {
+      "proposal": {
+        "line": 26,
+        "new": "Sales Comparison Above Threshold in Categories"
+      },
+      "usage": {
+        "latency_s": 18.328,
+        "prompt_tokens": 1470,
+        "output_tokens": 23,
+        "eval_duration_ns": 1618795000
+      }
+    },
+    {
+      "proposal": {
+        "line": 26,
+        "new": "Sales Comparison Above Threshold in Categories"
+      },
+      "usage": {
+        "latency_s": 3.973,
+        "prompt_tokens": 1470,
+        "output_tokens": 23,
+        "eval_duration_ns": 1677016000
+      }
+    }
+  ],
+  "note": "This checks one repeated development prompt; it does not prove global determinism."
+}

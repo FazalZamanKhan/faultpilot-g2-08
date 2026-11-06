@@ -3,11 +3,14 @@
 import json
 import time
 from dataclasses import dataclass
+from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 from .benchmark import BenchmarkCase
 from .diagnostics import Diagnosis
 from .sandbox import run_tests
+
+PROMPT_VERSION = "line-json-v2"
 
 
 @dataclass(frozen=True)
@@ -121,7 +124,7 @@ def build_prompt(case: BenchmarkCase, diagnosis: Diagnosis | None, *, previous: 
 
 def run_agent(case: BenchmarkCase, settings: AgentSettings, client: OllamaClient,
               diagnosis: Diagnosis | None = None, preflight: dict | None = None) -> dict:
-    """Return a complete trace; only an exact one-occurrence edit can enter the sandbox."""
+    """Return a complete trace; only a validated source edit can enter the sandbox."""
     started = time.monotonic()
     trace = []
     tokens_in = tokens_out = 0
@@ -149,14 +152,20 @@ def run_agent(case: BenchmarkCase, settings: AgentSettings, client: OllamaClient
                 tokens_in += usage.get("prompt_tokens") or 0
                 tokens_out += usage.get("output_tokens") or 0
                 trace.append({"step": "propose", "attempt": attempt, "proposal": proposal, "usage": usage})
-            except Exception as error:
+            except (OSError, TimeoutError, URLError) as error:
                 trace.append({"step": "provider_error", "attempt": attempt, "error": str(error)[:500]})
                 status = "provider_error"
+                break
+            except (json.JSONDecodeError, KeyError, TypeError, ValueError) as error:
+                trace.append({"step": "model_response_error", "attempt": attempt,
+                              "error": str(error)[:500]})
+                status = "malformed_model_response"
                 break
             patched, edit_status = apply_edit(case.bug_code, proposal)
             trace.append({"step": "edit", "attempt": attempt, "status": edit_status})
             if patched is None:
-                previous = f"The edit was rejected: {edit_status}. Copy old exactly from the bug code."
+                previous = (f"The edit was rejected: {edit_status}. Choose a numbered BUG CODE line "
+                            "and give a different valid replacement for that whole line.")
                 continue
             if not settings.verification:
                 audit = run_tests(patched, case.test_code, timeout=settings.timeout_s)
@@ -182,5 +191,6 @@ def run_agent(case: BenchmarkCase, settings: AgentSettings, client: OllamaClient
         "prompt_tokens": tokens_in, "output_tokens": tokens_out,
         "wall_s": round(wall_s, 3), "agent_wall_s": round(max(0.0, wall_s - offline_audit_s), 3),
         "offline_audit_s": round(offline_audit_s, 3),
+        "prompt_version": PROMPT_VERSION,
         "configuration": settings.__dict__,
     }

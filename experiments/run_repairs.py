@@ -7,7 +7,7 @@ import statistics
 from collections import Counter
 from pathlib import Path
 
-from faultpilot.agent import AgentSettings, OllamaClient, run_agent
+from faultpilot.agent import AgentSettings, OllamaClient, PROMPT_VERSION, run_agent
 from faultpilot.benchmark import load_cases
 from faultpilot.data import EXPECTED_SHA256
 from faultpilot.diagnostics import DiagnosticModel
@@ -26,18 +26,26 @@ def summarize(path: Path, denominator: int, eligible: int) -> dict:
               if line.strip() and (row := json.loads(line))}
     rows = list(latest.values())
     statuses = Counter(row["status"] for row in rows)
+    eligible_rows = [row for row in rows if row["trace"][0]["result"]["status"] == "fail"]
+    attempted_rows = [row for row in rows if any(step["step"] == "propose" for step in row["trace"])]
     audited = sum(any(step["step"] == "offline_audit" and step["result"]["status"] == "pass"
                       for step in row["trace"]) for row in rows)
     return {
         "evaluated": len(rows), "fixed_test_denominator": denominator, "eligible_after_preflight": eligible,
+        "evaluated_repair_eligible": len(eligible_rows), "model_attempted": len(attempted_rows),
         "status_counts": dict(statuses),
         "verified_passes": statuses["verified_by_supplied_tests"],
         "offline_audit_passes_for_unverified_proposals": audited,
         "verified_rate_on_evaluated": round(statuses["verified_by_supplied_tests"] / len(rows), 5) if rows else None,
+        "verified_rate_on_repair_eligible": round(statuses["verified_by_supplied_tests"] / eligible, 5) if eligible else None,
         "mean_wall_s": round(statistics.mean(row["wall_s"] for row in rows), 3) if rows else None,
         "mean_agent_wall_s_excluding_offline_audit": round(statistics.mean(
             row.get("agent_wall_s", row["wall_s"]) for row in rows), 3) if rows else None,
+        "mean_agent_wall_s_on_model_attempts": round(statistics.mean(
+            row.get("agent_wall_s", row["wall_s"]) for row in attempted_rows), 3) if attempted_rows else None,
         "mean_tool_calls": round(statistics.mean(row["tool_calls"] for row in rows), 3) if rows else None,
+        "mean_tool_calls_on_repair_eligible": round(statistics.mean(
+            row["tool_calls"] for row in eligible_rows), 3) if eligible_rows else None,
         "sum_prompt_tokens": sum(row["prompt_tokens"] for row in rows),
         "sum_output_tokens": sum(row["output_tokens"] for row in rows),
         "monetary_api_cost_usd": 0,
@@ -71,7 +79,8 @@ def main():
         raise ValueError("Preflight IDs do not match frozen test manifest")
     eligible = [case for case in test if preflight[case.case_id]["status"] == "fail"]
     eligible.sort(key=lambda case: (hashlib.sha256(case.case_id.encode()).hexdigest(), case.case_id))
-    selected = eligible[:args.limit] if args.limit else eligible
+    selected = eligible[:args.limit] if args.limit else sorted(
+        test, key=lambda case: (hashlib.sha256(case.case_id.encode()).hexdigest(), case.case_id))
     model = DiagnosticModel(dev)
     diagnoses = {case.case_id: model.diagnose(case, retrieval=True,
                                              alpha=config["selected"]["alpha"],
@@ -89,7 +98,8 @@ def main():
         model_digest = client.model_digest()
         existing = [json.loads(line) for line in path.read_text().splitlines()] if path.exists() else []
         for row in existing:
-            if row.get("model_digest") != model_digest or row.get("configuration") != settings.__dict__:
+            if (row.get("model_digest") != model_digest or row.get("configuration") != settings.__dict__
+                    or row.get("prompt_version") != PROMPT_VERSION):
                 raise ValueError(f"Existing {path} uses a different model or configuration")
         done = {row["case_id"] for row in existing if row["status"] != "provider_error"}
         for index, case in enumerate(selected, 1):

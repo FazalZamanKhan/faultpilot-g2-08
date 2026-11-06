@@ -1,0 +1,37 @@
+{
+  "test_records": 234,
+  "task_groups": 170,
+  "bootstrap_replicates": 2000,
+  "seed": 17,
+  "resampling_unit": "task_id",
+  "macro_f1": {
+    "Phase 1 rules": {
+      "observed": 0.04082,
+      "ci95": [
+        0.0,
+        0.09524
+      ]
+    },
+    "Learned diagnosis": {
+      "observed": 0.31054,
+      "ci95": [
+        0.25813,
+        0.36412
+      ]
+    },
+    "Retrieval fusion 0.2": {
+      "observed": 0.29062,
+      "ci95": [
+        0.23063,
+        0.34769
+      ]
+    }
+  },
+  "learned_minus_rules": {
+    "observed": 0.26973,
+    "ci95": [
+      0.18266,
+      0.35415
+    ]
+  }
+}
