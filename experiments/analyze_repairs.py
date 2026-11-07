@@ -43,7 +43,7 @@ def main():
     successes = [row for row in rows if category(row) == "supplied_tests_passed"][:2]
     failures = []
     for name, _ in counts.most_common():
-        if name == "supplied_tests_passed":
+        if name in ("supplied_tests_passed", "environment_blocked", "original_already_passes"):
             continue
         candidate = next((row for row in rows if category(row) == name), None)
         if candidate is not None:
@@ -51,7 +51,8 @@ def main():
         if len(failures) >= 2:
             break
     if len(failures) < 2:
-        failures.extend(row for row in rows if category(row) != "supplied_tests_passed"
+        failures.extend(row for row in rows if category(row) not in
+                        ("supplied_tests_passed", "environment_blocked", "original_already_passes")
                         and row not in failures)
         failures = failures[:2]
     result = {
