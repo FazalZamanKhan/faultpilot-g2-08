@@ -26,6 +26,7 @@ This is a data and source checklist, not paper prose. The Phase 2 brief requires
 ## Required interpretation boundaries
 
 - A patch passing supplied tests is **verified by supplied tests**, not proven semantically correct. The benchmark lacks an independent regression suite.
+- The Phase 1 Gap 2 target also asked for regression failures among accepted patches; that part cannot be measured on this benchmark without a separate regression oracle. Do not substitute supplied-test pass rate for independent regression correctness.
 - Missing system packages and timeouts limit executable coverage. Retain all 234 in the accounting and use 198 as the fixed repair-eligible denominator.
 - Retrieval score fusion and the diagnosis evidence gate have weak or negative results so far; report them without changing the frozen test design.
 - The E2 Python adaptation is not the original RepairAgent Java implementation. State reported versus reproduced results separately.
