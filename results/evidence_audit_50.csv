@@ -1,0 +1,2057 @@
+case_id,task_id,predicted_categories,evidence,runtime_feedback,bug_code,relevant_yes_no,reviewer_notes
+MLDebug674,BigCodeBench/160,"[""Function Misuse"", ""Requirement Misunderstanding""]",[],"test_plot_output:Traceback (most recent call last):
+  File ""__test__.py"", line 105, in test_plot_output
+AssertionError: 0 != 1 : There should be one line on the plot
+
+","import pandas as pd
+import seaborn as sns
+from scipy import stats
+COLUMN_NAMES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+def task_func(data):
+    
+    # Check if the data has exactly eight columns
+    if data.shape[1] != 8:
+        raise ValueError(""The input data must have exactly eight columns."")
+
+    # Compute the average of each row
+    averages = data.mean(axis=1)
+
+    # Create a DataFrame with the original data and the average column
+    df = pd.DataFrame(data, columns=COLUMN_NAMES)
+    df['Average'] = averages
+
+    # Plot the distribution of the averages
+    ax = sns.distplot(averages, kde=False)
+
+    # Evaluate the normality of the averages
+    if len(averages) >= 20:
+        _, p_value = stats.normaltest(averages)
+    else:
+        p_value = None
+
+    return df, ax, p_value",,
+MLDebug1051,BigCodeBench/789,"[""Data Transfer Issues"", ""Function Misuse""]","[{""line"": 1, ""text"": ""import numpy as np"", ""overlap"": 1}]","test_unchanging_output:Traceback (most recent call last):
+  File ""__test__.py"", line 70, in test_unchanging_output
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 934, in assert_array_equal
+    assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 844, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not equal
+Results should be the same on every call due to fixed seed.
+Mismatched elements: 10 / 10 (100%)
+Max absolute difference: 0.93454252
+Max relative difference: 42.17148307
+ x: array([[0.387574],
+       [0.853308],
+       [0.925091],...
+ y: array([[0.008978],
+       [0.042059],
+       [0.962122],...
+
+","import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+ARRAY_LENGTH = 10
+def task_func():
+    
+    # Generate a random array
+    random_array = np.random.rand(ARRAY_LENGTH, 1)
+
+    # Apply min-max normalization
+    scaler = MinMaxScaler()
+    scaled_array = scaler.fit_transform(random_array)
+
+    return scaled_array",,
+MLDebug513,BigCodeBench/317,"[""Parameter Configuration Errors"", ""Function Misuse""]",[],"[(<__test__.TestCases testMethod=test_case_1>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 29, in test_case_1\nAssertionError: {\'adversarial\': 0.16666666666666666, \'in\': 0.16666666666666[29 chars]6666} != {\'adversarial\': 0.5773502691896258, \'in\': 0.577350269189625[26 chars]6258}\n- {\'adversarial\': 0.16666666666666666,\n-  \'in\': 0.16666666666666666,\n-  \'input\': 0.16666666666666666}\n+ {\'adversarial\': 0.5773502691896258,\n+  \'in\': 0.5773502691896258,\n+  \'input\': 0.5773502691896258}\n'), (<__test__.TestCases testMethod=test_case_2>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 38, in test_case_2\nAssertionError: {\'alice\': 0.3333333333333333, \'bob\': 0.33333333333333[29 chars]3333} != {\'alice\': 0.5773502691896258, \'bob\': 0.57735026918962[29 chars]6258}\n- {\'alice\': 0.3333333333333333,\n-  \'bob\': 0.3333333333333333,\n-  \'charlie\': 0.3333333333333333}\n+ {\'alice\': 0.5773502691896258,\n+  \'bob\': 0.5773502691896258,\n+  \'charlie\': 0.5773502691896258}\n'), (<__test__.TestCases testMethod=test_case_3>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 49, in test_case_3\nAssertionError: {\'all\': 0.2, \'at\': 0.2, \'brackets\': 0.2, \'here\': 0.2, \'no\': 0.2} != {\'all\': 0.4472135954999579, \'at\': 0.447213595499957[83 chars]9579}\n- {\'all\': 0.2, \'at\': 0.2, \'brackets\': 0.2, \'here\': 0.2, \'no\': 0.2}\n+ {\'all\': 0.4472135954999579,\n+  \'at\': 0.4472135954999579,\n+  \'brackets\': 0.4472135954999579,\n+  \'here\': 0.4472135954999579,\n+  \'no\': 0.4472135954999579}\n'), (<__test__.TestCases testMethod=test_case_4>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 60, in test_case_4\nAssertionError: {\'and\': 0.25, \'bracketed\': 0.1767766952966369, \'con[47 chars]6369} != {\'and\': 0.4472135954999579, \'bracketed\': 0.44721359[89 chars]9579}\n- {\'and\': 0.25,\n-  \'bracketed\': 0.1767766952966369,\n-  \'content\': 0.25,\n-  \'mix\': 0.25,\n-  \'non\': 0.1767766952966369}\n+ {\'and\': 0.4472135954999579,\n+  \'bracketed\': 0.4472135954999579,\n+  \'content\': 0.4472135954999579,\n+  \'mix\': 0.4472135954999579,\n+  \'non\': 0.4472135954999579}\n')]","
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+import re
+def task_func(example_str):
+    pattern = r'\[.*?\]'
+    texts = re.sub(pattern, '', example_str).split()
+    if not any(text.strip() for text in texts):
+        return {}
+
+    tfidf_vectorizer = TfidfVectorizer()
+    tfidf_vectorizer.fit_transform(texts)
+    feature_names = tfidf_vectorizer.get_feature_names_out()
+    tfidf_scores = dict(zip(feature_names, np.mean(tfidf_vectorizer.transform(texts).toarray(), axis=0)))
+
+    return tfidf_scores
+",,
+MLDebug936,BigCodeBench/587,"[""Function Misuse"", ""Import Errors""]","[{""line"": 6, ""text"": ""from base64 import b64encode"", ""overlap"": 1}, {""line"": 7, ""text"": ""def task_func(file_path):"", ""overlap"": 1}, {""line"": 44, ""text"": ""f.write(b664encode(encrypted_aes_key))"", ""overlap"": 1}]","test_aes_key_file_content:Traceback (most recent call last):
+  File ""__test__.py"", line 81, in test_aes_key_file_content
+  File ""__test__.py"", line 53, in task_func
+NameError: name 'b664encode' is not defined. Did you mean: 'b64encode'?
+
+test_encrypted_file_content:Traceback (most recent call last):
+  File ""__test__.py"", line 74, in test_encrypted_file_content
+  File ""__test__.py"", line 53, in task_func
+NameError: name 'b664encode' is not defined. Did you mean: 'b64encode'?
+
+test_encrypted_key_file_creation:Traceback (most recent call last):
+  File ""__test__.py"", line 68, in test_encrypted_key_file_creation
+  File ""__test__.py"", line 53, in task_func
+NameError: name 'b664encode' is not defined. Did you mean: 'b64encode'?
+
+test_file_encryption:Traceback (most recent call last):
+  File ""__test__.py"", line 65, in test_file_encryption
+  File ""__test__.py"", line 53, in task_func
+NameError: name 'b664encode' is not defined. Did you mean: 'b64encode'?
+
+test_public_key_type:Traceback (most recent call last):
+  File ""__test__.py"", line 71, in test_public_key_type
+  File ""__test__.py"", line 53, in task_func
+NameError: name 'b664encode' is not defined. Did you mean: 'b64encode'?
+
+","import rsa
+import os
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives import padding
+from base64 import b64encode
+def task_func(file_path):
+    # Generate RSA keys
+    (pubkey, privkey) = rsa.newkeys(2048)
+
+    # Read the file
+    with open(file_path, 'rb') as f:
+        data = f.read()
+
+    # Generate AES key
+    aes_key = os.urandom(16)
+
+    # Encrypt the AES key with the RSA public key
+    encrypted_aes_key = rsa.encrypt(aes_key, pubkey)
+
+    # Create AES cipher
+    cipher_aes = Cipher(algorithms.AES(aes_key), modes.CBC(os.urandom(16)), backend=default_backend())
+
+    # Create AES encryptor
+    encryptor_aes = cipher_aes.encryptor()
+
+    # Pad the data
+    padder = padding.PKCS7(128).padder()
+    data_padded = padder.update(data) + padder.finalize()
+
+    # Encrypt the data with AES
+    encrypted_data = encryptor_aes.update(data_padded) + encryptor_aes.finalize()
+
+    # Create filenames
+    encrypted_file = os.path.splitext(file_path)[0] + '.encrypted'
+    encrypted_key_file = os.path.splitext(file_path)[0] + '_aes_key.encrypted'
+
+    # Write the encrypted data to a file
+    with open(encrypted_file, 'wb') as f:
+        f.write(encrypted_data)
+
+    # Write the encrypted AES key to a file
+    with open(encrypted_key_file, 'wb') as f:
+        f.write(b664encode(encrypted_aes_key))
+
+    return pubkey, encrypted_file, encrypted_key_file",,
+MLDebug306,BigCodeBench/65,"[""Type Mismatch"", ""Function Parameter Errors"", ""Function Misuse""]","[{""line"": 5, ""text"": ""def task_func(data):"", ""overlap"": 1}, {""line"": 12, ""text"": ""ax.set_xlabel('-'.concat(COLUMNS[:-1]))"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_case_1>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 23, in test_case_1\n  File ""__test__.py"", line 12, in task_func\nAttributeError: \'str\' object has no attribute \'concat\'\n'), (<__test__.TestCases testMethod=test_case_2>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 40, in test_case_2\n  File ""__test__.py"", line 12, in task_func\nAttributeError: \'str\' object has no attribute \'concat\'\n'), (<__test__.TestCases testMethod=test_case_3>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 58, in test_case_3\n  File ""__test__.py"", line 12, in task_func\nAttributeError: \'str\' object has no attribute \'concat\'\n'), (<__test__.TestCases testMethod=test_case_4>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 76, in test_case_4\n  File ""__test__.py"", line 12, in task_func\nAttributeError: \'str\' object has no attribute \'concat\'\n'), (<__test__.TestCases testMethod=test_case_5>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 96, in test_case_5\n  File ""__test__.py"", line 12, in task_func\nAttributeError: \'str\' object has no attribute \'concat\'\n')]","
+import pandas as pd
+import matplotlib.pyplot as plt
+COLUMNS = ['col1', 'col2', 'col3']
+def task_func(data):
+    df = pd.DataFrame(data, columns=COLUMNS)
+    analyzed_df = df.groupby(COLUMNS[:-1])[COLUMNS[-1]].nunique().reset_index()
+    
+    fig, ax = plt.subplots()
+    ax.plot(analyzed_df[COLUMNS[:-1]].astype(str).agg('-'.join, axis=1), analyzed_df[COLUMNS[-1]])
+    
+    ax.set_xlabel('-'.concat(COLUMNS[:-1])) 
+    ax.set_ylabel(COLUMNS[-1])
+
+    return analyzed_df, ax
+",,
+MLDebug568,BigCodeBench/100,"[""Type Mismatch"", ""Data Transfer Issues"", ""Function Parameter Errors""]","[{""line"": 11, ""text"": ""ax = df.plot(x='Date', y='Value', kind='line', title='Random Time Series Data', fontsize=14, fontname='Arial')"", ""overlap"": 4}, {""line"": 1, ""text"": ""import matplotlib.pyplot as plt"", ""overlap"": 1}, {""line"": 2, ""text"": ""import pandas as pd"", ""overlap"": 1}]","test_data_range:Traceback (most recent call last):
+  File ""__test__.py"", line 42, in test_data_range
+  File ""__test__.py"", line 18, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 448, in generate
+    self._make_plot()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1384, in _make_plot
+    newlines = plotf(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1432, in _ts_plot
+    lines = self._plot(ax, data.index, data.values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1413, in _plot
+    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/converter.py"", line 96, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 885, in _plot
+    return ax.plot(*args, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_axes.py"", line 1688, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 311, in __call__
+    yield from self._plot_args(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in _plot_args
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in <listcomp>
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 537, in <genexpr>
+    result = (make_artist(x[:, j % ncx], y[:, j % ncy], kw,
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 351, in _makeline
+    seg = mlines.Line2D(x, y, **kw)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/_api/deprecation.py"", line 454, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/lines.py"", line 393, in __init__
+    self._internal_update(kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1223, in _internal_update
+    return self._update_props(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1197, in _update_props
+    raise AttributeError(
+AttributeError: Line2D.set() got an unexpected keyword argument 'fontname'
+
+test_plot_attributes:Traceback (most recent call last):
+  File ""__test__.py"", line 27, in test_plot_attributes
+  File ""__test__.py"", line 18, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 448, in generate
+    self._make_plot()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1384, in _make_plot
+    newlines = plotf(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1432, in _ts_plot
+    lines = self._plot(ax, data.index, data.values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1413, in _plot
+    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/converter.py"", line 96, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 885, in _plot
+    return ax.plot(*args, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_axes.py"", line 1688, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 311, in __call__
+    yield from self._plot_args(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in _plot_args
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in <listcomp>
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 537, in <genexpr>
+    result = (make_artist(x[:, j % ncx], y[:, j % ncy], kw,
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 351, in _makeline
+    seg = mlines.Line2D(x, y, **kw)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/_api/deprecation.py"", line 454, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/lines.py"", line 393, in __init__
+    self._internal_update(kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1223, in _internal_update
+    return self._update_props(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1197, in _update_props
+    raise AttributeError(
+AttributeError: Line2D.set() got an unexpected keyword argument 'fontname'
+
+test_random_seed_effect:Traceback (most recent call last):
+  File ""__test__.py"", line 37, in test_random_seed_effect
+  File ""__test__.py"", line 18, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 448, in generate
+    self._make_plot()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1384, in _make_plot
+    newlines = plotf(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1432, in _ts_plot
+    lines = self._plot(ax, data.index, data.values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1413, in _plot
+    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/converter.py"", line 96, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 885, in _plot
+    return ax.plot(*args, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_axes.py"", line 1688, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 311, in __call__
+    yield from self._plot_args(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in _plot_args
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in <listcomp>
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 537, in <genexpr>
+    result = (make_artist(x[:, j % ncx], y[:, j % ncy], kw,
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 351, in _makeline
+    seg = mlines.Line2D(x, y, **kw)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/_api/deprecation.py"", line 454, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/lines.py"", line 393, in __init__
+    self._internal_update(kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1223, in _internal_update
+    return self._update_props(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1197, in _update_props
+    raise AttributeError(
+AttributeError: Line2D.set() got an unexpected keyword argument 'fontname'
+
+test_reproducibility:Traceback (most recent call last):
+  File ""__test__.py"", line 32, in test_reproducibility
+  File ""__test__.py"", line 18, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 448, in generate
+    self._make_plot()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1384, in _make_plot
+    newlines = plotf(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1432, in _ts_plot
+    lines = self._plot(ax, data.index, data.values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1413, in _plot
+    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/converter.py"", line 96, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 885, in _plot
+    return ax.plot(*args, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_axes.py"", line 1688, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 311, in __call__
+    yield from self._plot_args(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in _plot_args
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in <listcomp>
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 537, in <genexpr>
+    result = (make_artist(x[:, j % ncx], y[:, j % ncy], kw,
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 351, in _makeline
+    seg = mlines.Line2D(x, y, **kw)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/_api/deprecation.py"", line 454, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/lines.py"", line 393, in __init__
+    self._internal_update(kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1223, in _internal_update
+    return self._update_props(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1197, in _update_props
+    raise AttributeError(
+AttributeError: Line2D.set() got an unexpected keyword argument 'fontname'
+
+test_value:Traceback (most recent call last):
+  File ""__test__.py"", line 54, in test_value
+  File ""__test__.py"", line 18, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 448, in generate
+    self._make_plot()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1384, in _make_plot
+    newlines = plotf(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1432, in _ts_plot
+    lines = self._plot(ax, data.index, data.values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1413, in _plot
+    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/converter.py"", line 96, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 885, in _plot
+    return ax.plot(*args, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_axes.py"", line 1688, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 311, in __call__
+    yield from self._plot_args(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in _plot_args
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in <listcomp>
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 537, in <genexpr>
+    result = (make_artist(x[:, j % ncx], y[:, j % ncy], kw,
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 351, in _makeline
+    seg = mlines.Line2D(x, y, **kw)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/_api/deprecation.py"", line 454, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/lines.py"", line 393, in __init__
+    self._internal_update(kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1223, in _internal_update
+    return self._update_props(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1197, in _update_props
+    raise AttributeError(
+AttributeError: Line2D.set() got an unexpected keyword argument 'fontname'
+
+test_value_range:Traceback (most recent call last):
+  File ""__test__.py"", line 48, in test_value_range
+  File ""__test__.py"", line 18, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 448, in generate
+    self._make_plot()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1384, in _make_plot
+    newlines = plotf(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1432, in _ts_plot
+    lines = self._plot(ax, data.index, data.values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 1413, in _plot
+    lines = MPLPlot._plot(ax, x, y_values, style=style, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/converter.py"", line 96, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 885, in _plot
+    return ax.plot(*args, **kwds)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_axes.py"", line 1688, in plot
+    lines = [*self._get_lines(*args, data=data, **kwargs)]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 311, in __call__
+    yield from self._plot_args(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in _plot_args
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 544, in <listcomp>
+    return [l[0] for l in result]
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 537, in <genexpr>
+    result = (make_artist(x[:, j % ncx], y[:, j % ncy], kw,
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/axes/_base.py"", line 351, in _makeline
+    seg = mlines.Line2D(x, y, **kw)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/_api/deprecation.py"", line 454, in wrapper
+    return func(*args, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/lines.py"", line 393, in __init__
+    self._internal_update(kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1223, in _internal_update
+    return self._update_props(
+  File ""/usr/local/lib/python3.10/site-packages/matplotlib/artist.py"", line 1197, in _update_props
+    raise AttributeError(
+AttributeError: Line2D.set() got an unexpected keyword argument 'fontname'
+
+","import matplotlib.pyplot as plt
+import pandas as pd
+import random
+from datetime import datetime
+def task_func(seed=42):
+    random.seed(seed)
+    dates = pd.date_range(start='1/1/2022', periods=30)
+    values = [random.randint(0, 100) for _ in range(30)]
+    df = pd.DataFrame({'Date': dates, 'Value': values})
+    
+    ax = df.plot(x='Date', y='Value', kind='line', title='Random Time Series Data', fontsize=14, fontname='Arial')
+    ax.set_xlabel('Date', fontsize=14, fontname='Arial')
+    ax.set_ylabel('Value', fontsize=14, fontname='Arial')
+    
+    return ax",,
+MLDebug922,BigCodeBench/565,"[""Data Transfer Issues"", ""Function Misuse"", ""Requirement Misunderstanding""]","[{""line"": 22, ""text"": ""print(f\""SHA256 Hash: {sha256_hash}\"")"", ""overlap"": 3}, {""line"": 21, ""text"": ""print(f\""MD5 Hash: {md5_hash}\"")"", ""overlap"": 2}, {""line"": 18, ""text"": ""sha256_hash = hashlib.sha256(dll_content).hexdigest()"", ""overlap"": 1}]","test_dll_name_returned:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 90, in test_dll_name_returned
+AssertionError: '/tmp/tmplg0mvmvf.dll' != 'test.dll'
+- /tmp/tmplg0mvmvf.dll
++ test.dll
+
+
+test_md5_hash_printed:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 101, in test_md5_hash_printed
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1000, in assert_any_call
+    raise AssertionError(
+AssertionError: print('MD5 Hash: 9315983fcdb4cccb287bccdbdd4e8a45') call not found
+
+test_sha256_hash_printed:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 112, in test_sha256_hash_printed
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1000, in assert_any_call
+    raise AssertionError(
+AssertionError: print('SHA256 Hash: d7a8fb48d28d1d73a0346bbf4041df98c2501d4ae4889b934faa63f7af67e9b1') call not found
+
+","import ctypes
+import hashlib
+import binascii
+def task_func(filepath):
+    
+    # Load the DLL file
+    dll = ctypes.CDLL(filepath)
+
+    # Open the DLL file in binary mode
+    with open(filepath, 'rb') as f:
+        # Read the DLL file content
+        dll_content = f.read()
+
+        # Calculate MD5 hash
+        md5_hash = hashlib.md5(dll_content).hexdigest()
+
+        # Calculate SHA256 hash
+        sha256_hash = hashlib.sha256(dll_content).hexdigest()
+
+    # Print the hashes
+    print(f""MD5 Hash: {md5_hash}"")
+    print(f""SHA256 Hash: {sha256_hash}"")
+
+    # Return the actual name of the loaded DLL file
+    return filepath",,
+MLDebug605,BigCodeBench/1063,"[""Data Transfer Issues"", ""Parameter Configuration Errors"", ""Function Misuse""]",[],"test_bar_count_verification:Traceback (most recent call last):
+  File ""__test__.py"", line 78, in test_bar_count_verification
+AssertionError: 0 != 1
+
+","from matplotlib import pyplot as plt
+from sklearn.decomposition import PCA
+import numpy as np
+def task_func(arr):
+    
+    # Sum the rows of the array
+    arr_sum = arr.sum(axis=1)
+    
+    # Perform PCA
+    pca = PCA(n_components=1)
+    pca_result = pca.fit_transform(arr_sum.reshape(-1, 1))
+    
+    # Plot explained variance ratio
+    plt.figure()
+    plt.plot(np.cumsum(pca.explained_variance_ratio_))
+    plt.title('Explained Variance Ratio of Principal Components')
+    plt.xlabel('Principal Component')
+    plt.ylabel('Cumulative Explained Variance')
+    plt.show()
+    
+    return plt.gca()
+arr = np.array([[i+j for i in range(3)] for j in range(5)])",,
+MLDebug479,BigCodeBench/1049,"[""Parameter Configuration Errors""]","[{""line"": 9, ""text"": ""return pd.DataFrame(lines, columns=[\""Text\""])"", ""overlap"": 2}, {""line"": 3, ""text"": ""import pandas as pd"", ""overlap"": 1}, {""line"": 4, ""text"": ""def task_func(input_string: str) -> pd.DataFrame:"", ""overlap"": 1}]","{'test_basic_string': 'Traceback (most recent call last):\n  File ""__test__.py"", line 21, in test_basic_string\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 1279, in assert_frame_equal\n    assert_series_equal(\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 1067, in assert_series_equal\n    _testing.assert_almost_equal(\n  File ""testing.pyx"", line 55, in pandas._libs.testing.assert_almost_equal\n  File ""testing.pyx"", line 173, in pandas._libs.testing.assert_almost_equal\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 614, in raise_assert_detail\n    raise AssertionError(msg)\nAssertionError: DataFrame.iloc[:, 0] (column name=""Text"") are different\n\nDataFrame.iloc[:, 0] (column name=""Text"") values are different (33.33333 %)\n[index]: [0, 1, 2]\n[left]:  [line1, line2 with a\ttab, line3]\n[right]: [line1, line2 with a tab, line3]\nAt positional index 1, first diff: line2 with a\ttab != line2 with a tab\n'}","
+import re
+import pandas as pd
+def task_func(input_string: str) -> pd.DataFrame:
+    input_string = input_string.replace('\\n', '\n').replace('\\t', ' ')
+    
+    lines = [line for line in input_string.split(""\n"") if line.strip()]
+    
+    return pd.DataFrame(lines, columns=[""Text""])
+",,
+MLDebug10,BigCodeBench/339,"[""Data Transfer Issues"", ""Parameter Configuration Errors""]","[{""line"": 4, ""text"": ""import hmac"", ""overlap"": 1}, {""line"": 6, ""text"": ""def task_func(req_data, secret_key):"", ""overlap"": 1}, {""line"": 8, ""text"": ""raise TypeError(\""req_data must be a dictionary\"")"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_complex_data_structure>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 47, in test_complex_data_structure\n  File ""__test__.py"", line 10, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\nTypeError: Strings must be encoded before hashing\n'), (<__test__.TestCases testMethod=test_consistent_hash_with_same_input>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 68, in test_consistent_hash_with_same_input\n  File ""__test__.py"", line 10, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\nTypeError: Strings must be encoded before hashing\n'), (<__test__.TestCases testMethod=test_different_data_different_signatures>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 58, in test_different_data_different_signatures\n  File ""__test__.py"", line 10, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\nTypeError: Strings must be encoded before hashing\n'), (<__test__.TestCases testMethod=test_empty_data>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 41, in test_empty_data\n  File ""__test__.py"", line 10, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\nTypeError: Strings must be encoded before hashing\n'), (<__test__.TestCases testMethod=test_known_data_signature>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 37, in test_known_data_signature\n  File ""__test__.py"", line 10, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\nTypeError: Strings must be encoded before hashing\n'), (<__test__.TestCases testMethod=test_return_type>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 31, in test_return_type\n  File ""__test__.py"", line 10, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\nTypeError: Strings must be encoded before hashing\n')]","
+import json
+import urllib.parse
+import hmac
+import hashlib
+def task_func(req_data, secret_key):
+    if not isinstance(req_data, dict):
+        raise TypeError(""req_data must be a dictionary"")
+    json_req_data = json.dumps(req_data, ensure_ascii=False)  
+    hmac_obj = hmac.new(secret_key.encode(), json_req_data, hashlib.sha256)  
+    hmac_signature = hmac_obj.hexdigest()
+    url_encoded_signature = urllib.parse.quote_plus(hmac_signature)  
+    return url_encoded_signature
+",,
+MLDebug1143,BigCodeBench/943,"[""Data Transfer Issues""]","[{""line"": 3, ""text"": ""from statsmodels.tsa.seasonal import seasonal_decompose"", ""overlap"": 3}, {""line"": 4, ""text"": ""def task_func(start_date='2016-01-01', periods=24, freq='M', model='additive'):"", ""overlap"": 1}, {""line"": 10, ""text"": ""decomposition = seasonal_decompose(sales_ts, model=model)"", ""overlap"": 1}]","test_insufficient_periods_error:Traceback (most recent call last):
+  File ""__test__.py"", line 67, in test_insufficient_periods_error
+  File ""__test__.py"", line 41, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/statsmodels/tsa/seasonal.py"", line 171, in seasonal_decompose
+    raise ValueError(
+ValueError: x must have 2 complete cycles requires 24 observations. x only has 12 observation(s)
+
+test_multiplicative_model:Traceback (most recent call last):
+  File ""__test__.py"", line 53, in test_multiplicative_model
+  File ""__test__.py"", line 41, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/statsmodels/tsa/seasonal.py"", line 156, in seasonal_decompose
+    raise ValueError(
+ValueError: Multiplicative seasonality is not appropriate for zero and negative values
+
+","import pandas as pd
+import numpy as np
+from statsmodels.tsa.seasonal import seasonal_decompose
+def task_func(start_date='2016-01-01', periods=24, freq='M', model='additive'):
+    
+    # Generate a sales time-series
+    sales_ts = pd.Series(np.random.randn(periods), index=pd.date_range(start=start_date, periods=periods, freq=freq))
+    
+    # Decompose the time-series into trend, seasonal, and residual components
+    decomposition = seasonal_decompose(sales_ts, model=model)
+    
+    # Return the components as a dictionary
+    return {'trend': decomposition.trend, 'seasonal': decomposition.seasonal, 'residual': decomposition.resid}",,
+MLDebug746,BigCodeBench/291,"[""Data Transfer Issues"", ""Requirement Misunderstanding""]","[{""line"": 9, ""text"": ""sns.distplot(x, kde=False, color='blue', hist_kws={\""linewidth\"": 15, \""alpha\"": 1},"", ""overlap"": 1}]","test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 51, in test_case_1
+AssertionError: False is not true : The plot should have data.
+
+test_case_2:Traceback (most recent call last):
+  File ""__test__.py"", line 58, in test_case_2
+AssertionError: False is not true : The plot should have data.
+
+test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 65, in test_case_3
+AssertionError: False is not true : The plot should have data.
+
+test_case_4:Traceback (most recent call last):
+  File ""__test__.py"", line 70, in test_case_4
+AssertionError: False is not true : The plot should have data.
+
+test_case_5:Traceback (most recent call last):
+  File ""__test__.py"", line 75, in test_case_5
+AssertionError: False is not true : The plot should have data.
+
+","import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+def task_func(mu, sigma, seed=0):
+    
+    np.random.seed(seed)
+    x = np.random.normal(mu, sigma, 1000)
+    
+    sns.distplot(x, kde=False, color='blue', hist_kws={""linewidth"": 15, ""alpha"": 1}, 
+                 kde_kws={'linewidth': 4})
+    plt.axvline(mu, color='red', linestyle='--', label=f'$\mu={mu}$')
+    plt.axvline(mu-sigma, color='green', linestyle='--', label=f'$\mu-\sigma={mu-sigma}$')
+    plt.axvline(mu+sigma, color='green', linestyle='--', label=f'$\mu+\sigma={mu+sigma}$')
+    plt.legend()
+    plt.show()
+    
+    return plt.gca()",,
+MLDebug1027,BigCodeBench/749,"[""Data Transfer Issues"", ""Function Misuse""]","[{""line"": 2, ""text"": ""import numpy as np"", ""overlap"": 1}, {""line"": 6, ""text"": ""return scaler.fit_transform(np.array(myList).reshape(-1, 1))"", ""overlap"": 1}]","test_1:Traceback (most recent call last):
+  File ""__test__.py"", line 37, in test_1
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1046, in assert_array_almost_equal
+    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 763, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 2 decimals
+
+(shapes (5, 1), (5,) mismatch)
+ x: array([[0.  ],
+       [0.25],
+       [0.5 ],...
+ y: array([0.  , 0.25, 0.5 , 0.75, 1.  ])
+
+test_2:Traceback (most recent call last):
+  File ""__test__.py"", line 42, in test_2
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1046, in assert_array_almost_equal
+    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 763, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 2 decimals
+
+(shapes (5, 1), (5,) mismatch)
+ x: array([[0.  ],
+       [0.25],
+       [0.5 ],...
+ y: array([0.  , 0.25, 0.5 , 0.75, 1.  ])
+
+test_3:Traceback (most recent call last):
+  File ""__test__.py"", line 47, in test_3
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1046, in assert_array_almost_equal
+    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 763, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 2 decimals
+
+(shapes (5, 1), (5,) mismatch)
+ x: array([[0.  ],
+       [0.25],
+       [0.5 ],...
+ y: array([0.  , 0.25, 0.5 , 0.75, 1.  ])
+
+test_4:Traceback (most recent call last):
+  File ""__test__.py"", line 52, in test_4
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1046, in assert_array_almost_equal
+    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 763, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 2 decimals
+
+(shapes (1, 1), (1,) mismatch)
+ x: array([[0.]])
+ y: array([0.])
+
+test_5:Traceback (most recent call last):
+  File ""__test__.py"", line 57, in test_5
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1046, in assert_array_almost_equal
+    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 763, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not almost equal to 2 decimals
+
+(shapes (5, 1), (5,) mismatch)
+ x: array([[0.],
+       [0.],
+       [0.],...
+ y: array([0., 0., 0., 0., 0.])
+
+","from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+def task_func(myList):
+    
+    scaler = MinMaxScaler()
+    return scaler.fit_transform(np.array(myList).reshape(-1, 1))
+myList = [10, 20, 30, 40, 50]",,
+MLDebug19,BigCodeBench/464,"[""Type Mismatch"", ""Data Transfer Issues""]",[],"[(<__test__.TestCases testMethod=test_combined_serialization>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 34, in test_combined_serialization\nAssertionError: \'2023-01-01T12:00:00+00:00\' not found in \'{""time"": null, ""price"": ""99.99""}\'\n'), (<__test__.TestCases testMethod=test_datetime_serialization>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 24, in test_datetime_serialization\nAssertionError: \'2023-01-01T12:00:00+00:00\' not found in \'{""time"": null}\'\n'), (<__test__.TestCases testMethod=test_list_serialization>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 50, in test_list_serialization\nAssertionError: \'""2023-01-01T12:00:00+00:00""\' not found in \'{""list"": [null, ""99.99"", null]}\'\n')]","
+import json
+from datetime import datetime
+from decimal import Decimal
+def task_func(my_obj):
+    class DateTimeEncoder(json.JSONEncoder):
+        def default(self, obj):
+            if isinstance(obj, datetime):
+                return None  
+            if isinstance(obj, Decimal):
+                return str(obj)
+            return json.JSONEncoder.default(self, obj)
+    return json.dumps(my_obj, cls=DateTimeEncoder)
+",,
+MLDebug467,BigCodeBench/983,"[""Data Transfer Issues"", ""Function Parameter Errors"", ""Parameter Configuration Errors""]","[{""line"": 13, ""text"": ""pair_plot = sns.pairplot(df, markers=['o'], diag_kind='hist', hue='category')"", ""overlap"": 2}, {""line"": 2, ""text"": ""import seaborn as sns"", ""overlap"": 1}, {""line"": 4, ""text"": ""def task_func(df):"", ""overlap"": 1}]","{'test_covariance_one': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'category\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 23, in test_covariance_one\n  File ""__test__.py"", line 13, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 2119, in pairplot\n    grid = PairGrid(data, vars=vars, x_vars=x_vars, y_vars=y_vars, hue=hue,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 1327, in __init__\n    hue_names = hue_order = categorical_order(data[hue], hue_order)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'category\'\n', 'test_identical_values_dataframe': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'category\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 28, in test_identical_values_dataframe\n  File ""__test__.py"", line 13, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 2119, in pairplot\n    grid = PairGrid(data, vars=vars, x_vars=x_vars, y_vars=y_vars, hue=hue,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 1327, in __init__\n    hue_names = hue_order = categorical_order(data[hue], hue_order)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'category\'\n', 'test_plot_attributes': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'category\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 43, in test_plot_attributes\n  File ""__test__.py"", line 13, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 2119, in pairplot\n    grid = PairGrid(data, vars=vars, x_vars=x_vars, y_vars=y_vars, hue=hue,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 1327, in __init__\n    hue_names = hue_order = categorical_order(data[hue], hue_order)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'category\'\n', 'test_single_column_dataframe': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'category\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 49, in test_single_column_dataframe\n  File ""__test__.py"", line 13, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 2119, in pairplot\n    grid = PairGrid(data, vars=vars, x_vars=x_vars, y_vars=y_vars, hue=hue,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/seaborn/axisgrid.py"", line 1327, in __init__\n    hue_names = hue_order = categorical_order(data[hue], hue_order)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'category\'\n'}","
+import seaborn as sns
+import numpy as np
+def task_func(df):
+    if df.empty:
+        raise ValueError(""DataFrame is empty. Non-empty DataFrame required."")
+    if df.select_dtypes(include=[np.number]).shape[1] != df.shape[1]:
+        raise TypeError(
+            ""DataFrame contains non-numeric data. Only numeric data types are supported.""
+        )
+    covariance_df = df.cov()
+    
+    pair_plot = sns.pairplot(df, markers=['o'], diag_kind='hist', hue='category')
+
+    return covariance_df, pair_plot
+",,
+MLDebug810,BigCodeBench/387,"[""Data Transfer Issues"", ""Requirement Misunderstanding""]","[{""line"": 3, ""text"": ""CITIES = ['New York', 'London', 'Beijing', 'Tokyo', 'Sydney', 'Paris', 'Berlin', 'Moscow', 'Madrid', 'Rome']"", ""overlap"": 11}, {""line"": 8, ""text"": ""for city in CITIES:"", ""overlap"": 2}, {""line"": 9, ""text"": ""if city in city_dict.values():"", ""overlap"": 1}]","test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 62, in test_case_1
+AssertionError: Items in the first set but not the second:
+'Berlin'
+'Rome'
+'Madrid'
+'Moscow'
+'Sydney'
+'Paris'
+Items in the second set but not the first:
+'Mumbai'
+
+test_case_2:Traceback (most recent call last):
+  File ""__test__.py"", line 71, in test_case_2
+AssertionError: 'Cities' != 'City'
+- Cities
++ City
+
+
+test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 81, in test_case_3
+AssertionError: Items in the first set but not the second:
+'Berlin'
+'London'
+'Beijing'
+'New York'
+'Rome'
+'Madrid'
+'Tokyo'
+'Moscow'
+'Sydney'
+'Paris'
+
+test_case_4:Traceback (most recent call last):
+  File ""__test__.py"", line 87, in test_case_4
+AssertionError: {'New York': -1, 'London': -1, 'Beijing': -[91 chars]: -1} != {'City1': -1, 'City2': -1}
++ {'City1': -1, 'City2': -1}
+- {'Beijing': -1,
+-  'Berlin': -1,
+-  'London': -1,
+-  'Madrid': -1,
+-  'Moscow': -1,
+-  'New York': -1,
+-  'Paris': -1,
+-  'Rome': -1,
+-  'Sydney': -1,
+-  'Tokyo': -1}
+
+","import numpy as np
+import matplotlib.pyplot as plt
+CITIES = ['New York', 'London', 'Beijing', 'Tokyo', 'Sydney', 'Paris', 'Berlin', 'Moscow', 'Madrid', 'Rome']
+def task_func(city_dict, max_range=1000000, seed=0):
+    
+    np.random.seed(seed)
+    population_dict = {}
+    for city in CITIES:
+        if city in city_dict.values():
+            population_dict[city] = np.random.randint(1, max_range)
+        else:
+            population_dict[city] = -1
+
+    # Plotting
+    plt.figure(figsize=(10, 8))
+    plt.bar(population_dict.keys(), population_dict.values())
+    plt.title('City Populations')
+    plt.xlabel('Cities')
+    plt.ylabel('Population')
+    plot_axes = plt.gca()
+
+    return population_dict, plot_axes",,
+MLDebug618,BigCodeBench/1083,"[""Type Mismatch"", ""Data Transfer Issues""]","[{""line"": 21, ""text"": ""raise ValueError(\""Failed to convert salary string to float.\"") from e"", ""overlap"": 6}, {""line"": 19, ""text"": ""df['Salary'] = pd.to_numeric(df['Salary_String'], errors='raise')"", ""overlap"": 2}, {""line"": 24, ""text"": ""salary = df['Salary'].values.reshape(-1, 1)"", ""overlap"": 2}]","test_valid_data:Traceback (most recent call last):
+  File ""pandas/_libs/lib.pyx"", line 2280, in pandas._libs.lib.maybe_convert_numeric
+ValueError: Unable to parse string ""1,000""
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""__test__.py"", line 60, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/core/tools/numeric.py"", line 217, in to_numeric
+    values, new_mask = lib.maybe_convert_numeric(  # type: ignore[call-overload]  # noqa
+  File ""pandas/_libs/lib.pyx"", line 2322, in pandas._libs.lib.maybe_convert_numeric
+ValueError: Unable to parse string ""1,000"" at position 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""__test__.py"", line 81, in test_valid_data
+  File ""__test__.py"", line 62, in task_func
+ValueError: Failed to convert salary string to float.
+
+","import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+def task_func(data):
+    
+    if 'Salary_String' not in data or 'Experience' not in data:
+        raise ValueError(""Input dictionary must contain keys 'Salary_String' and 'Experience'."")
+
+    df = pd.DataFrame(data)
+
+    if df.empty:
+        ax = plt.gca()
+        ax.set_xlabel('Experience')
+        ax.set_ylabel('Normalized Salary')
+        ax.set_title('Normalized Salary vs Experience')
+        return ax
+
+    try:
+        df['Salary'] = pd.to_numeric(df['Salary_String'], errors='raise')
+    except ValueError as e:
+        raise ValueError(""Failed to convert salary string to float."") from e
+
+    scaler = MinMaxScaler()
+    salary = df['Salary'].values.reshape(-1, 1)
+    df['Normalized Salary'] = scaler.fit_transform(salary)
+
+    ax = df.plot(kind='scatter', x='Experience', y='Normalized Salary', title='Normalized Salary vs Experience')
+    ax.set_xlabel('Experience')
+    ax.set_ylabel('Normalized Salary')
+    return ax",,
+MLDebug620,BigCodeBench/109,"[""Data Transfer Issues"", ""Parameter Configuration Errors""]","[{""line"": 6, ""text"": ""if not isinstance(df, pd.DataFrame) or 'Item' not in df.columns or 'Location' not in df.columns:"", ""overlap"": 1}, {""line"": 7, ""text"": ""raise ValueError(\""'df' must be a DataFrame with 'Item' and 'Location' columns.\"")"", ""overlap"": 1}, {""line"": 19, ""text"": ""grouped = df.groupby('Location')['Item'].count()"", ""overlap"": 1}]","test_plot_title_and_labels:Traceback (most recent call last):
+  File ""__test__.py"", line 106, in test_plot_title_and_labels
+AssertionError: '' != 'Count'
++ Count
+
+test_value:Traceback (most recent call last):
+  File ""__test__.py"", line 89, in test_value
+AssertionError: Lists differ: [[2, 2], [2, 2, 2, 1, 1], [2, 2, 2, 1, 1], [2, 2, 2, 1, 1]] != [[2.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 1.0, [86 chars]1.0]]
+
+First differing element 0:
+[2, 2]
+[2.0, 0.0, 0.0, 0.0, 0.0]
+
+Second list contains 1 additional elements.
+First extra element 4:
+[0.0, 0.0, 0.0, 0.0, 1.0]
+
+- [[2, 2], [2, 2, 2, 1, 1], [2, 2, 2, 1, 1], [2, 2, 2, 1, 1]]
++ [[2.0, 0.0, 0.0, 0.0, 0.0],
++  [0.0, 1.0, 1.0, 0.0, 0.0],
++  [0.0, 0.0, 0.0, 1.0, 0.0],
++  [0.0, 1.0, 1.0, 0.0, 0.0],
++  [0.0, 0.0, 0.0, 0.0, 1.0]] : DataFrame contents should match the expected output
+
+","import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(df, items=None, locations=None):
+    
+    # Check if df is a DataFrame and contains 'Item' and 'Location' columns
+    if not isinstance(df, pd.DataFrame) or 'Item' not in df.columns or 'Location' not in df.columns:
+        raise ValueError(""'df' must be a DataFrame with 'Item' and 'Location' columns."")
+
+    # If items or locations are not provided, use predefined lists
+    if items is None:
+        items = ['apple', 'banana', 'grape', 'orange', 'pineapple']
+    if locations is None:
+        locations = ['store1', 'store2', 'store3', 'store4', 'store5']
+
+    # Filter df to include only specified items and locations
+    df = df[(df['Item'].isin(items)) & (df['Location'].isin(locations))]
+
+    # Group by 'Location' and count occurrences of each item
+    grouped = df.groupby('Location')['Item'].count()
+
+    # Plot the bar chart
+    ax = grouped.plot(kind='bar', title='Item Distribution by Location')
+
+    return ax",,
+MLDebug1066,BigCodeBench/804,"[""Requirement Misunderstanding""]","[{""line"": 4, ""text"": ""def task_func(metrics, filename, log_dir=LOG_DIR):"", ""overlap"": 1}, {""line"": 11, ""text"": ""log_file = os.path.join(log_dir, filename)"", ""overlap"": 1}, {""line"": 19, ""text"": ""return True"", ""overlap"": 1}]","test_empty_metrics:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 98, in test_empty_metrics
+AssertionError: 1 != 2
+
+test_non_dictionary_metrics:Traceback (most recent call last):
+  File ""__test__.py"", line 107, in test_non_dictionary_metrics
+AssertionError: ValueError not raised
+
+test_non_string_filename:Traceback (most recent call last):
+  File ""__test__.py"", line 105, in test_non_string_filename
+  File ""__test__.py"", line 41, in task_func
+  File ""/usr/local/lib/python3.10/posixpath.py"", line 90, in join
+    genericpath._check_arg_types('join', a, *p)
+  File ""/usr/local/lib/python3.10/genericpath.py"", line 152, in _check_arg_types
+    raise TypeError(f'{funcname}() argument must be str, bytes, or '
+TypeError: join() argument must be str, bytes, or os.PathLike object, not 'int'
+
+","import os
+from datetime import datetime
+LOG_DIR = './logs'
+def task_func(metrics, filename, log_dir=LOG_DIR):
+    
+    # Check if log directory exists, if not, create it
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+
+    # Construct the full path to the log file
+    log_file = os.path.join(log_dir, filename)
+
+    # Open the log file in append mode
+    with open(log_file, 'a') as f:
+        # Write the current timestamp and the metrics to the file
+        f.write(f""{datetime.now()}: {metrics}\n"")
+
+    # Return True to indicate success
+    return True",,
+MLDebug1095,BigCodeBench/860,"[""Data Transfer Issues"", ""Parameter Configuration Errors"", ""Requirement Misunderstanding""]",[],"test_valid_pattern_matching:Traceback (most recent call last):
+  File ""__test__.py"", line 38, in test_valid_pattern_matching
+AssertionError: Lists differ: ['zaZsw', 'mJkhA', 'zFjSl', 'JToGR', 'nXIlK[60 chars]FzX'] != ['mrKBk', 'BqJOl', 'NJlwV', 'UfHVA', 'LGkjn[60 chars]lqL']
+
+First differing element 0:
+'zaZsw'
+'mrKBk'
+
+- ['zaZsw',
+-  'mJkhA',
+-  'zFjSl',
+-  'JToGR',
+-  'nXIlK',
+-  'ZjoHj',
+-  'WVwQV',
+-  'DdMuL',
+-  'mVRIe',
+-  'okrHG',
+-  'aaElL',
+-  'XfFzX']
++ ['mrKBk',
++  'BqJOl',
++  'NJlwV',
++  'UfHVA',
++  'LGkjn',
++  'vubDv',
++  'GSVAa',
++  'kXLls',
++  'RKlVy',
++  'vZcoh',
++  'FnVZW',
++  'JQlqL']
+
+","import re
+import random
+import string
+def task_func(n, pattern, seed=None):
+    if seed is not None:
+        random.seed(seed)
+    random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=n))
+    matches = re.findall(pattern, random_string)
+    return matches",,
+MLDebug871,BigCodeBench/49,"[""Type Mismatch"", ""Data Transfer Issues"", ""Requirement Misunderstanding""]","[{""line"": 16, ""text"": ""ax = df['Datetime'].plot(kind='hist', bins=10)"", ""overlap"": 4}, {""line"": 2, ""text"": ""import pandas as pd"", ""overlap"": 1}, {""line"": 4, ""text"": ""def task_func(timestamps):"", ""overlap"": 1}]","test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 68, in test_case_1
+  File ""__test__.py"", line 100, in assert_function_output
+  File ""__test__.py"", line 52, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 445, in generate
+    self._args_adjust()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 76, in _args_adjust
+    self.bins = self._calculate_bins(self.data)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 87, in _calculate_bins
+    hist, bins = np.histogram(
+  File ""<__array_function__ internals>"", line 5, in histogram
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 793, in histogram
+    bin_edges, uniform_bins = _get_bin_edges(a, bins, range, weights)
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 441, in _get_bin_edges
+    bin_type = np.result_type(first_edge, last_edge, a)
+  File ""<__array_function__ internals>"", line 5, in result_type
+TypeError: The DType <class 'numpy._IntegerAbstractDType'> could not be promoted by <class 'numpy.dtype[datetime64]'>. This means that no common DType exists for the given inputs. For example they cannot be stored in a single array unless the dtype is `object`. The full list of DTypes is: (<class 'numpy._IntegerAbstractDType'>, <class 'numpy._IntegerAbstractDType'>, <class 'numpy.dtype[datetime64]'>)
+
+test_case_2:Traceback (most recent call last):
+  File ""__test__.py"", line 71, in test_case_2
+  File ""__test__.py"", line 100, in assert_function_output
+  File ""__test__.py"", line 52, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 445, in generate
+    self._args_adjust()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 76, in _args_adjust
+    self.bins = self._calculate_bins(self.data)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 87, in _calculate_bins
+    hist, bins = np.histogram(
+  File ""<__array_function__ internals>"", line 5, in histogram
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 793, in histogram
+    bin_edges, uniform_bins = _get_bin_edges(a, bins, range, weights)
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 441, in _get_bin_edges
+    bin_type = np.result_type(first_edge, last_edge, a)
+  File ""<__array_function__ internals>"", line 5, in result_type
+TypeError: The DType <class 'numpy._IntegerAbstractDType'> could not be promoted by <class 'numpy.dtype[datetime64]'>. This means that no common DType exists for the given inputs. For example they cannot be stored in a single array unless the dtype is `object`. The full list of DTypes is: (<class 'numpy._IntegerAbstractDType'>, <class 'numpy._IntegerAbstractDType'>, <class 'numpy.dtype[datetime64]'>)
+
+test_case_4:Traceback (most recent call last):
+  File ""__test__.py"", line 82, in test_case_4
+  File ""__test__.py"", line 100, in assert_function_output
+  File ""__test__.py"", line 52, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 445, in generate
+    self._args_adjust()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 76, in _args_adjust
+    self.bins = self._calculate_bins(self.data)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 87, in _calculate_bins
+    hist, bins = np.histogram(
+  File ""<__array_function__ internals>"", line 5, in histogram
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 793, in histogram
+    bin_edges, uniform_bins = _get_bin_edges(a, bins, range, weights)
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 441, in _get_bin_edges
+    bin_type = np.result_type(first_edge, last_edge, a)
+  File ""<__array_function__ internals>"", line 5, in result_type
+TypeError: The DType <class 'numpy._IntegerAbstractDType'> could not be promoted by <class 'numpy.dtype[datetime64]'>. This means that no common DType exists for the given inputs. For example they cannot be stored in a single array unless the dtype is `object`. The full list of DTypes is: (<class 'numpy._IntegerAbstractDType'>, <class 'numpy._IntegerAbstractDType'>, <class 'numpy.dtype[datetime64]'>)
+
+test_case_5:Traceback (most recent call last):
+  File ""__test__.py"", line 85, in test_case_5
+  File ""__test__.py"", line 100, in assert_function_output
+  File ""__test__.py"", line 52, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_core.py"", line 975, in __call__
+    return plot_backend.plot(data, kind=kind, **kwargs)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/__init__.py"", line 71, in plot
+    plot_obj.generate()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py"", line 445, in generate
+    self._args_adjust()
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 76, in _args_adjust
+    self.bins = self._calculate_bins(self.data)
+  File ""/usr/local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/hist.py"", line 87, in _calculate_bins
+    hist, bins = np.histogram(
+  File ""<__array_function__ internals>"", line 5, in histogram
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 793, in histogram
+    bin_edges, uniform_bins = _get_bin_edges(a, bins, range, weights)
+  File ""/usr/local/lib/python3.10/site-packages/numpy/lib/histograms.py"", line 441, in _get_bin_edges
+    bin_type = np.result_type(first_edge, last_edge, a)
+  File ""<__array_function__ internals>"", line 5, in result_type
+TypeError: The DType <class 'numpy._IntegerAbstractDType'> could not be promoted by <class 'numpy.dtype[datetime64]'>. This means that no common DType exists for the given inputs. For example they cannot be stored in a single array unless the dtype is `object`. The full list of DTypes is: (<class 'numpy._IntegerAbstractDType'>, <class 'numpy._IntegerAbstractDType'>, <class 'numpy.dtype[datetime64]'>)
+
+","from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+def task_func(timestamps):
+    
+    if not timestamps:
+        raise ValueError(""Input list of timestamps is empty."")
+
+    # Convert timestamps to datetime objects
+    datetime_objects = [datetime.fromtimestamp(timestamp) for timestamp in timestamps]
+
+    # Create a DataFrame
+    df = pd.DataFrame({'Timestamp': timestamps, 'Datetime': datetime_objects})
+
+    # Draw a histogram
+    ax = df['Datetime'].plot(kind='hist', bins=10)
+
+    return df, ax",,
+MLDebug27,BigCodeBench/542,"[""Type Mismatch"", ""Function Parameter Errors""]","[{""line"": 14, ""text"": ""raise ValueError(\""Invalid hexadecimal string in hex_keys.\"") from e"", ""overlap"": 4}, {""line"": 6, ""text"": ""def task_func(hex_keys=KEYS, seed=42):"", ""overlap"": 2}, {""line"": 9, ""text"": ""hex_key = random.choice(hex_keys)[:-1]"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_consistent_output_with_same_seed>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 12, in task_func\nValueError: non-hexadecimal number found in fromhex() arg at position 7\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 41, in test_consistent_output_with_same_seed\n  File ""__test__.py"", line 14, in task_func\nValueError: Invalid hexadecimal string in hex_keys.\n'), (<__test__.TestCases testMethod=test_custom_keys_list>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 12, in task_func\nValueError: non-hexadecimal number found in fromhex() arg at position 7\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 28, in test_custom_keys_list\n  File ""__test__.py"", line 14, in task_func\nValueError: Invalid hexadecimal string in hex_keys.\n'), (<__test__.TestCases testMethod=test_normal_functionality>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 12, in task_func\nValueError: non-hexadecimal number found in fromhex() arg at position 7\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 23, in test_normal_functionality\n  File ""__test__.py"", line 14, in task_func\nValueError: Invalid hexadecimal string in hex_keys.\n')]","
+import hashlib
+import random
+import struct
+KEYS = ['470FC614', '4A0FC614', '4B9FC614', '4C8FC614', '4D7FC614']
+def task_func(hex_keys=KEYS, seed=42):
+
+    random.seed(seed)
+    hex_key = random.choice(hex_keys)[:-1]  
+
+    try:
+        float_num = struct.unpack('!f', bytes.fromhex(hex_key))[0]
+    except ValueError as e:
+        raise ValueError(""Invalid hexadecimal string in hex_keys."") from e
+
+    hashed_float = hashlib.md5(str(float_num).encode()).hexdigest()
+    return hashed_float
+",,
+MLDebug892,BigCodeBench/525,"[""Data Transfer Issues"", ""Function Misuse"", ""Requirement Misunderstanding""]",[],"test_case_5:Traceback (most recent call last):
+  File ""__test__.py"", line 100, in test_case_5
+AssertionError: 0.3333333333333333 != 1.0
+
+","import json
+import numpy as np
+from collections import defaultdict
+import matplotlib.pyplot as plt
+def task_func(input_file):
+    with open(input_file, 'r') as f:
+        data = json.load(f)
+
+    # Initialize a defaultdict to store the statistics
+    stats = defaultdict(lambda: {'mean': 0, 'median': 0})
+
+    # Calculate the mean and median for each key across all dictionaries
+    for d in data:
+        for key, value in d.items():
+            stats[key]['mean'] += value
+            stats[key]['median'] += value
+
+    # Normalize the statistics by the number of dictionaries
+    for key in stats.keys():
+        stats[key]['mean'] /= len(data)
+        stats[key]['median'] /= len(data)
+
+    # Sort the keys for consistent plotting order
+    keys = sorted(stats.keys())
+
+    # Initialize a list to store the plots
+    plots = []
+
+    # Plot the mean and median for each key
+    for i, key in enumerate(keys):
+        x = np.array([stats[key]['mean'], stats[key]['median']])
+        y = np.arange(len(x))
+        ax = plt.subplot(1, len(keys), i+1)
+        ax.bar(y, x, align='center', width=0.5)
+        ax.set_xticks(y)
+        ax.set_xticklabels(['mean', 'median'])
+        ax.set_title(key)
+        plots.append(ax)
+
+    return stats, plots",,
+MLDebug52,BigCodeBench/749,"[""Data Transfer Issues"", ""Function Parameter Errors"", ""Parameter Configuration Errors""]","[{""line"": 3, ""text"": ""import numpy as np"", ""overlap"": 1}, {""line"": 5, ""text"": ""myList = np.array(myList, dtype=float).reshape(-1, 1)"", ""overlap"": 1}, {""line"": 9, ""text"": ""return normalized_list"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_1>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 18, in test_1\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1034, in assert_array_almost_equal\n    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 713, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nArrays are not almost equal to 2 decimals\n\n(shapes (5, 1), (5,) mismatch)\n x: array([[0.  ],\n       [0.25],\n       [0.5 ],...\n y: array([0.  , 0.25, 0.5 , 0.75, 1.  ])\n'), (<__test__.TestCases testMethod=test_2>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 23, in test_2\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1034, in assert_array_almost_equal\n    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 713, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nArrays are not almost equal to 2 decimals\n\n(shapes (5, 1), (5,) mismatch)\n x: array([[0.  ],\n       [0.25],\n       [0.5 ],...\n y: array([0.  , 0.25, 0.5 , 0.75, 1.  ])\n'), (<__test__.TestCases testMethod=test_3>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 28, in test_3\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1034, in assert_array_almost_equal\n    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 713, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nArrays are not almost equal to 2 decimals\n\n(shapes (5, 1), (5,) mismatch)\n x: array([[0.  ],\n       [0.25],\n       [0.5 ],...\n y: array([0.  , 0.25, 0.5 , 0.75, 1.  ])\n'), (<__test__.TestCases testMethod=test_4>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 33, in test_4\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1034, in assert_array_almost_equal\n    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 713, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nArrays are not almost equal to 2 decimals\n\n(shapes (1, 1), (1,) mismatch)\n x: array([[0.]])\n y: array([0.])\n'), (<__test__.TestCases testMethod=test_5>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 38, in test_5\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1034, in assert_array_almost_equal\n    assert_array_compare(compare, x, y, err_msg=err_msg, verbose=verbose,\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 713, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nArrays are not almost equal to 2 decimals\n\n(shapes (5, 1), (5,) mismatch)\n x: array([[0.],\n       [0.],\n       [0.],...\n y: array([0., 0., 0., 0., 0.])\n')]","
+from sklearn.preprocessing import MinMaxScaler
+import numpy as np
+def task_func(myList):
+    myList = np.array(myList, dtype=float).reshape(-1, 1)
+    scaler = MinMaxScaler()
+    normalized_list = scaler.fit_transform(myList)
+
+    return normalized_list
+",,
+MLDebug198,BigCodeBench/255,"[""Data Transfer Issues"", ""Function Parameter Errors"", ""Parameter Configuration Errors""]","[{""line"": 3, ""text"": ""import numpy as np"", ""overlap"": 1}, {""line"": 8, ""text"": ""raise ValueError(\""The input is not an axes\"")"", ""overlap"": 1}, {""line"": 14, ""text"": ""return ax"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_sine_function>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 30, in test_sine_function\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 1504, in assert_allclose\n    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/contextlib.py"", line 79, in inner\n    return func(*args, **kwds)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 797, in assert_array_compare\n    raise AssertionError(msg)\nAssertionError: \nNot equal to tolerance rtol=1e-07, atol=1e-05\n\nMismatched elements: 999 / 1000 (99.9%)\nMax absolute difference: 1.99496196\nMax relative difference: 2.06739462e+15\n x: array([ 0.000000e+00,  9.993302e-02,  1.988655e-01,  2.958071e-01,\n        3.897871e-01,  4.798647e-01,  5.651381e-01,  6.447535e-01,\n        7.179138e-01,  7.838866e-01,  8.420114e-01,  8.917063e-01,...\n y: array([ 0.000000e+00,  6.289433e-03,  1.257862e-02,  1.886730e-02,\n        2.515525e-02,  3.144219e-02,  3.772789e-02,  4.401210e-02,\n        5.029457e-02,  5.657505e-02,  6.285329e-02,  6.912904e-02,...\n')]","
+import matplotlib.pyplot as plt
+import numpy as np
+
+FUNCTIONS = [np.sin, np.cos, np.tan]
+def task_func(ax, func_index):
+    if not isinstance(ax, plt.Axes):
+        raise ValueError(""The input is not an axes"")
+    x = np.linspace(0, 100, 1000)  
+    y = FUNCTIONS[func_index](x)
+
+    ax.plot(x, y)
+    ax.set_rlabel_position(func_index * 45)  
+    return ax
+",,
+MLDebug777,BigCodeBench/331,"[""Requirement Misunderstanding""]","[{""line"": 10, ""text"": ""return random_list, random_list + [num]"", ""overlap"": 1}]","test_insert_at_beginning:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 34, in test_insert_at_beginning
+AssertionError: Tuples differ: ([4, 12, 23, 34, 45], [4, 12, 23, 34, 45, 4]) != ([12, 23, 34, 45], [4, 12, 23, 34, 45])
+
+First differing element 0:
+[4, 12, 23, 34, 45]
+[12, 23, 34, 45]
+
+- ([4, 12, 23, 34, 45], [4, 12, 23, 34, 45, 4])
+?   ---                                   ---
+
++ ([12, 23, 34, 45], [4, 12, 23, 34, 45])
+
+test_insert_at_end:Traceback (most recent call last):
+  File ""__test__.py"", line 39, in test_insert_at_end
+AssertionError: Tuples differ: ([10, 10, 10, 10, 15], [10, 10, 10, 10, 15, 15]) != ([10, 10, 10, 10], [10, 10, 10, 10, 15])
+
+First differing element 0:
+[10, 10, 10, 10, 15]
+[10, 10, 10, 10]
+
+- ([10, 10, 10, 10, 15], [10, 10, 10, 10, 15, 15])
+?                 ----                   ----
+
++ ([10, 10, 10, 10], [10, 10, 10, 10, 15])
+
+test_insert_in_middle:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 44, in test_insert_in_middle
+AssertionError: Tuples differ: ([12, 15, 34, 56], [12, 15, 34, 56, 15]) != ([12, 34, 56], [12, 15, 34, 56])
+
+First differing element 0:
+[12, 15, 34, 56]
+[12, 34, 56]
+
+- ([12, 15, 34, 56], [12, 15, 34, 56, 15])
+?       ----                        ----
+
++ ([12, 34, 56], [12, 15, 34, 56])
+
+test_insert_into_empty_list:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 24, in test_insert_into_empty_list
+AssertionError: Tuples differ: ([15], [15, 15]) != ([], [15])
+
+First differing element 0:
+[15]
+[]
+
+- ([15], [15, 15])
++ ([], [15])
+
+test_insert_into_existing_list:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 29, in test_insert_into_existing_list
+AssertionError: Tuples differ: ([12, 15, 23, 34, 45, 56], [12, 15, 23, 34, 45, 56, 15]) != ([12, 23, 34, 45, 56], [12, 15, 23, 34, 45, 56])
+
+First differing element 0:
+[12, 15, 23, 34, 45, 56]
+[12, 23, 34, 45, 56]
+
+- ([12, 15, 23, 34, 45, 56], [12, 15, 23, 34, 45, 56, 15])
+?       ----                                        ----
+
++ ([12, 23, 34, 45, 56], [12, 15, 23, 34, 45, 56])
+
+test_random_list_length:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 49, in test_random_list_length
+AssertionError: 6 != 5
+
+","import bisect
+import random
+def task_func(num, list_length = 5, min_value = 0, max_value = 100):
+    # Generate a list of random integers
+    random_list = sorted([random.randint(min_value, max_value) for _ in range(list_length)])
+    
+    # Insert the given number into the sorted list
+    bisect.insort(random_list, num)
+    
+    return random_list, random_list + [num]",,
+MLDebug843,BigCodeBench/447,"[""Parameter Configuration Errors"", ""Function Misuse""]",[],"test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 94, in test_case_1
+AttributeError: 'PathCollection' object has no attribute 'collections'
+
+","import numpy as np
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+def task_func(data, n_components=2, random_state=None):
+    
+    # Apply PCA
+    pca = PCA(n_components=n_components, random_state=random_state)
+    transformed_data = pca.fit_transform(data)
+
+    # Visualize the results
+    if n_components == 1:
+        ax = plt.scatter(transformed_data[:, 0], np.zeros_like(transformed_data[:, 0]))
+    else:
+        ax = plt.scatter(transformed_data[:, 0], transformed_data[:, 1])
+
+    return {""transformed_data"": transformed_data, ""ax"": ax}
+data = np.random.random((100, 5))",,
+MLDebug879,BigCodeBench/501,"[""Data Transfer Issues""]","[{""line"": 3, ""text"": ""import pandas as pd"", ""overlap"": 2}, {""line"": 27, ""text"": ""raise Exception(\""Error writing to file: \"" + str(e))"", ""overlap"": 2}, {""line"": 1, ""text"": ""import xlwt"", ""overlap"": 1}]","test_custom_sheet_name:Traceback (most recent call last):
+  File ""__test__.py"", line 21, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/io/excel/_xlsxwriter.py"", line 192, in __init__
+    from xlsxwriter import Workbook
+ModuleNotFoundError: No module named 'xlsxwriter'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""__test__.py"", line 60, in test_custom_sheet_name
+  File ""__test__.py"", line 33, in task_func
+Exception: Error writing to file: No module named 'xlsxwriter'
+
+test_empty_json:Traceback (most recent call last):
+  File ""__test__.py"", line 21, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/io/excel/_xlsxwriter.py"", line 192, in __init__
+    from xlsxwriter import Workbook
+ModuleNotFoundError: No module named 'xlsxwriter'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""__test__.py"", line 48, in test_empty_json
+  File ""__test__.py"", line 33, in task_func
+Exception: Error writing to file: No module named 'xlsxwriter'
+
+test_file_content:Traceback (most recent call last):
+  File ""__test__.py"", line 21, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/io/excel/_xlsxwriter.py"", line 192, in __init__
+    from xlsxwriter import Workbook
+ModuleNotFoundError: No module named 'xlsxwriter'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""__test__.py"", line 66, in test_file_content
+  File ""__test__.py"", line 33, in task_func
+Exception: Error writing to file: No module named 'xlsxwriter'
+
+test_valid_json:Traceback (most recent call last):
+  File ""__test__.py"", line 21, in task_func
+  File ""/usr/local/lib/python3.10/site-packages/pandas/io/excel/_xlsxwriter.py"", line 192, in __init__
+    from xlsxwriter import Workbook
+ModuleNotFoundError: No module named 'xlsxwriter'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""__test__.py"", line 41, in test_valid_json
+  File ""__test__.py"", line 33, in task_func
+Exception: Error writing to file: No module named 'xlsxwriter'
+
+","import xlwt
+import os
+import pandas as pd
+import json
+def task_func(json_str, filename, sheet_name=""sheet1""):
+    try:
+        # Convert JSON string to DataFrame
+        df = pd.json_normalize(json.loads(json_str))
+
+        # If DataFrame is empty, create an empty DataFrame
+        if df.empty:
+            df = pd.DataFrame()
+
+        # Write DataFrame to Excel
+        writer = pd.ExcelWriter(filename, engine='xlsxwriter')
+        df.to_excel(writer, sheet_name=sheet_name, index=False)
+        writer.save()
+
+        # Return the absolute path of the created Excel file
+        return os.path.abspath(filename)
+
+    except json.JSONDecodeError:
+        raise ValueError(""Invalid JSON"")
+    except TypeError:
+        raise TypeError(""json_str must be a string, bytes, or bytearray"")
+    except Exception as e:
+        raise Exception(""Error writing to file: "" + str(e))
+json_str = '[{""Name"": ""John"", ""Age"": 30}, {""Name"": ""Jane"", ""Age"": 28}]'",,
+MLDebug667,BigCodeBench/147,"[""Function Misuse"", ""Requirement Misunderstanding""]","[{""line"": 4, ""text"": ""def task_func(ip_range, port):"", ""overlap"": 1}, {""line"": 13, ""text"": ""result = sock.connect_ex(('{}'.format(ip), port))"", ""overlap"": 1}, {""line"": 15, ""text"": ""results[ip] = True"", ""overlap"": 1}]","test_all_ips_checked:Traceback (most recent call last):
+  File ""__test__.py"", line 89, in test_all_ips_checked
+AssertionError: Items in the first set but not the second:
+IPv4Address('192.168.0.3')
+IPv4Address('192.168.0.0')
+IPv4Address('192.168.0.2')
+IPv4Address('192.168.0.1')
+Items in the second set but not the first:
+'192.168.0.2'
+'192.168.0.3'
+'192.168.0.1'
+'192.168.0.0' : All IPs in the range should be checked.
+
+test_open_port:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 76, in test_open_port
+AssertionError: False is not true : At least one port should be open for the test range.
+
+test_return_value_structure:Traceback (most recent call last):
+  File ""/usr/local/lib/python3.10/unittest/mock.py"", line 1379, in patched
+    return func(*newargs, **newkeywargs)
+  File ""__test__.py"", line 99, in test_return_value_structure
+AssertionError: IPv4Address('192.168.0.0') is not an instance of <class 'str'> : All keys should be strings representing IP addresses.
+
+","import socket
+from ipaddress import IPv4Network
+from threading import Thread
+def task_func(ip_range, port):
+    
+    ip_network = IPv4Network(ip_range)
+    results = {}
+
+    def check_port(ip):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.settimeout(0.5)
+                result = sock.connect_ex(('{}'.format(ip), port))
+                if result == 0:
+                    results[ip] = True
+                else:
+                    results[ip] = False
+        except Exception as e:
+            print(e)
+
+    threads = []
+    for ip in ip_network:
+        thread = Thread(target=check_port, args=(ip,))
+        thread.start()
+        threads.append(thread)
+
+    for thread in threads:
+        thread.join()
+
+    return results",,
+MLDebug1029,BigCodeBench/752,"[""Type Mismatch""]","[{""line"": 21, ""text"": ""raise ValueError(\""data must contain only numeric values\"")"", ""overlap"": 7}, {""line"": 9, ""text"": ""raise ValueError(\""data must be a pandas DataFrame\"")"", ""overlap"": 3}, {""line"": 13, ""text"": ""raise ValueError(\""data must not be empty\"")"", ""overlap"": 3}]","test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 163, in test_case_1
+  File ""__test__.py"", line 77, in task_func
+ValueError: data must contain only numeric values
+
+test_case_2:Traceback (most recent call last):
+  File ""__test__.py"", line 173, in test_case_2
+  File ""__test__.py"", line 77, in task_func
+ValueError: data must contain only numeric values
+
+test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 184, in test_case_3
+  File ""__test__.py"", line 77, in task_func
+ValueError: data must contain only numeric values
+
+test_case_4:Traceback (most recent call last):
+  File ""__test__.py"", line 199, in test_case_4
+  File ""__test__.py"", line 77, in task_func
+ValueError: data must contain only numeric values
+
+","import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+import numpy as np
+def task_func(data, target_column, test_size=0.2, random_state = 0) -> float:
+    
+    # Check if data is a DataFrame
+    if not isinstance(data, pd.DataFrame):
+        raise ValueError(""data must be a pandas DataFrame"")
+
+    # Check if data is empty
+    if data.empty:
+        raise ValueError(""data must not be empty"")
+
+    # Check if target_column is a column of data
+    if target_column not in data.columns:
+        raise ValueError(f""{target_column} is not a column of data"")
+
+    # Check if data contains values that are not numeric
+    if not data.select_dtypes(include=['float64', 'int64']).empty:
+        raise ValueError(""data must contain only numeric values"")
+
+    # Check if random_state is an integer
+    if not isinstance(random_state, int):
+        raise ValueError(""random_state must be an integer"")
+
+    # Check if test_size is between 0 and 1
+    if not 0 <= test_size <= 1:
+        raise ValueError(""test_size must be between 0 and 1"")
+
+    # Split data into features and target
+    X = data.drop(columns=[target_column])
+    y = data[target_column]
+
+    # Split data into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+
+    # Train a linear regression model
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+
+    # Return the model's score on the test set
+    return model.score(X_test, y_test)",,
+MLDebug830,BigCodeBench/425,"[""Type Mismatch""]","[{""line"": 4, ""text"": ""def task_func(image_path='image.jpg', histogram_path='histogram.png'):"", ""overlap"": 1}]","test_histogram_labels:Traceback (most recent call last):
+  File ""__test__.py"", line 94, in test_histogram_labels
+  File ""__test__.py"", line 46, in task_func
+NameError: name 'np' is not defined
+
+test_histogram_output_type:Traceback (most recent call last):
+  File ""__test__.py"", line 98, in test_histogram_output_type
+  File ""__test__.py"", line 46, in task_func
+NameError: name 'np' is not defined
+
+test_normal_functionality:Traceback (most recent call last):
+  File ""__test__.py"", line 86, in test_normal_functionality
+  File ""__test__.py"", line 46, in task_func
+NameError: name 'np' is not defined
+
+","import cv2
+import os
+from matplotlib import pyplot as plt
+def task_func(image_path='image.jpg', histogram_path='histogram.png'):
+    
+    # Check if the image file exists
+    if not os.path.isfile(image_path):
+        raise FileNotFoundError(f""The image file {image_path} does not exist."")
+    
+    # Read the image
+    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    
+    # Create a histogram of the image pixel intensities
+    hist, bins = np.histogram(image.flatten(), 256, [0, 256])
+    
+    # Plot the histogram
+    hist_plot = plt.bar(bins[:-1], hist, width=1, align='center')
+    plt.title('Grayscale Histogram')
+    plt.xlabel('Pixel Intensity')
+    plt.ylabel('Frequency')
+    
+    # Display the original image and its histogram
+    plt.figure()
+    plt.imshow(image, cmap='gray')
+    plt.title('Original Image')
+    plt.show()
+    
+    # Save the histogram as a PNG file
+    plt.savefig(histogram_path)
+    
+    return plt.gca()",,
+MLDebug203,BigCodeBench/339,"[""Data Transfer Issues"", ""Parameter Configuration Errors""]","[{""line"": 9, ""text"": ""raise TypeError(\""req_data must be a dictionary\"")"", ""overlap"": 2}, {""line"": 4, ""text"": ""import hmac"", ""overlap"": 1}, {""line"": 6, ""text"": ""def task_func(req_data, secret_key):"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_complex_data_structure>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 54, in test_complex_data_structure\n  File ""__test__.py"", line 14, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 53, in __init__\n    raise TypeError(""key: expected bytes or bytearray, but got %r"" % type(key).__name__)\nTypeError: key: expected bytes or bytearray, but got \'str\'\n'), (<__test__.TestCases testMethod=test_consistent_hash_with_same_input>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 75, in test_consistent_hash_with_same_input\n  File ""__test__.py"", line 14, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 53, in __init__\n    raise TypeError(""key: expected bytes or bytearray, but got %r"" % type(key).__name__)\nTypeError: key: expected bytes or bytearray, but got \'str\'\n'), (<__test__.TestCases testMethod=test_different_data_different_signatures>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 65, in test_different_data_different_signatures\n  File ""__test__.py"", line 14, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 53, in __init__\n    raise TypeError(""key: expected bytes or bytearray, but got %r"" % type(key).__name__)\nTypeError: key: expected bytes or bytearray, but got \'str\'\n'), (<__test__.TestCases testMethod=test_empty_data>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 48, in test_empty_data\n  File ""__test__.py"", line 14, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 53, in __init__\n    raise TypeError(""key: expected bytes or bytearray, but got %r"" % type(key).__name__)\nTypeError: key: expected bytes or bytearray, but got \'str\'\n'), (<__test__.TestCases testMethod=test_known_data_signature>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 44, in test_known_data_signature\n  File ""__test__.py"", line 14, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 53, in __init__\n    raise TypeError(""key: expected bytes or bytearray, but got %r"" % type(key).__name__)\nTypeError: key: expected bytes or bytearray, but got \'str\'\n'), (<__test__.TestCases testMethod=test_return_type>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 38, in test_return_type\n  File ""__test__.py"", line 14, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 184, in new\n    return HMAC(key, msg, digestmod)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/hmac.py"", line 53, in __init__\n    raise TypeError(""key: expected bytes or bytearray, but got %r"" % type(key).__name__)\nTypeError: key: expected bytes or bytearray, but got \'str\'\n')]","
+import json
+import urllib.parse
+import hmac
+import hashlib
+def task_func(req_data, secret_key):
+    
+    if not isinstance(req_data, dict):
+        raise TypeError(""req_data must be a dictionary"")
+    
+    json_req_data = json.dumps(req_data)
+    
+    
+    hmac_obj = hmac.new(secret_key, json_req_data.encode(), hashlib.sha256)
+    
+    hmac_signature = hmac_obj.hexdigest()  
+    
+    url_encoded_signature = urllib.parse.quote_plus(hmac_signature)
+
+    return url_encoded_signature
+",,
+MLDebug1163,BigCodeBench/985,"[""Parameter Configuration Errors"", ""Function Misuse""]","[{""line"": 5, ""text"": ""def task_func(json_data, output_dir=\"".\"", file_name=\""country_population_report.csv\""):"", ""overlap"": 1}, {""line"": 18, ""text"": ""countries = data[\""Countries\""]"", ""overlap"": 1}, {""line"": 19, ""text"": ""if not all(isinstance(country, str) for country in countries.keys()):"", ""overlap"": 1}]","test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 129, in test_case_3
+  File ""__test__.py"", line 68, in task_func
+KeyError: 'Countries'
+
+","import pandas as pd
+import json
+import os
+import math
+def task_func(json_data, output_dir=""."", file_name=""country_population_report.csv""):
+    
+    # Load JSON data
+    try:
+        data = json.loads(json_data)
+    except json.JSONDecodeError as e:
+        raise ValueError(""Malformed JSON data"") from e
+
+    # Check if data is empty
+    if not data:
+        raise ValueError(""Empty JSON data"")
+
+    # Extract country names and populations
+    countries = data[""Countries""]
+    if not all(isinstance(country, str) for country in countries.keys()):
+        raise ValueError(""Country names must be strings"")
+    if not all(isinstance(population, (int, float)) and population >= 0 for population in countries.values()):
+        raise ValueError(""Populations must be non-negative integers or floats"")
+
+    # Convert float populations to integers
+    countries = {country: int(math.floor(population)) for country, population in countries.items()}
+
+    # Create DataFrame
+    df = pd.DataFrame.from_dict(countries, orient=""index"", columns=[""Population""])
+    df.reset_index(inplace=True)
+    df.rename(columns={""index"": ""Country""}, inplace=True)
+
+    # Create output directory if it does not exist
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    # Write DataFrame to CSV file
+    csv_file_path = os.path.join(output_dir, file_name)
+    try:
+        df.to_csv(csv_file_path, index=False)
+    except IOError as e:
+        raise IOError(""Could not write to file"") from e
+
+    return csv_file_path, df",,
+MLDebug164,BigCodeBench/1050,"[""Parameter Configuration Errors"", ""Function Misuse""]","[{""line"": 5, ""text"": ""DIRECTORY = \""./hashed_files\"""", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_input_with_empty_lines>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 70, in test_input_with_empty_lines\nAssertionError: Lists differ: [\'./hashed_files/767e51c583.txt\', \'./hashed_files/da5fd8373c.txt\'] != [\'./hashed_files/209f4c0be3.txt\', \'./hashed_files/1ae5466eb8.txt\']\n\nFirst differing element 0:\n\'./hashed_files/767e51c583.txt\'\n\'./hashed_files/209f4c0be3.txt\'\n\n- [\'./hashed_files/767e51c583.txt\', \'./hashed_files/da5fd8373c.txt\']\n?                  ^^^ -----                        ^  ^^ ----\n\n+ [\'./hashed_files/209f4c0be3.txt\', \'./hashed_files/1ae5466eb8.txt\']\n?                  ^^^^^^^^                         ^ + ^^^^^\n\n'), (<__test__.TestCases testMethod=test_multi_line>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 55, in test_multi_line\nAssertionError: Lists differ: [\'./hashed_files/47ab7a553e.txt\', \'./hashed_files/c5e37a81[36 chars]txt\'] != [\'./hashed_files/2361df1018.txt\', \'./hashed_files/c8b588f7[36 chars]txt\']\n\nFirst differing element 0:\n\'./hashed_files/47ab7a553e.txt\'\n\'./hashed_files/2361df1018.txt\'\n\n- [\'./hashed_files/47ab7a553e.txt\',\n+ [\'./hashed_files/2361df1018.txt\',\n-  \'./hashed_files/c5e37a8173.txt\',\n?                    ^^ ^ ---\n\n+  \'./hashed_files/c8b588f708.txt\',\n?                   ++ ^^^ ^\n\n-  \'./hashed_files/62662f0b1d.txt\']\n+  \'./hashed_files/3195807ae4.txt\']\n'), (<__test__.TestCases testMethod=test_no_newline_at_end>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 76, in test_no_newline_at_end\nAssertionError: Lists differ: [\'./hashed_files/cbdf2b4c7d.txt\'] != [\'./hashed_files/901dd863e9.txt\']\n\nFirst differing element 0:\n\'./hashed_files/cbdf2b4c7d.txt\'\n\'./hashed_files/901dd863e9.txt\'\n\n- [\'./hashed_files/cbdf2b4c7d.txt\']\n?                  ^^ ------\n\n+ [\'./hashed_files/901dd863e9.txt\']\n?                  ^^^  +++++\n\n'), (<__test__.TestCases testMethod=test_single_line>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 45, in test_single_line\nAssertionError: Lists differ: [\'./hashed_files/3e25960a79.txt\'] != [\'./hashed_files/64ec88ca00.txt\']\n\nFirst differing element 0:\n\'./hashed_files/3e25960a79.txt\'\n\'./hashed_files/64ec88ca00.txt\'\n\n- [\'./hashed_files/3e25960a79.txt\']\n?                  ^ ^^^^ ^^^\n\n+ [\'./hashed_files/64ec88ca00.txt\']\n?                  ^^ ^^^^^ ^\n\n')]","
+import os
+import hashlib
+
+DIRECTORY = ""./hashed_files""
+def task_func(input_string):
+    if not os.path.exists(DIRECTORY):
+        os.makedirs(DIRECTORY)
+
+    file_paths = []
+    lines = input_string.split(""\n"")
+    for line in lines:
+        if line:  
+            line_hash = hashlib.md5(line.encode()).hexdigest()  
+            filename = line_hash[:10] + "".txt""
+            filepath = os.path.join(DIRECTORY, filename)
+            with open(filepath, ""w"", encoding=""utf-8"") as file:
+                file.write(line_hash)
+            file_paths.append(filepath)
+
+    return file_paths
+",,
+MLDebug399,BigCodeBench/669,"[""Parameter Configuration Errors""]",[],"{'test_case_1': 'Traceback (most recent call last):\n  File ""__test__.py"", line 14, in test_case_1\nAssertionError: Lists differ: [\'a\', \'c\'] != [\'a\', \'b\']\n\nFirst differing element 1:\n\'c\'\n\'b\'\n\n- [\'a\', \'c\']\n?        ^\n\n+ [\'a\', \'b\']\n?        ^\n\n', 'test_case_2': 'Traceback (most recent call last):\n  File ""__test__.py"", line 17, in test_case_2\nAssertionError: Lists differ: [\'a\', \'c\'] != [\'a\', \'b\']\n\nFirst differing element 1:\n\'c\'\n\'b\'\n\n- [\'a\', \'c\']\n?        ^\n\n+ [\'a\', \'b\']\n?        ^\n\n', 'test_case_3': 'Traceback (most recent call last):\n  File ""__test__.py"", line 19, in test_case_3\nAssertionError: Lists differ: [\'a\', \'c\'] != [\'a\', \'e\']\n\nFirst differing element 1:\n\'c\'\n\'e\'\n\n- [\'a\', \'c\']\n?        ^\n\n+ [\'a\', \'e\']\n?        ^\n\n', 'test_case_4': 'Traceback (most recent call last):\n  File ""__test__.py"", line 21, in test_case_4\nAssertionError: Lists differ: [\'a\', \'c\'] != [\'a\', \'f\']\n\nFirst differing element 1:\n\'c\'\n\'f\'\n\n- [\'a\', \'c\']\n?        ^\n\n+ [\'a\', \'f\']\n?        ^\n\n', 'test_case_5': 'Traceback (most recent call last):\n  File ""__test__.py"", line 23, in test_case_5\nAssertionError: Lists differ: [\'a\', \'c\'] != [\'f\', \'g\']\n\nFirst differing element 0:\n\'a\'\n\'f\'\n\n- [\'a\', \'c\']\n?   ^    ^\n\n+ [\'f\', \'g\']\n?   ^    ^\n\n'}","
+import itertools
+import math
+def task_func(x):
+    if len(x) < 2:
+        raise ValueError(""Dictionary must contain at least two items."")
+    pairs = list(itertools.combinations(x.keys(), 2))
+    max_pair = max(pairs, key=lambda pair: math.cos(x[pair[0]]) - math.cos(x[pair[1]]))  
+    return max_pair
+",,
+MLDebug1134,BigCodeBench/930,"[""Data Transfer Issues"", ""Requirement Misunderstanding""]","[{""line"": 6, ""text"": ""raise ValueError(\""Input contains non-letter characters.\"")"", ""overlap"": 5}, {""line"": 4, ""text"": ""def task_func(word):"", ""overlap"": 1}]","test_empty_string:Traceback (most recent call last):
+  File ""__test__.py"", line 42, in test_empty_string
+  File ""__test__.py"", line 12, in task_func
+ValueError: Input contains non-letter characters.
+
+","import random
+import string
+POSSIBLE_LETTERS = ['a', 'b', 'c']
+def task_func(word):
+    if not word.isalpha():
+        raise ValueError(""Input contains non-letter characters."")
+    
+    pairs = []
+    for i in range(len(word) - 1):
+        pairs.append(word[i] + word[i+1])
+    
+    if len(pairs) < len(POSSIBLE_LETTERS):
+        pairs += [''] * (len(POSSIBLE_LETTERS) - len(pairs))
+    
+    random.shuffle(pairs)
+    return pairs[:len(POSSIBLE_LETTERS)]",,
+MLDebug383,BigCodeBench/599,"[""Function Parameter Errors"", ""Parameter Configuration Errors""]","[{""line"": 2, ""text"": ""import pandas as pd"", ""overlap"": 1}, {""line"": 4, ""text"": ""def task_func(df, letter):"", ""overlap"": 1}, {""line"": 8, ""text"": ""filtered_df = df[df['NonexistentColumn'].str.match(regex)]"", ""overlap"": 1}]","{'test_filter_by_letter': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'NonexistentColumn\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/unittest/mock.py"", line 1379, in patched\n    return func(*newargs, **newkeywargs)\n  File ""__test__.py"", line 34, in test_filter_by_letter\n  File ""__test__.py"", line 8, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'NonexistentColumn\'\n', 'test_histogram_plot_calls': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'NonexistentColumn\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 45, in test_histogram_plot_calls\n  File ""__test__.py"", line 8, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'NonexistentColumn\'\n', 'test_nonexistent_letter': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'NonexistentColumn\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/unittest/mock.py"", line 1379, in patched\n    return func(*newargs, **newkeywargs)\n  File ""__test__.py"", line 58, in test_nonexistent_letter\n  File ""__test__.py"", line 8, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'NonexistentColumn\'\n', 'test_return_type': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'NonexistentColumn\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/unittest/mock.py"", line 1379, in patched\n    return func(*newargs, **newkeywargs)\n  File ""__test__.py"", line 40, in test_return_type\n  File ""__test__.py"", line 8, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'NonexistentColumn\'\n', 'test_word_length_calculation': 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3805, in get_loc\n    return self._engine.get_loc(casted_key)\n  File ""index.pyx"", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File ""index.pyx"", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File ""pandas/_libs/hashtable_class_helper.pxi"", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: \'NonexistentColumn\'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File ""__test__.py"", line 49, in test_word_length_calculation\n  File ""__test__.py"", line 8, in task_func\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/frame.py"", line 4102, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/site-packages/pandas/core/indexes/base.py"", line 3812, in get_loc\n    raise KeyError(key) from err\nKeyError: \'NonexistentColumn\'\n'}","
+import pandas as pd
+import time
+def task_func(df, letter):
+    start_time = time.time()
+    df = pd.DataFrame(df)
+    regex = f'^{letter}'
+    filtered_df = df[df['NonexistentColumn'].str.match(regex)]
+    word_lengths = filtered_df['Word'].str.len()
+
+    if filtered_df.empty:
+        print(f""No words start with the letter '{letter}'."")
+        return None
+
+    ax = word_lengths.hist(bins=range(1, int(word_lengths.max()) + 2), alpha=0.7, edgecolor='black')
+    ax.set_title(f""Histogram of Word Lengths starting with '{letter}'"")
+    ax.set_xlabel(""Word Length"")
+    ax.set_ylabel(""Frequency"")
+
+    end_time = time.time()
+    cost = f""Operation completed in {end_time - start_time} seconds.""
+    return ax
+",,
+MLDebug352,BigCodeBench/402,"[""Type Mismatch"", ""Function Parameter Errors"", ""Parameter Configuration Errors""]","[{""line"": 8, ""text"": ""API_URL = 'https://api.example.com/data'"", ""overlap"": 1}, {""line"": 20, ""text"": ""return os.path.abspath('matched_data.csv')"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_case_1>, 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/unittest/mock.py"", line 1379, in patched\n    return func(*newargs, **newkeywargs)\n  File ""__test__.py"", line 56, in test_case_1\nAssertionError: \'john.doe@example.com\' not found in \'j,o,h,n,.,d,o,e,@,e,x,a,m,p,l,e,.,c,o,m\\nj,a,n,e,.,s,m,i,t,h,@,d,o,m,a,i,n,.,o,r,g\\n\'\n'), (<__test__.TestCases testMethod=test_case_2>, 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/unittest/mock.py"", line 1379, in patched\n    return func(*newargs, **newkeywargs)\n  File ""__test__.py"", line 64, in test_case_2\nAssertionError: \'123-45-6789\' not found in \'1,2,3,-,4,5,-,6,7,8,9\\n9,8,7,-,6,5,-,4,3,2,1\\n\'\n'), (<__test__.TestCases testMethod=test_case_3>, 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/unittest/mock.py"", line 1379, in patched\n    return func(*newargs, **newkeywargs)\n  File ""__test__.py"", line 72, in test_case_3\nAssertionError: \'apple\' not found in \'a,p,p,l,e\\n""""\\n""""\\n\'\n'), (<__test__.TestCases testMethod=test_case_5>, 'Traceback (most recent call last):\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/unittest/mock.py"", line 1379, in patched\n    return func(*newargs, **newkeywargs)\n  File ""__test__.py"", line 89, in test_case_5\nAssertionError: \'test1@example.com\' not found in \'t,e,s,t,1,@,e,x,a,m,p,l,e,.,c,o,m\\nt,e,s,t,2,@,d,o,m,a,i,n,.,o,r,g\\n""""\\n""""\\n\'\n')]","
+import re
+import requests
+import json
+import csv
+import os  
+
+API_URL = 'https://api.example.com/data'
+def task_func(pattern):
+    response = requests.get(API_URL)
+    data = json.loads(response.text)
+    matched_data = [re.findall(pattern, str(item)) for item in data['data']]
+    with open('matched_data.csv', 'w') as f:
+        writer = csv.writer(f)
+        for match in matched_data:
+            if match:
+                writer.writerow(match[0])  
+            else:
+                writer.writerow([''])  
+    return os.path.abspath('matched_data.csv')
+",,
+MLDebug272,BigCodeBench/937,"[""Parameter Configuration Errors"", ""Function Misuse""]","[{""line"": 3, ""text"": ""from collections import Counter"", ""overlap"": 1}, {""line"": 7, ""text"": ""freq_dict = Counter(cleaned_str)"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_no_alphanumeric>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 28, in test_no_alphanumeric\nAssertionError: Counter({\'!\': 3, \'@\': 3, \'#\': 3, \'$\': 3, \'%\': 3, \'^\': 3, \'&\': 3}) != {}\n'), (<__test__.TestCases testMethod=test_only_letters>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 14, in test_only_letters\nAssertionError: Counter({\'l\': 3, \'o\': 2, \'h\': 1, \'e\': 1, [43 chars]: 1}) != {\'h\': 1, \'e\': 1, \'l\': 3, \'o\': 2, \'w\': 1, \'r\': 1, \'d\': 1}\n'), (<__test__.TestCases testMethod=test_repeated_numbers>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 18, in test_repeated_numbers\nAssertionError: Counter({\'1\': 2, \'2\': 2, \'3\': 2, \'4\': 2, \'5\': 2, \' \': 1}) != {\'1\': 2, \'2\': 2, \'3\': 2, \'4\': 2, \'5\': 2}\n')]","
+import re
+from collections import Counter
+def task_func(input_str):
+    
+    cleaned_str = re.sub(r'\.', '', input_str).lower()
+    freq_dict = Counter(cleaned_str)
+    return freq_dict
+",,
+MLDebug952,BigCodeBench/606,"[""Type Mismatch"", ""Data Transfer Issues"", ""Function Misuse"", ""Requirement Misunderstanding""]","[{""line"": 12, ""text"": ""normalized_df = pd.DataFrame(z_scores, index=df.index, columns=df.columns)"", ""overlap"": 2}, {""line"": 1, ""text"": ""import pandas as pd"", ""overlap"": 1}, {""line"": 6, ""text"": ""df = pd.DataFrame(matrix)"", ""overlap"": 1}]","test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 67, in test_case_3
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 1224, in assert_frame_equal
+    assert_series_equal(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 1014, in assert_series_equal
+    _testing.assert_almost_equal(
+  File ""pandas/_libs/testing.pyx"", line 52, in pandas._libs.testing.assert_almost_equal
+  File ""pandas/_libs/testing.pyx"", line 172, in pandas._libs.testing.assert_almost_equal
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 599, in raise_assert_detail
+    raise AssertionError(msg)
+AssertionError: DataFrame.iloc[:, 0] (column name=""0"") are different
+
+DataFrame.iloc[:, 0] (column name=""0"") values are different (100.0 %)
+[index]: [0]
+[left]:  [nan]
+[right]: [0.0]
+At positional index 0, first diff: nan != 0.0
+
+test_uniform_data:Traceback (most recent call last):
+  File ""__test__.py"", line 75, in test_uniform_data
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 1224, in assert_frame_equal
+    assert_series_equal(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 1014, in assert_series_equal
+    _testing.assert_almost_equal(
+  File ""pandas/_libs/testing.pyx"", line 52, in pandas._libs.testing.assert_almost_equal
+  File ""pandas/_libs/testing.pyx"", line 172, in pandas._libs.testing.assert_almost_equal
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 599, in raise_assert_detail
+    raise AssertionError(msg)
+AssertionError: DataFrame.iloc[:, 0] (column name=""0"") are different
+
+DataFrame.iloc[:, 0] (column name=""0"") values are different (100.0 %)
+[index]: [0, 1]
+[left]:  [nan, nan]
+[right]: [0.0, 0.0]
+At positional index 0, first diff: nan != 0.0
+
+","import pandas as pd
+from scipy import stats
+def task_func(matrix):
+    
+    # Convert the matrix to a DataFrame
+    df = pd.DataFrame(matrix)
+
+    # Calculate the Z score for each value in the DataFrame
+    z_scores = stats.zscore(df, axis=0)
+
+    # Create a new DataFrame with the Z scores
+    normalized_df = pd.DataFrame(z_scores, index=df.index, columns=df.columns)
+
+    return normalized_df",,
+MLDebug1120,BigCodeBench/901,"[""Type Mismatch"", ""Data Transfer Issues""]","[{""line"": 1, ""text"": ""import pandas as pd"", ""overlap"": 1}, {""line"": 3, ""text"": ""def task_func(d):"", ""overlap"": 1}, {""line"": 5, ""text"": ""return pd.DataFrame()"", ""overlap"": 1}]","test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 43, in test_case_3
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 1163, in assert_frame_equal
+    raise_assert_detail(
+  File ""/usr/local/lib/python3.10/site-packages/pandas/_testing/asserters.py"", line 599, in raise_assert_detail
+    raise AssertionError(msg)
+AssertionError: DataFrame are different
+
+DataFrame shape mismatch
+[left]:  (0, 0)
+[right]: (0, 3)
+
+test_case_4:Traceback (most recent call last):
+  File ""__test__.py"", line 47, in test_case_4
+  File ""__test__.py"", line 14, in task_func
+  File ""__test__.py"", line 14, in <listcomp>
+KeyError: 'y'
+
+test_case_5:Traceback (most recent call last):
+  File ""__test__.py"", line 53, in test_case_5
+  File ""__test__.py"", line 14, in task_func
+  File ""__test__.py"", line 14, in <listcomp>
+KeyError: 'z'
+
+","import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+def task_func(d):
+    if not d:
+        return pd.DataFrame()
+    
+    # Extract the values for keys 'x', 'y', 'z' from the list of dictionaries
+    data = pd.DataFrame([[i['x'], i['y'], i['z']] for i in d])
+    
+    # Initialize MinMaxScaler
+    scaler = MinMaxScaler()
+    
+    # Fit and transform the data
+    scaled_data = pd.DataFrame(scaler.fit_transform(data), columns=['x', 'y', 'z'])
+    
+    return scaled_data
+data = [{'x': 1, 'y': 10, 'z': 5}, {'x': 3, 'y': 15, 'z': 6}, {'x': 2, 'y': 1, 'z': 7}]",,
+MLDebug829,BigCodeBench/424,"[""Type Mismatch"", ""Data Transfer Issues"", ""Function Misuse""]","[{""line"": 9, ""text"": ""raise ValueError(f\""'n_clusters' must be a positive integer, but got: {n_clusters}\"")"", ""overlap"": 2}, {""line"": 2, ""text"": ""import numpy as np"", ""overlap"": 1}, {""line"": 5, ""text"": ""def task_func(image_path='image.jpg', n_clusters=3, random_seed=42):"", ""overlap"": 1}]","test_normal_functionality:Traceback (most recent call last):
+  File ""__test__.py"", line 67, in test_normal_functionality
+AssertionError: False is not true : The arrays should be equal
+
+test_single_cluster_returns_original_image:Traceback (most recent call last):
+  File ""__test__.py"", line 92, in test_single_cluster_returns_original_image
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 934, in assert_array_equal
+    assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,
+  File ""/usr/local/lib/python3.10/site-packages/numpy/testing/_private/utils.py"", line 844, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not equal
+The original and segmented images should be identical when n_clusters is set to 1.
+Mismatched elements: 300 / 300 (100%)
+Max absolute difference: 220.43
+Max relative difference: 0.89087823
+ x: array([[[255, 252, 253],
+        [251, 246, 243],
+        [255, 254, 248],...
+ y: array([[[247.43, 247.33, 244.32],
+        [247.43, 247.33, 244.32],
+        [247.43, 247.33, 244.32],...
+
+","import cv2
+import numpy as np
+import os
+from sklearn.cluster import KMeans
+def task_func(image_path='image.jpg', n_clusters=3, random_seed=42):
+    if not os.path.exists(image_path):
+        raise FileNotFoundError(f""The image file does not exist at the specified path: {image_path}"")
+    if not isinstance(n_clusters, int) or n_clusters < 1:
+        raise ValueError(f""'n_clusters' must be a positive integer, but got: {n_clusters}"")
+
+    # Read the image
+    img = cv2.imread(image_path)
+    # Convert BGR to RGB
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    # Reshape the image to a 2D array of pixels
+    pixels = img.reshape((-1, 3))
+
+    # Apply K-means clustering
+    kmeans = KMeans(n_clusters=n_clusters, random_state=random_seed).fit(pixels)
+    # Replace each pixel's color with the centroid of the cluster it belongs to
+    segmented_img = kmeans.cluster_centers_[kmeans.labels_]
+    # Reshape the segmented image back to the original image shape
+    segmented_img = segmented_img.reshape(img.shape)
+
+    return img, segmented_img",,
+MLDebug1041,BigCodeBench/774,"[""Function Misuse"", ""Requirement Misunderstanding""]",[],"test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 39, in test_case_1
+AssertionError: 0.6419483211808676 != 0.47332912782858 within 7 places (0.16861919335228764 difference)
+
+test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 48, in test_case_3
+AssertionError: 0.3196183184216828 != 0.2316988319594362 within 7 places (0.08791948646224662 difference)
+
+test_case_rng:Traceback (most recent call last):
+  File ""__test__.py"", line 35, in test_case_rng
+AssertionError: 0.576158080631988 != 0.5761414685706846 within 7 places (1.6612061303433734e-05 difference)
+
+","import numpy as np
+from sklearn.model_selection import cross_val_score
+from sklearn.ensemble import RandomForestRegressor
+def task_func(num_samples=100, n_estimators=100, random_seed=None, cv=5):
+    if num_samples / cv < 2:
+        raise ValueError(""num_samples / cv must be at least 2"")
+
+    # Generate a dataset with five features sampled from the standard normal distribution
+    X = np.random.randn(num_samples, 5)
+
+    # The target value is created by computing the sum of the features and adding
+    # random numbers sampled from the standard normal distribution.
+    y = X.sum(axis=1) + np.random.randn(num_samples)
+
+    # Initialize the RandomForestRegressor model
+    model = RandomForestRegressor(n_estimators=n_estimators, random_state=random_seed)
+
+    # Cross-validate the dataset using the RandomForestRegressor model
+    scores = cross_val_score(model, X, y, cv=cv)
+
+    # Return the mean cross-validation score and the trained model
+    return scores.mean(), model",,
+MLDebug842,BigCodeBench/443,"[""Data Transfer Issues""]","[{""line"": 4, ""text"": ""def task_func("", ""overlap"": 1}]","test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 85, in test_case_1
+  File ""__test__.py"", line 53, in task_func
+  File ""<__array_function__ internals>"", line 5, in dot
+ValueError: shapes (3,3) and (27,) not aligned: 3 (dim 1) != 27 (dim 0)
+
+test_case_2:Traceback (most recent call last):
+  File ""__test__.py"", line 92, in test_case_2
+  File ""__test__.py"", line 53, in task_func
+  File ""<__array_function__ internals>"", line 5, in dot
+ValueError: shapes (4,3) and (27,) not aligned: 3 (dim 1) != 27 (dim 0)
+
+test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 108, in test_case_3
+  File ""__test__.py"", line 53, in task_func
+  File ""<__array_function__ internals>"", line 5, in dot
+ValueError: shapes (4,3) and (27,) not aligned: 3 (dim 1) != 27 (dim 0)
+
+test_case_4:Traceback (most recent call last):
+  File ""__test__.py"", line 116, in test_case_4
+  File ""__test__.py"", line 53, in task_func
+  File ""<__array_function__ internals>"", line 5, in dot
+ValueError: shapes (4,3) and (27,) not aligned: 3 (dim 1) != 27 (dim 0)
+
+","import numpy as np
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+def task_func(
+    P: np.ndarray,
+    T: np.ndarray,
+    n_clusters: int = 3,
+    random_state: int = 0,
+    n_init: int = 10,
+) -> (np.ndarray, plt.Axes):
+    
+    # Calculate the product of a matrix 'P' and a 3D tensor 'T', flatten the result
+    result = np.dot(P, T.flatten()).flatten()
+
+    # Apply KMeans clustering to the flattened data
+    kmeans = KMeans(n_clusters=n_clusters, random_state=random_state, n_init=n_init).fit(result.reshape(-1, 1))
+
+    # Visualize the result
+    fig, ax = plt.subplots()
+    ax.scatter(range(len(result)), result, c=kmeans.labels_)
+    ax.set_title('KMeans Clustering Visualization')
+    plt.show()
+
+    return kmeans.labels_, ax",,
+MLDebug424,BigCodeBench/789,"[""Data Transfer Issues"", ""Parameter Configuration Errors""]","[{""line"": 8, ""text"": ""array = np.random.randint(0, 10, ARRAY_LENGTH).reshape(-1, 1)"", ""overlap"": 1}, {""line"": 10, ""text"": ""scaled_array = scaler.fit_transform(array)"", ""overlap"": 1}]","{'test_normal_functionality': 'Traceback (most recent call last):\n  File ""__test__.py"", line 21, in test_normal_functionality\nAssertionError: False is not true : Array values should be in the range [0, 1]\n', 'test_output_values': 'Traceback (most recent call last):\n  File ""__test__.py"", line 28, in test_output_values\nAssertionError: -1.0 != 0 : The minimum of the scaled array should be 0\n'}","
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+
+ARRAY_LENGTH = 10
+def task_func():
+    np.random.seed(42)  
+    array = np.random.randint(0, 10, ARRAY_LENGTH).reshape(-1, 1)
+    scaler = MinMaxScaler(feature_range=(-1, 1))  
+    scaled_array = scaler.fit_transform(array)
+    return scaled_array
+",,
+MLDebug1089,BigCodeBench/849,"[""Data Transfer Issues"", ""Requirement Misunderstanding""]",[],"test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 63, in test_case_1
+AssertionError: {'line': 2, 'one': 1, 'two': 1} != {'This': 2, 'line': 2, 'one': 1, 'two': 1}
+- {'line': 2, 'one': 1, 'two': 1}
++ {'This': 2, 'line': 2, 'one': 1, 'two': 1}
+?  +++++++++++
+
+
+test_case_3:Traceback (most recent call last):
+  File ""__test__.py"", line 71, in test_case_3
+AssertionError: {} != {'This': 3}
+- {}
++ {'This': 3}
+
+test_case_4:Traceback (most recent call last):
+  File ""__test__.py"", line 75, in test_case_4
+AssertionError: {'test': 2} != {'This': 2, 'test': 2}
+- {'test': 2}
++ {'This': 2, 'test': 2}
+
+test_case_5:Traceback (most recent call last):
+  File ""__test__.py"", line 79, in test_case_5
+AssertionError: {'stop': 2} != {'Stop': 2}
+- {'stop': 2}
+?   ^
+
++ {'Stop': 2}
+?   ^
+
+
+","import re
+from nltk.corpus import stopwords
+from collections import Counter
+STOPWORDS = set(stopwords.words('english'))
+def task_func(input_string):
+    
+    # Split the string into lines
+    lines = input_string.split('\\n')
+
+    # Initialize an empty dictionary to store word frequencies
+    word_freq = {}
+
+    # Loop through each line
+    for line in lines:
+        # Split the line into words
+        words = line.split()
+
+        # Loop through each word
+        for word in words:
+            # Remove punctuation and convert to lowercase
+            word = re.sub(r'\W+', '', word).lower()
+
+            # If the word is not a stopword, add it to the dictionary
+            if word not in STOPWORDS:
+                if word in word_freq:
+                    word_freq[word] += 1
+                else:
+                    word_freq[word] = 1
+
+    # Convert the dictionary to a Counter object
+    word_freq = dict(Counter(word_freq))
+
+    return word_freq",,
+MLDebug292,BigCodeBench/1114,"[""Parameter Configuration Errors""]","[{""line"": 3, ""text"": ""from random import randint"", ""overlap"": 2}, {""line"": 11, ""text"": ""salaries = [randint(100, 1) for _ in range(num_employees)]"", ""overlap"": 2}, {""line"": 4, ""text"": ""def task_func(dict1):"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_case_1>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 22, in test_case_1\n  File ""__test__.py"", line 11, in task_func\n  File ""__test__.py"", line 11, in <listcomp>\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/random.py"", line 370, in randint\n    return self.randrange(a, b+1)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/random.py"", line 353, in randrange\n    raise ValueError(""empty range for randrange() (%d, %d, %d)"" % (istart, istop, width))\nValueError: empty range for randrange() (100, 2, -98)\n'), (<__test__.TestCases testMethod=test_case_2>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 32, in test_case_2\n  File ""__test__.py"", line 11, in task_func\n  File ""__test__.py"", line 11, in <listcomp>\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/random.py"", line 370, in randint\n    return self.randrange(a, b+1)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/random.py"", line 353, in randrange\n    raise ValueError(""empty range for randrange() (%d, %d, %d)"" % (istart, istop, width))\nValueError: empty range for randrange() (100, 2, -98)\n'), (<__test__.TestCases testMethod=test_case_4>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 45, in test_case_4\n  File ""__test__.py"", line 11, in task_func\n  File ""__test__.py"", line 11, in <listcomp>\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/random.py"", line 370, in randint\n    return self.randrange(a, b+1)\n  File ""/home/jyhuang/anaconda3/envs/MedicalGPT/lib/python3.10/random.py"", line 353, in randrange\n    raise ValueError(""empty range for randrange() (%d, %d, %d)"" % (istart, istop, width))\nValueError: empty range for randrange() (100, 2, -98)\n')]","
+from collections import defaultdict
+from random import randint
+def task_func(dict1):
+    employee_data = defaultdict(list)
+    
+    for prefix, num_employees in dict1.items():
+        if not prefix.startswith('EMP$$'):
+            continue
+        
+        salaries = [randint(100, 1) for _ in range(num_employees)]  
+        employee_data[prefix].extend(salaries)
+
+    return dict(employee_data)
+",,
+MLDebug154,BigCodeBench/896,"[""Parameter Configuration Errors"", ""Function Misuse""]","[{""line"": 2, ""text"": ""from collections import Counter"", ""overlap"": 1}, {""line"": 8, ""text"": ""letter_frequency = Counter(itertools.chain.from_iterable(strings))"", ""overlap"": 1}]","[(<__test__.TestCases testMethod=test_specific_distribution>, 'Traceback (most recent call last):\n  File ""__test__.py"", line 40, in test_specific_distribution\nAssertionError: Counter({\'a\': 3, \'b\': 2, \'c\': 2, \'e\': 2, \'f\': 1}) != Counter({\'b\': 3, \'a\': 3, \'e\': 2, \'c\': 1, \'d\': 1}) : The letter distribution should match the expected distribution.\n')]","
+from collections import Counter
+import random
+import itertools
+def task_func(length, count, seed=0):
+    random.seed(seed)
+    strings = [''.join(random.choices(['a', 'b', 'c', 'd', 'e', 'f'], k=length)) for _ in range(count)]  
+    letter_frequency = Counter(itertools.chain.from_iterable(strings))  
+    
+    return letter_frequency
+",,
+MLDebug654,BigCodeBench/124,"[""Requirement Misunderstanding""]","[{""line"": 5, ""text"": ""if not isinstance(my_list, list):"", ""overlap"": 1}, {""line"": 6, ""text"": ""raise TypeError(\""'my_list' must be a list\"")"", ""overlap"": 1}, {""line"": 8, ""text"": ""raise ValueError(\""All elements in 'my_list' must be numeric (int or float)\"")"", ""overlap"": 1}]","test_output_types:Traceback (most recent call last):
+  File ""__test__.py"", line 41, in test_output_types
+AssertionError: Lists differ: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0[448 chars] 1.0] != [2.0, 2.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0[53 chars] 2.0]
+
+First differing element 0:
+0.0
+2.0
+
+First list contains 79 additional elements.
+First extra element 20:
+0.0
+
+Diff is 908 characters long. Set self.maxDiff to None to see it. : DataFrame contents should match the expected output
+
+","from random import randint, seed
+import time
+import matplotlib.pyplot as plt
+def task_func(my_list, size=100, seed=100):
+    if not isinstance(my_list, list):
+        raise TypeError(""'my_list' must be a list"")
+    if not all(isinstance(i, (int, float)) for i in my_list):
+        raise ValueError(""All elements in 'my_list' must be numeric (int or float)"")
+    
+    my_list.append(12)
+    random_seed(seed)
+    num_list_size = sum(my_list) % size
+    num_list = [randint(1, 100) for _ in range(num_list_size)]
+    
+    start_time = time.time()
+    plt.hist(num_list, bins=range(1, 101))
+    plt.xlabel('Number')
+    plt.ylabel('Frequency')
+    plt.title('Histogram of Random Numbers')
+    plt.show()
+    time_taken = time.time() - start_time
+    
+    return time_taken, plt.gca()
+my_list = [2, 3, 5]",,
+MLDebug815,BigCodeBench/399,"[""Data Transfer Issues"", ""Function Misuse""]",[],"test_case_1:Traceback (most recent call last):
+  File ""__test__.py"", line 35, in test_case_1
+AssertionError: False is not true
+
+","import numpy as np
+import matplotlib.pyplot as plt
+import math
+def task_func(frequency, sample_size=10000):
+    if frequency < 0:
+        raise ValueError(""Frequency must be non-negative."")
+    if sample_size <= 0:
+        raise ValueError(""Sample size must be a positive integer."")
+
+    t = np.linspace(0, 2*math.pi, sample_size)
+    sine_wave = np.sin(frequency*t)
+    cosine_wave = np.cos(frequency*t)
+
+    fig, ax = plt.subplots()
+    ax.plot(t, sine_wave, label=""Sine wave"")
+    ax.plot(t, cosine_wave, label=""Cosine wave"")
+    ax.set_xlabel(""Time"")
+    ax.set_ylabel(""Amplitude"")
+    ax.set_title(f""Sine and Cosine Waves with frequency {frequency}"")
+    ax.legend()
+
+    return fig, ax",,
