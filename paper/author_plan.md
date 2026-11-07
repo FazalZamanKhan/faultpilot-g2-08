@@ -23,7 +23,7 @@ Plan roughly six to eight pages of body, one to two pages of references, and lea
 
 - Base paper and agent trajectories: `ref01`, `ref02`, `ref03`, `ref07`, `ref34`.
 - Debugging benchmarks and AI/data-science program faults: `ref05`, `ref08`, `ref09`, `ref10`, `ref25`.
-- Classical and learned program repair: `ref11`, `ref12`, `ref13`, `ref14`, `ref15`, `ref16`, `ref18`, `ref20`, `ref22`, `ref26`, `ref28`.
+- Classical and learned program repair: `ref04`, `ref11`, `ref12`, `ref13`, `ref14`, `ref15`, `ref16`, `ref18`, `ref20`, `ref22`, `ref26`, `ref28`.
 - Retrieval and grounding: `ref06`, `ref17`, `ref27`.
 - Test-driven repair and test generation: `ref19`, `ref24`, `ref29`, `ref30`, `ref31`.
 

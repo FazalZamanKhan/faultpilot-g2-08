@@ -34,6 +34,8 @@ def main():
     missing = [name for name in SOURCE_FILES if not (PAPER / name).exists()]
     if missing:
         raise SystemExit(f"Missing source assets: {missing}")
+    if "[Author:" in (PAPER / "tables.tex").read_text():
+        raise SystemExit("Write original captions for the generated tables before finalizing.")
     for args in (("pdflatex", "-halt-on-error", "-interaction=nonstopmode", "main.tex"),
                  ("bibtex", "main"),
                  ("pdflatex", "-halt-on-error", "-interaction=nonstopmode", "main.tex"),
