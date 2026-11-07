@@ -17,11 +17,15 @@
   "verified_rate_on_repair_eligible": 0.0,
   "mean_wall_s": 22.381,
   "mean_agent_wall_s_excluding_offline_audit": 22.381,
+  "median_agent_wall_s_across_cases": 22.068,
+  "std_agent_wall_s_across_cases": 15.143,
   "mean_agent_wall_s_on_model_attempts": 26.182,
   "mean_tool_calls": 1.034,
   "mean_tool_calls_on_repair_eligible": 1.222,
   "sum_prompt_tokens": 475367,
   "sum_output_tokens": 13109,
+  "mean_prompt_tokens_on_model_attempts": 2437.8,
+  "mean_output_tokens_on_model_attempts": 67.2,
   "monetary_api_cost_usd": 0,
   "cost_note": "Local Ollama inference; electricity and hardware amortization were not measured."
 }

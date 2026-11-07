@@ -16,6 +16,8 @@ The diagnosis classifier is TF-IDF character 3–5 grams and one-vs-rest class-b
 
 The measured server used Ollama 0.40.14's 4,096-token default context on CPU. Model calls are kept on the same local server throughout the paired comparison. `results/environment.json` records the remaining software versions. The repair wall clock in each trace excludes the separately precomputed diagnosis and preflight; E6 should label it as model/patch/test time, not complete end-to-end latency.
 
+E6 summaries include mean, median and standard deviation of latency across held-out cases. This is between-case spread, not standard deviation across repeated stochastic runs. The model uses temperature zero and a fixed seed; one development prompt was repeated three times as a limited stability check.
+
 The prompt builder limits runtime feedback to 1,700 characters, buggy code to 8,000 characters and supplied tests to 2,300 characters, and passes no gold code. Long inputs may lose relevant context; this is a stated threat to validity. The development pilot compared the old/new and numbered-line contracts, then froze `line-json-v2` before the reported run.
 
 For the Phase 1 evidence-relevance target, `experiments.evidence_audit` selects the first 50 held-out case IDs in SHA-256 order and writes the code, runtime feedback, predicted categories, and extracted spans to a CSV. It leaves human yes/no judgments blank; `--score` refuses incomplete sheets and counts missing spans as non-relevant. The generated sheet has 39 spans present out of 50, which is an availability upper bound, not a relevance score.

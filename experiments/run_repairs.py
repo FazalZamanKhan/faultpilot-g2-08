@@ -28,6 +28,7 @@ def summarize(path: Path, denominator: int, eligible: int) -> dict:
     statuses = Counter(row["status"] for row in rows)
     eligible_rows = [row for row in rows if row["trace"][0]["result"]["status"] == "fail"]
     attempted_rows = [row for row in rows if any(step["step"] == "propose" for step in row["trace"])]
+    agent_times = [row.get("agent_wall_s", row["wall_s"]) for row in rows]
     audited = sum(any(step["step"] == "offline_audit" and step["result"]["status"] == "pass"
                       for step in row["trace"]) for row in rows)
     return {
@@ -40,8 +41,9 @@ def summarize(path: Path, denominator: int, eligible: int) -> dict:
         "verified_rate_on_evaluated": round(statuses["verified_by_supplied_tests"] / len(rows), 5) if rows else None,
         "verified_rate_on_repair_eligible": round(statuses["verified_by_supplied_tests"] / eligible, 5) if eligible else None,
         "mean_wall_s": round(statistics.mean(row["wall_s"] for row in rows), 3) if rows else None,
-        "mean_agent_wall_s_excluding_offline_audit": round(statistics.mean(
-            row.get("agent_wall_s", row["wall_s"]) for row in rows), 3) if rows else None,
+        "mean_agent_wall_s_excluding_offline_audit": round(statistics.mean(agent_times), 3) if rows else None,
+        "median_agent_wall_s_across_cases": round(statistics.median(agent_times), 3) if rows else None,
+        "std_agent_wall_s_across_cases": round(statistics.stdev(agent_times), 3) if len(rows) > 1 else None,
         "mean_agent_wall_s_on_model_attempts": round(statistics.mean(
             row.get("agent_wall_s", row["wall_s"]) for row in attempted_rows), 3) if attempted_rows else None,
         "mean_tool_calls": round(statistics.mean(row["tool_calls"] for row in rows), 3) if rows else None,
@@ -49,6 +51,10 @@ def summarize(path: Path, denominator: int, eligible: int) -> dict:
             row["tool_calls"] for row in eligible_rows), 3) if eligible_rows else None,
         "sum_prompt_tokens": sum(row["prompt_tokens"] for row in rows),
         "sum_output_tokens": sum(row["output_tokens"] for row in rows),
+        "mean_prompt_tokens_on_model_attempts": round(statistics.mean(
+            row["prompt_tokens"] for row in attempted_rows), 1) if attempted_rows else None,
+        "mean_output_tokens_on_model_attempts": round(statistics.mean(
+            row["output_tokens"] for row in attempted_rows), 1) if attempted_rows else None,
         "monetary_api_cost_usd": 0,
         "cost_note": "Local Ollama inference; electricity and hardware amortization were not measured.",
     }
