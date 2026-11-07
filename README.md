@@ -29,7 +29,7 @@ python3 -m faultpilot.benchmark --split test --output results/test_manifest.json
 python3 -m experiments.environment
 ```
 
-The dataset download is checksum-verified against a pinned upstream commit and excluded from Git. `research/.external_data/MLDebugging.jsonl` is the default path. The repair agent uses the local [Ollama generate API](https://docs.ollama.com/api/generate). Install and start Ollama, then pull the model named in the final run configuration. `.env.example` lists local settings; no API key is used or committed.
+The dataset download is checksum-verified against a pinned upstream commit and excluded from Git. `research/.external_data/MLDebugging.jsonl` is the default path. The repair agent uses the local [Ollama generate API](https://docs.ollama.com/api/generate). Install Ollama 0.40.14, start `ollama serve`, and run `ollama pull qwen2.5-coder:0.5b`. Confirm the installed digest matches `results/environment.json` before reproducing the frozen traces. `.env.example` lists local settings; no API key is used or committed.
 
 ## Reproduce E1–E6
 
