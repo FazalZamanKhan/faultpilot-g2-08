@@ -69,7 +69,7 @@ def main():
     parser.add_argument("--model", default="qwen2.5-coder:0.5b")
     parser.add_argument("--mode", choices=(*MODES, "all"), default="all")
     parser.add_argument("--limit", type=int, default=0,
-                        help="Fixed hash-ordered executable prefix; 0 means all eligible cases")
+                        help="Fixed hash-ordered eligible prefix for pilots; 0 traces all held-out cases")
     parser.add_argument("--attempts", type=int, default=2)
     args = parser.parse_args()
     if args.attempts < 1 or args.attempts > 3 or args.limit < 0:
