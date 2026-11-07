@@ -89,7 +89,7 @@ The complete E3 FaultPilot run also produced **0/198 supplied-test passes**, wit
 
 These values are in `results/diagnostic_evaluation.json`. Retrieval examples did not improve macro F1. The evidence extractor returned at least one local code line for 194/234 records and retrieved development examples for all 234. Availability is not correctness because the benchmark lacks gold faulty lines.
 
-The fixed 50-case evidence-audit worksheet is `results/evidence_audit_50.csv`. Only 39/50 sampled records contain any extracted source span, so the Phase 1 target of at least 80% relevant spans cannot be reached on that sample even if all 39 are judged relevant. The relevance judgments are intentionally blank; a reviewer must inspect the code, runtime feedback and proposed span, enter yes/no for all 50, then run `python3 -m experiments.evidence_audit --score`.
+The fixed 50-case evidence-audit worksheet is `results/evidence_audit_50.csv`. Only 39/50 sampled records contain any extracted source span, so the Phase 1 target of at least 80% relevant spans cannot be reached on that sample even if all 39 are judged relevant. The 11 absent spans are automatically marked “no”; a reviewer must inspect the other 39 cases, enter yes/no, then run `python3 -m experiments.evidence_audit --score`.
 
 ![Held-out diagnosis macro F1 with task-group bootstrap intervals](paper/diagnosis_macro_f1.png)
 

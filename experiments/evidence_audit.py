@@ -25,13 +25,16 @@ def prepare(path: Path, data: str, diagnoses: str):
         writer.writeheader()
         for case_id in selected:
             case, prediction = cases[case_id], predictions[case_id]
+            evidence = prediction["evidence"]
             writer.writerow({"case_id": case_id, "task_id": case.task_id,
                              "predicted_categories": json.dumps(prediction["full"]),
-                             "evidence": json.dumps(prediction["evidence"]),
+                             "evidence": json.dumps(evidence),
                              "runtime_feedback": case.runtime_feedback,
                              "bug_code": case.bug_code,
-                             "relevant_yes_no": "", "reviewer_notes": ""})
-    print(f"Prepared {len(selected)} fixed cases in {path}; relevance judgments are blank.")
+                             "relevant_yes_no": "" if evidence else "no",
+                             "reviewer_notes": "" if evidence else "No extracted source span"})
+    print(f"Prepared {len(selected)} fixed cases in {path}; absent spans are marked no, "
+          "and all other relevance judgments remain blank.")
 
 
 def score(path: Path, output: Path):

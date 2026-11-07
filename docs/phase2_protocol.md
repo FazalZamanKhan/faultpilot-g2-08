@@ -20,7 +20,7 @@ E6 summaries include mean, median and standard deviation of latency across held-
 
 The prompt builder limits runtime feedback to 1,700 characters, buggy code to 8,000 characters and supplied tests to 2,300 characters, and passes no gold code. Long inputs may lose relevant context; this is a stated threat to validity. The development pilot compared the old/new and numbered-line contracts, then froze `line-json-v2` before the reported run.
 
-For the Phase 1 evidence-relevance target, `experiments.evidence_audit` selects the first 50 held-out case IDs in SHA-256 order and writes the code, runtime feedback, predicted categories, and extracted spans to a CSV. It leaves human yes/no judgments blank; `--score` refuses incomplete sheets and counts missing spans as non-relevant. The generated sheet has 39 spans present out of 50, which is an availability upper bound, not a relevance score.
+For the Phase 1 evidence-relevance target, `experiments.evidence_audit` selects the first 50 held-out case IDs in SHA-256 order and writes the code, runtime feedback, predicted categories, and extracted spans to a CSV. It marks absent spans “no” and leaves the other 39 human yes/no judgments blank; `--score` refuses incomplete sheets. The generated sheet has 39 spans present out of 50, which is an availability upper bound, not a relevance score.
 
 ## Required comparisons
 
