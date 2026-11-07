@@ -18,6 +18,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", default="results/test_manifest.json")
     parser.add_argument("--preflight", default="results/test_preflight.jsonl")
+    parser.add_argument("--environment", default="results/environment.json")
     parser.add_argument("--input-dir", default="results/repairs")
     parser.add_argument("--output", default="results/repair_validation.json")
     args = parser.parse_args()
@@ -59,6 +60,8 @@ def main():
                                                         for row in rows)}
     assert len(digests) == 1, "Compared modes use different model digests"
     report["model_digest"] = next(iter(digests))
+    environment = json.loads(Path(args.environment).read_text())
+    assert report["model_digest"] == environment["installed_model_digests"]["qwen2.5-coder:0.5b"]
     report["status"] = "passed"
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
