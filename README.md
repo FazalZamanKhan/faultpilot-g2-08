@@ -74,6 +74,8 @@ The source-task-grouped test set contains 234 records. The corrected 12-second p
 
 The Phase 1 rules are diagnosis-only and make no edit; `results/E1_baseline_repair.json` records zero verified repair passes by design on the same fixed cases. Repair pass rates from E2 and E3 will use the 198 reproduced failures as their eligible denominator.
 
+The complete E2 Python RepairAgent-style adaptation produced **0/198 supplied-test passes**. This is a measured result for our adaptation, not a reproduction of the original paper's Java result. Its [failure analysis](results/E2_failure_analysis.json) records 123 candidate load failures, 47 rejected-edit cases, 23 candidates that loaded but failed tests, five malformed responses, 35 original environment blocks, and one original pass. E3 and ablation outcomes will be added after their frozen runs finish.
+
 | Diagnosis mode on 234 held-out records | Macro F1 | Exact match |
 | --- | ---: | ---: |
 | E1 Phase 1 mapped rules | 0.04082 | 0.00427 |
