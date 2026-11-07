@@ -1,0 +1,33 @@
+{
+  "evaluated": 234,
+  "fixed_test_denominator": 234,
+  "eligible_after_preflight": 198,
+  "evaluated_repair_eligible": 198,
+  "model_attempted": 164,
+  "status_counts": {
+    "environment_blocked": 35,
+    "exhausted": 162,
+    "abstained_insufficient_evidence": 33,
+    "malformed_model_response": 2,
+    "original_already_passes": 1,
+    "verified_by_supplied_tests": 1
+  },
+  "verified_passes": 1,
+  "offline_audit_passes_for_unverified_proposals": 0,
+  "offline_audit_failures_for_unverified_proposals": 0,
+  "verified_rate_on_evaluated": 0.00427,
+  "verified_rate_on_repair_eligible": 0.00505,
+  "mean_wall_s": 22.466,
+  "mean_agent_wall_s_excluding_offline_audit": 22.466,
+  "median_agent_wall_s_across_cases": 22.956,
+  "std_agent_wall_s_across_cases": 18.193,
+  "mean_agent_wall_s_on_model_attempts": 31.822,
+  "mean_tool_calls": 0.808,
+  "mean_tool_calls_on_repair_eligible": 0.955,
+  "sum_prompt_tokens": 454251,
+  "sum_output_tokens": 9059,
+  "mean_prompt_tokens_on_model_attempts": 2769.8,
+  "mean_output_tokens_on_model_attempts": 55.2,
+  "monetary_api_cost_usd": 0,
+  "cost_note": "Local Ollama inference; electricity and hardware amortization were not measured."
+}
