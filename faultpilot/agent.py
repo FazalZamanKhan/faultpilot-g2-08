@@ -23,7 +23,7 @@ class AgentSettings:
     retrieval: bool = True
     verification: bool = True
     evidence_gate: bool = True
-    confidence_floor: float = 0.20
+    confidence_floor: float = 0.40
     timeout_s: float = 12.0
 
 

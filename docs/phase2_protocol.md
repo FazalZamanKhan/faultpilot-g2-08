@@ -14,6 +14,10 @@ The harness concatenates each code candidate with its supplied `TestCases` unit 
 
 The diagnosis classifier is TF-IDF character 3–5 grams and one-vs-rest class-balanced logistic regression. A development-validation grid selected score-fusion weight 0.0 and label threshold 0.45. A separate development-validation rule selected evidence-gate confidence floor 0.40 subject to at least 50% validation coverage. The repair model is local Ollama `qwen2.5-coder:0.5b`, digest `4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09`, JSON schema output, temperature zero, seed 17, maximum 420 generated tokens, and at most two edit attempts. The frozen prompt is `line-json-v2`. Its output must identify a numbered source line and supply one replacement line; the validator also accepts the earlier exact one-occurrence old/new contract. Every candidate is tested in a fresh isolated process. A passing patch is labelled **verified by supplied tests**, which does not imply general correctness.
 
+The measured server used Ollama 0.40.14's 4,096-token default context on CPU. Model calls are kept on the same local server throughout the paired comparison. `results/environment.json` records the remaining software versions. The repair wall clock in each trace excludes the separately precomputed diagnosis and preflight; E6 should label it as model/patch/test time, not complete end-to-end latency.
+
+The prompt builder limits runtime feedback to 1,700 characters, buggy code to 8,000 characters and supplied tests to 2,300 characters, and passes no gold code. Long inputs may lose relevant context; this is a stated threat to validity. The development pilot compared the old/new and numbered-line contracts, then froze `line-json-v2` before the reported run.
+
 ## Required comparisons
 
 | Experiment | Implementation and saved result |

@@ -10,10 +10,14 @@ from experiments.run_repairs import MODES
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--diagnosis", default="results/diagnostic_evaluation.json")
+    parser.add_argument("--baseline", default="results/E1_baseline_repair.json")
     parser.add_argument("--aggregate", default="results/repair_aggregate.json")
     parser.add_argument("--output", default="paper/tables.tex")
     args = parser.parse_args()
     diagnosis = json.loads(Path(args.diagnosis).read_text())["metrics"]
+    baseline_repair = json.loads(Path(args.baseline).read_text())
+    if baseline_repair["test_count"] != 234 or baseline_repair["verified_repair_passes"] != 0:
+        raise ValueError("Phase 1 repair-scale baseline is incomplete or inconsistent")
     aggregate = json.loads(Path(args.aggregate).read_text())
     runs = aggregate["runs"]
     missing = [name for name in MODES if name not in runs or runs[name]["evaluated"] != 234]
@@ -38,6 +42,7 @@ def main():
         r"\label{tab:repair}", r"\begin{tabular}{lrrrrrr}", r"\toprule",
         r"Mode & Verified & Eligible rate (\%) & Abstained & Audit pass & Mean seconds & Mean tool calls " + end,
         r"\midrule",
+        "E1 rules (no edit) & 0 & 0.0 & 0 & 0 & -- & 0.00 " + end,
     ]
     display = [("E2 adaptation", "E2_repairagent_style"), ("E3 full", "E3_full"),
                ("No retrieval", "E5_no_retrieval"),

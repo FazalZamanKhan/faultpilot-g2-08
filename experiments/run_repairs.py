@@ -36,6 +36,7 @@ def summarize(path: Path, denominator: int, eligible: int) -> dict:
         "status_counts": dict(statuses),
         "verified_passes": statuses["verified_by_supplied_tests"],
         "offline_audit_passes_for_unverified_proposals": audited,
+        "offline_audit_failures_for_unverified_proposals": statuses["unverified_proposal"] - audited,
         "verified_rate_on_evaluated": round(statuses["verified_by_supplied_tests"] / len(rows), 5) if rows else None,
         "verified_rate_on_repair_eligible": round(statuses["verified_by_supplied_tests"] / eligible, 5) if eligible else None,
         "mean_wall_s": round(statistics.mean(row["wall_s"] for row in rows), 3) if rows else None,

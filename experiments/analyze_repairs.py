@@ -15,7 +15,14 @@ def category(row):
         return "provider_unavailable"
     if row["status"] in ("environment_blocked", "original_already_passes"):
         return row["status"]
-    if any(step["step"] == "test" for step in row["trace"]):
+    if row["status"] == "malformed_model_response":
+        return "malformed_model_response"
+    tests = [step["result"] for step in row["trace"] if step["step"] == "test"]
+    if any(result["status"] == "setup_error" for result in tests):
+        return "candidate_did_not_load"
+    if any(result["status"] == "timeout" for result in tests):
+        return "candidate_timed_out"
+    if tests:
         return "candidate_failed_tests"
     if any(step["step"] == "edit" for step in row["trace"]):
         return "all_edits_rejected"
@@ -34,7 +41,19 @@ def main():
     counts = Counter(category(row) for row in rows)
     preflight = [json.loads(line) for line in Path(args.preflight).read_text().splitlines() if line.strip()]
     successes = [row for row in rows if category(row) == "supplied_tests_passed"][:2]
-    failures = [row for row in rows if category(row) != "supplied_tests_passed"][:2]
+    failures = []
+    for name, _ in counts.most_common():
+        if name == "supplied_tests_passed":
+            continue
+        candidate = next((row for row in rows if category(row) == name), None)
+        if candidate is not None:
+            failures.append(candidate)
+        if len(failures) >= 2:
+            break
+    if len(failures) < 2:
+        failures.extend(row for row in rows if category(row) != "supplied_tests_passed"
+                        and row not in failures)
+        failures = failures[:2]
     result = {
         "evaluated_repair_cases": len(rows),
         "preflight_counts_all_held_out": dict(Counter(row["status"] for row in preflight)),

@@ -41,9 +41,11 @@ python3 -m experiments.tune_diagnostics
 python3 -m experiments.run_diagnostics
 python3 -m experiments.diagnostic_ci
 python3 -m experiments.evaluate_gate
+python3 -m experiments.measure_diagnosis_latency
 
 # Original-program outcomes with a 12-second sandbox limit.
 python3 -m experiments.preflight
+python3 -m experiments.run_baseline_repair
 
 # Development-only model/prompt check; choose the final model before test runs.
 python3 -m experiments.pilot_repairs --model qwen2.5-coder:0.5b
@@ -66,6 +68,8 @@ See the [protocol](docs/phase2_protocol.md) for split, metrics, settings and com
 ## Saved results so far
 
 The source-task-grouped test set contains 234 records. The corrected 12-second preflight found 198 reproduced failures eligible for repair, 30 setup errors, five timeouts and one already passing case. These counts do not imply successful repairs.
+
+The Phase 1 rules are diagnosis-only and make no edit; `results/E1_baseline_repair.json` records zero verified repair passes by design on the same fixed cases. Repair pass rates from E2 and E3 will use the 198 reproduced failures as their eligible denominator.
 
 | Diagnosis mode on 234 held-out records | Macro F1 | Exact match |
 | --- | ---: | ---: |
@@ -100,8 +104,10 @@ The original RepairAgent paper reported 164 correct Java fixes on its own benchm
 - `experiments/`: frozen setup, E1–E6 scripts and aggregation.
 - `results/`: manifests, per-case diagnoses, preflight, repair traces and summaries.
 - `tests/`: deterministic contract and sandbox tests.
-- `paper/`: IEEEtran source scaffold, architecture figure and 30 DOI-verified references. The assessed prose must be written by Fazal in his own words; this scaffold is not a final paper.
+- `paper/`: IEEEtran source scaffold, architecture and result figures, [factual evidence notes](paper/evidence_notes.md), and 30 DOI-verified references. The assessed prose must be written by Fazal in his own words; this scaffold is not a final paper.
 
 Only the solo group head submits through Google Classroom by **Sunday, 8 November 2026, 11:55 PM PKT**. Upload the 8–10 page final paper `Phase2_G2-08_22I-2362_Paper.pdf`, Turnitin similarity report `Phase2_G2-08_22I-2362_Similarity.pdf`, Turnitin AI-writing report `Phase2_G2-08_22I-2362_AIReport.pdf`, and a ZIP of the final LaTeX/Overleaf project. Add this public repository URL and the `phase2-final` release or tag URL in the same submission. Both reports must be generated from the same final paper; without them the brief says no evaluation occurs.
+
+Repository: <https://github.com/FazalZamanKhan/faultpilot-g2-08>. See the [exact submission checklist](docs/phase2_submission.md).
 
 The [Phase 1 PDF](submission/Phase1_G2-08_22I-2362.pdf) remains for provenance and is not a Phase 2 upload.

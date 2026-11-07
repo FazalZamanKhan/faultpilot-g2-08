@@ -1,0 +1,2124 @@
+{
+  "protocol": "Phase 1 rule baseline; diagnosis only, no edit operation",
+  "test_count": 234,
+  "eligible_reproduced_failures": 198,
+  "status_counts": {
+    "original_setup_error": 30,
+    "diagnosed_only": 198,
+    "original_pass": 1,
+    "original_timeout": 5
+  },
+  "patch_attempts": 0,
+  "verified_repair_passes": 0,
+  "note": "Zero repair passes are by baseline design, not a measured patch failure rate.",
+  "cases": [
+    {
+      "case_id": "MLDebug4",
+      "task_id": "BigCodeBench/56",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug9",
+      "task_id": "BigCodeBench/317",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug10",
+      "task_id": "BigCodeBench/339",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug18",
+      "task_id": "BigCodeBench/454",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug19",
+      "task_id": "BigCodeBench/464",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug26",
+      "task_id": "BigCodeBench/536",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug27",
+      "task_id": "BigCodeBench/542",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug33",
+      "task_id": "BigCodeBench/585",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug45",
+      "task_id": "BigCodeBench/676",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug52",
+      "task_id": "BigCodeBench/749",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug53",
+      "task_id": "BigCodeBench/751",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug55",
+      "task_id": "BigCodeBench/758",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug60",
+      "task_id": "BigCodeBench/789",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug82",
+      "task_id": "BigCodeBench/1079",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug85",
+      "task_id": "BigCodeBench/1126",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug88",
+      "task_id": "BigCodeBench/1139",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug93",
+      "task_id": "BigCodeBench/55",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug94",
+      "task_id": "BigCodeBench/56",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug98",
+      "task_id": "BigCodeBench/170",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug101",
+      "task_id": "BigCodeBench/214",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug104",
+      "task_id": "BigCodeBench/275",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug109",
+      "task_id": "BigCodeBench/335",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug111",
+      "task_id": "BigCodeBench/359",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug121",
+      "task_id": "BigCodeBench/489",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug130",
+      "task_id": "BigCodeBench/552",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug132",
+      "task_id": "BigCodeBench/624",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug141",
+      "task_id": "BigCodeBench/749",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug154",
+      "task_id": "BigCodeBench/896",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug155",
+      "task_id": "BigCodeBench/918",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug164",
+      "task_id": "BigCodeBench/1050",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug168",
+      "task_id": "BigCodeBench/1107",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug173",
+      "task_id": "BigCodeBench/16",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug193",
+      "task_id": "BigCodeBench/214",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug196",
+      "task_id": "BigCodeBench/233",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug198",
+      "task_id": "BigCodeBench/255",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug202",
+      "task_id": "BigCodeBench/312",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug203",
+      "task_id": "BigCodeBench/339",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug205",
+      "task_id": "BigCodeBench/343",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug223",
+      "task_id": "BigCodeBench/552",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug225",
+      "task_id": "BigCodeBench/559",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug229",
+      "task_id": "BigCodeBench/610",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug232",
+      "task_id": "BigCodeBench/631",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug235",
+      "task_id": "BigCodeBench/660",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug236",
+      "task_id": "BigCodeBench/669",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug239",
+      "task_id": "BigCodeBench/692",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug250",
+      "task_id": "BigCodeBench/749",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug251",
+      "task_id": "BigCodeBench/751",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug252",
+      "task_id": "BigCodeBench/769",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug254",
+      "task_id": "BigCodeBench/789",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug257",
+      "task_id": "BigCodeBench/824",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug262",
+      "task_id": "BigCodeBench/868",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug272",
+      "task_id": "BigCodeBench/937",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug274",
+      "task_id": "BigCodeBench/942",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug283",
+      "task_id": "BigCodeBench/1007",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug289",
+      "task_id": "BigCodeBench/1057",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug290",
+      "task_id": "BigCodeBench/1063",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug292",
+      "task_id": "BigCodeBench/1114",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug293",
+      "task_id": "BigCodeBench/1126",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug295",
+      "task_id": "BigCodeBench/1139",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug299",
+      "task_id": "BigCodeBench/27",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug306",
+      "task_id": "BigCodeBench/65",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug327",
+      "task_id": "BigCodeBench/275",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug341",
+      "task_id": "BigCodeBench/335",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug344",
+      "task_id": "BigCodeBench/359",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug348",
+      "task_id": "BigCodeBench/387",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug351",
+      "task_id": "BigCodeBench/399",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug352",
+      "task_id": "BigCodeBench/402",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug362",
+      "task_id": "BigCodeBench/435",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug366",
+      "task_id": "BigCodeBench/446",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug383",
+      "task_id": "BigCodeBench/599",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug389",
+      "task_id": "BigCodeBench/624",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug393",
+      "task_id": "BigCodeBench/631",
+      "preflight": "pass",
+      "predicted_labels": [],
+      "status": "original_pass",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug399",
+      "task_id": "BigCodeBench/669",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug409",
+      "task_id": "BigCodeBench/715",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug417",
+      "task_id": "BigCodeBench/749",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug422",
+      "task_id": "BigCodeBench/774",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug424",
+      "task_id": "BigCodeBench/789",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug432",
+      "task_id": "BigCodeBench/853",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug439",
+      "task_id": "BigCodeBench/868",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug446",
+      "task_id": "BigCodeBench/901",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug453",
+      "task_id": "BigCodeBench/930",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug455",
+      "task_id": "BigCodeBench/937",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug459",
+      "task_id": "BigCodeBench/953",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug463",
+      "task_id": "BigCodeBench/970",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug467",
+      "task_id": "BigCodeBench/983",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug470",
+      "task_id": "BigCodeBench/1007",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug479",
+      "task_id": "BigCodeBench/1049",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug481",
+      "task_id": "BigCodeBench/1068",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug483",
+      "task_id": "BigCodeBench/1079",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug490",
+      "task_id": "BigCodeBench/1115",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug492",
+      "task_id": "BigCodeBench/1139",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug494",
+      "task_id": "BigCodeBench/7",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug497",
+      "task_id": "BigCodeBench/28",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug502",
+      "task_id": "BigCodeBench/153",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug513",
+      "task_id": "BigCodeBench/317",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug514",
+      "task_id": "BigCodeBench/339",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug518",
+      "task_id": "BigCodeBench/382",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug525",
+      "task_id": "BigCodeBench/429",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug528",
+      "task_id": "BigCodeBench/456",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug534",
+      "task_id": "BigCodeBench/507",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug546",
+      "task_id": "BigCodeBench/745",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug548",
+      "task_id": "BigCodeBench/804",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug553",
+      "task_id": "BigCodeBench/902",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug568",
+      "task_id": "BigCodeBench/100",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug575",
+      "task_id": "BigCodeBench/1012",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug592",
+      "task_id": "BigCodeBench/1049",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug598",
+      "task_id": "BigCodeBench/1056",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug599",
+      "task_id": "BigCodeBench/1057",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug600",
+      "task_id": "BigCodeBench/1058",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug605",
+      "task_id": "BigCodeBench/1063",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug614",
+      "task_id": "BigCodeBench/1079",
+      "preflight": "timeout",
+      "predicted_labels": [],
+      "status": "original_timeout",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug615",
+      "task_id": "BigCodeBench/108",
+      "preflight": "timeout",
+      "predicted_labels": [],
+      "status": "original_timeout",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug618",
+      "task_id": "BigCodeBench/1083",
+      "preflight": "timeout",
+      "predicted_labels": [],
+      "status": "original_timeout",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug620",
+      "task_id": "BigCodeBench/109",
+      "preflight": "timeout",
+      "predicted_labels": [],
+      "status": "original_timeout",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug623",
+      "task_id": "BigCodeBench/1094",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug625",
+      "task_id": "BigCodeBench/1096",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug630",
+      "task_id": "BigCodeBench/1105",
+      "preflight": "timeout",
+      "predicted_labels": [],
+      "status": "original_timeout",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug636",
+      "task_id": "BigCodeBench/1113",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug637",
+      "task_id": "BigCodeBench/1114",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug639",
+      "task_id": "BigCodeBench/1117",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug646",
+      "task_id": "BigCodeBench/1126",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug647",
+      "task_id": "BigCodeBench/1127",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug650",
+      "task_id": "BigCodeBench/1135",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug654",
+      "task_id": "BigCodeBench/124",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug656",
+      "task_id": "BigCodeBench/128",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug657",
+      "task_id": "BigCodeBench/129",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug667",
+      "task_id": "BigCodeBench/147",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug674",
+      "task_id": "BigCodeBench/160",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug675",
+      "task_id": "BigCodeBench/162",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug678",
+      "task_id": "BigCodeBench/171",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug683",
+      "task_id": "BigCodeBench/178",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug684",
+      "task_id": "BigCodeBench/182",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug692",
+      "task_id": "BigCodeBench/191",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug701",
+      "task_id": "BigCodeBench/204",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug712",
+      "task_id": "BigCodeBench/223",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug715",
+      "task_id": "BigCodeBench/227",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug718",
+      "task_id": "BigCodeBench/233",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug724",
+      "task_id": "BigCodeBench/248",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug728",
+      "task_id": "BigCodeBench/254",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug729",
+      "task_id": "BigCodeBench/255",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug731",
+      "task_id": "BigCodeBench/259",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug740",
+      "task_id": "BigCodeBench/28",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug742",
+      "task_id": "BigCodeBench/287",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug746",
+      "task_id": "BigCodeBench/291",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug751",
+      "task_id": "BigCodeBench/299",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug762",
+      "task_id": "BigCodeBench/312",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug765",
+      "task_id": "BigCodeBench/317",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug766",
+      "task_id": "BigCodeBench/318",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug777",
+      "task_id": "BigCodeBench/331",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug779",
+      "task_id": "BigCodeBench/336",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug780",
+      "task_id": "BigCodeBench/337",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug782",
+      "task_id": "BigCodeBench/339",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug785",
+      "task_id": "BigCodeBench/342",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug787",
+      "task_id": "BigCodeBench/345",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug789",
+      "task_id": "BigCodeBench/35",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug790",
+      "task_id": "BigCodeBench/350",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug797",
+      "task_id": "BigCodeBench/369",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug802",
+      "task_id": "BigCodeBench/374",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug810",
+      "task_id": "BigCodeBench/387",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug815",
+      "task_id": "BigCodeBench/399",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug818",
+      "task_id": "BigCodeBench/402",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug829",
+      "task_id": "BigCodeBench/424",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug830",
+      "task_id": "BigCodeBench/425",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug833",
+      "task_id": "BigCodeBench/429",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug842",
+      "task_id": "BigCodeBench/443",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug843",
+      "task_id": "BigCodeBench/447",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug845",
+      "task_id": "BigCodeBench/454",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug846",
+      "task_id": "BigCodeBench/456",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug848",
+      "task_id": "BigCodeBench/458",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug851",
+      "task_id": "BigCodeBench/463",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug852",
+      "task_id": "BigCodeBench/469",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug853",
+      "task_id": "BigCodeBench/470",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug860",
+      "task_id": "BigCodeBench/477",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug866",
+      "task_id": "BigCodeBench/484",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug868",
+      "task_id": "BigCodeBench/486",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug870",
+      "task_id": "BigCodeBench/489",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug871",
+      "task_id": "BigCodeBench/49",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug877",
+      "task_id": "BigCodeBench/50",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug879",
+      "task_id": "BigCodeBench/501",
+      "preflight": "setup_error",
+      "predicted_labels": [
+        "Import Errors"
+      ],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug883",
+      "task_id": "BigCodeBench/507",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug892",
+      "task_id": "BigCodeBench/525",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug894",
+      "task_id": "BigCodeBench/527",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug904",
+      "task_id": "BigCodeBench/536",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug908",
+      "task_id": "BigCodeBench/540",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug909",
+      "task_id": "BigCodeBench/541",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug911",
+      "task_id": "BigCodeBench/55",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug918",
+      "task_id": "BigCodeBench/56",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug922",
+      "task_id": "BigCodeBench/565",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug928",
+      "task_id": "BigCodeBench/573",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug932",
+      "task_id": "BigCodeBench/579",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug936",
+      "task_id": "BigCodeBench/587",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug946",
+      "task_id": "BigCodeBench/599",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug952",
+      "task_id": "BigCodeBench/606",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug953",
+      "task_id": "BigCodeBench/608",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug960",
+      "task_id": "BigCodeBench/616",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug961",
+      "task_id": "BigCodeBench/617",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug975",
+      "task_id": "BigCodeBench/644",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug980",
+      "task_id": "BigCodeBench/649",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug981",
+      "task_id": "BigCodeBench/65",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1000",
+      "task_id": "BigCodeBench/691",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1001",
+      "task_id": "BigCodeBench/692",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1002",
+      "task_id": "BigCodeBench/697",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1004",
+      "task_id": "BigCodeBench/7",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1008",
+      "task_id": "BigCodeBench/715",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1024",
+      "task_id": "BigCodeBench/744",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1025",
+      "task_id": "BigCodeBench/745",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1027",
+      "task_id": "BigCodeBench/749",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1029",
+      "task_id": "BigCodeBench/752",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1031",
+      "task_id": "BigCodeBench/758",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1032",
+      "task_id": "BigCodeBench/76",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1041",
+      "task_id": "BigCodeBench/774",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1051",
+      "task_id": "BigCodeBench/789",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1064",
+      "task_id": "BigCodeBench/801",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1066",
+      "task_id": "BigCodeBench/804",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1078",
+      "task_id": "BigCodeBench/826",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1089",
+      "task_id": "BigCodeBench/849",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1092",
+      "task_id": "BigCodeBench/854",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1095",
+      "task_id": "BigCodeBench/860",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1097",
+      "task_id": "BigCodeBench/864",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1107",
+      "task_id": "BigCodeBench/882",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1108",
+      "task_id": "BigCodeBench/887",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1115",
+      "task_id": "BigCodeBench/895",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1119",
+      "task_id": "BigCodeBench/900",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1120",
+      "task_id": "BigCodeBench/901",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1123",
+      "task_id": "BigCodeBench/91",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1128",
+      "task_id": "BigCodeBench/918",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1131",
+      "task_id": "BigCodeBench/926",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1134",
+      "task_id": "BigCodeBench/930",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1143",
+      "task_id": "BigCodeBench/943",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1154",
+      "task_id": "BigCodeBench/970",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1162",
+      "task_id": "BigCodeBench/983",
+      "preflight": "setup_error",
+      "predicted_labels": [],
+      "status": "original_setup_error",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1163",
+      "task_id": "BigCodeBench/985",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1170",
+      "task_id": "BigCodeBench/993",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    },
+    {
+      "case_id": "MLDebug1173",
+      "task_id": "BigCodeBench/997",
+      "preflight": "fail",
+      "predicted_labels": [],
+      "status": "diagnosed_only",
+      "patch_attempted": false,
+      "verified_repair": false
+    }
+  ]
+}
