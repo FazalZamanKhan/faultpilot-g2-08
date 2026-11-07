@@ -35,6 +35,8 @@ For the Phase 1 evidence-relevance target, `experiments.evidence_audit` selects 
 
 For the repair modes, `--limit N` selects the first N eligible case IDs in a fixed SHA-256 order. Without a limit, all 234 held-out records receive a trace: the agent attempts model repair on reproduced failures and records explicit blocked or already-passing states for the others. Any limited pilot must disclose N and must not be presented as a full test-set result. Outputs are line-oriented JSON and resumable by case ID. The model is deterministic by configuration, so three-run averaging is required only if a stochastic configuration is introduced; actual repeatability must still be checked before making a determinism claim.
 
+If the local model provider stops, a `provider_error` trace is retained and the resumed command retries that same case with identical settings. Summaries take the last completed row for each case. The validator permits duplicate IDs only when all earlier rows are provider errors; it records the retry count and rejects an unresolved final provider error.
+
 `experiments.export_trace_samples` reconstructs the exact prompt and full candidate source for the final-system representative cases from the pinned input and saved edit trajectory. The proposal and test outcome fields are copied from the original trace, and reconstruction is labelled in the exported JSON. The export is a reviewer aid, not a new model run.
 
 ## Base-paper comparison boundary

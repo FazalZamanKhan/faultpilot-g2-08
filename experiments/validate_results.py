@@ -2,7 +2,7 @@
 
 import argparse
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from experiments.run_repairs import MODES
@@ -35,9 +35,14 @@ def main():
     digests = set()
     for mode, switches in MODES.items():
         rows = read_jsonl(Path(args.input_dir) / f"{mode}.jsonl")
-        counts = Counter(row["case_id"] for row in rows)
-        assert set(counts) == ids, f"{mode}: missing or unexpected case IDs"
-        assert all(count == 1 for count in counts.values()), f"{mode}: duplicate case IDs"
+        attempts = defaultdict(list)
+        for row in rows:
+            attempts[row["case_id"]].append(row)
+        assert set(attempts) == ids, f"{mode}: missing or unexpected case IDs"
+        assert all(all(row["status"] == "provider_error" for row in group[:-1])
+                   and group[-1]["status"] != "provider_error" for group in attempts.values()), \
+            f"{mode}: duplicate result or unresolved provider error"
+        final = [group[-1] for group in attempts.values()]
         assert all(row["mode"] == mode and row["prompt_version"] == PROMPT_VERSION for row in rows)
         assert all(row["configuration"][key] == value for row in rows
                    for key, value in switches.items()), f"{mode}: wrong switch configuration"
@@ -49,15 +54,14 @@ def main():
                    for row in rows), f"{mode}: original outcome changed"
         assert all(row["case_id"] in eligible or row["status"] in
                    ("environment_blocked", "original_already_passes") for row in rows)
-        assert all(row["status"] != "provider_error" for row in rows)
         assert all(row["status"] != "verified_by_supplied_tests" or any(
             step["step"] == "test" and step["result"]["status"] == "pass"
             for step in row["trace"]) for row in rows)
         digests.update(row["model_digest"] for row in rows)
-        report["modes"][mode] = {"cases": len(rows),
-                                 "statuses": dict(Counter(row["status"] for row in rows)),
+        report["modes"][mode] = {"cases": len(final), "provider_retries": len(rows) - len(final),
+                                 "statuses": dict(Counter(row["status"] for row in final)),
                                  "verified_passes": sum(row["status"] == "verified_by_supplied_tests"
-                                                        for row in rows)}
+                                                        for row in final)}
     assert len(digests) == 1, "Compared modes use different model digests"
     report["model_digest"] = next(iter(digests))
     environment = json.loads(Path(args.environment).read_text())
