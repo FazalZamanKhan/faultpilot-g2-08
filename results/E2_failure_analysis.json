@@ -1,0 +1,221 @@
+{
+  "evaluated_repair_cases": 234,
+  "preflight_counts_all_held_out": {
+    "setup_error": 30,
+    "fail": 198,
+    "pass": 1,
+    "timeout": 5
+  },
+  "failure_category_counts_evaluated": {
+    "candidate_failed_tests": 23,
+    "all_edits_rejected": 47,
+    "candidate_did_not_load": 123,
+    "environment_blocked": 35,
+    "malformed_model_response": 5,
+    "original_already_passes": 1
+  },
+  "representative_successes": [],
+  "representative_failures": [
+    {
+      "case_id": "MLDebug1002",
+      "task_id": "BigCodeBench/697",
+      "truth_labels": [
+        "Function Parameter Errors"
+      ],
+      "diagnosis": null,
+      "status": "exhausted",
+      "trace": [
+        {
+          "step": "reproduce",
+          "result": {
+            "case_id": "MLDebug1002",
+            "task_id": "BigCodeBench/697",
+            "split": "test",
+            "labels": [
+              "Function Parameter Errors"
+            ],
+            "status": "fail",
+            "tests_run": 5,
+            "failures": 0,
+            "errors": 5,
+            "details": {
+              "test_case_1": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 26, in test_case_1\nTypeError: object of type 'numpy.float64' has no len()\n",
+              "test_case_2": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 32, in test_case_2\nTypeError: object of type 'numpy.float64' has no len()\n",
+              "test_case_3": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 40, in test_case_3\nTypeError: object of type 'numpy.float64' has no len()\n",
+              "test_case_4": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 48, in test_case_4\nTypeError: object of type 'numpy.float64' has no len()\n",
+              "test_case_5": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 56, in test_case_5\nTypeError: object of type 'numpy.float64' has no len()\n"
+            },
+            "duration_s": 1.338
+          }
+        },
+        {
+          "step": "propose",
+          "attempt": 1,
+          "proposal": {
+            "line": 1,
+            "new": "Replace 'numpy.float64' with 'numpy.int64'"
+          },
+          "usage": {
+            "latency_s": 24.656,
+            "prompt_tokens": 1151,
+            "output_tokens": 29,
+            "eval_duration_ns": 2445678000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 1,
+          "status": "applied"
+        },
+        {
+          "step": "test",
+          "attempt": 1,
+          "result": {
+            "status": "setup_error",
+            "tests_run": 0,
+            "failures": 0,
+            "errors": 1,
+            "details": {
+              "ALL": "SyntaxError: invalid syntax (__test__.py, line 1)"
+            },
+            "duration_s": 0.158
+          }
+        },
+        {
+          "step": "propose",
+          "attempt": 2,
+          "proposal": {
+            "line": 1,
+            "new": "import numpy as np"
+          },
+          "usage": {
+            "latency_s": 2.399,
+            "prompt_tokens": 1170,
+            "output_tokens": 16,
+            "eval_duration_ns": 1412390000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 2,
+          "status": "unchanged_line"
+        }
+      ],
+      "tool_calls": 1,
+      "prompt_tokens": 2321,
+      "output_tokens": 45,
+      "wall_s": 27.216,
+      "agent_wall_s": 27.216,
+      "offline_audit_s": 0.0,
+      "prompt_version": "line-json-v2",
+      "configuration": {
+        "model": "qwen2.5-coder:0.5b",
+        "endpoint": "http://127.0.0.1:11434/api/generate",
+        "attempts": 2,
+        "temperature": 0.0,
+        "seed": 17,
+        "retrieval": false,
+        "verification": true,
+        "evidence_gate": false,
+        "confidence_floor": 0.4,
+        "timeout_s": 12.0
+      },
+      "mode": "E2_repairagent_style",
+      "model_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+    },
+    {
+      "case_id": "MLDebug1000",
+      "task_id": "BigCodeBench/691",
+      "truth_labels": [
+        "Requirement Misunderstanding"
+      ],
+      "diagnosis": null,
+      "status": "exhausted",
+      "trace": [
+        {
+          "step": "reproduce",
+          "result": {
+            "case_id": "MLDebug1000",
+            "task_id": "BigCodeBench/691",
+            "split": "test",
+            "labels": [
+              "Requirement Misunderstanding"
+            ],
+            "status": "fail",
+            "tests_run": 5,
+            "failures": 0,
+            "errors": 5,
+            "details": {
+              "test_case_1": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 9, in test_case_1\nNameError: name 'task_func' is not defined\n",
+              "test_case_2": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 14, in test_case_2\nNameError: name 'task_func' is not defined\n",
+              "test_case_3": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 19, in test_case_3\nNameError: name 'task_func' is not defined\n",
+              "test_case_4": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 24, in test_case_4\nNameError: name 'task_func' is not defined\n",
+              "test_case_5": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 29, in test_case_5\nNameError: name 'task_func' is not defined\n"
+            },
+            "duration_s": 1.255
+          }
+        },
+        {
+          "step": "propose",
+          "attempt": 1,
+          "proposal": {
+            "line": 16,
+            "new": "df = pd.DataFrame(np.random.rand(500, 2) * 100, columns=['A', 'B'])"
+          },
+          "usage": {
+            "latency_s": 14.91,
+            "prompt_tokens": 755,
+            "output_tokens": 45,
+            "eval_duration_ns": 2801867000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 1,
+          "status": "invalid_line_number"
+        },
+        {
+          "step": "propose",
+          "attempt": 2,
+          "proposal": {
+            "line": 16,
+            "new": "df = pd.DataFrame(np.random.rand(500, 2) * 100, columns=['A', 'B'])"
+          },
+          "usage": {
+            "latency_s": 3.386,
+            "prompt_tokens": 781,
+            "output_tokens": 45,
+            "eval_duration_ns": 2769630000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 2,
+          "status": "invalid_line_number"
+        }
+      ],
+      "tool_calls": 0,
+      "prompt_tokens": 1536,
+      "output_tokens": 90,
+      "wall_s": 18.297,
+      "agent_wall_s": 18.297,
+      "offline_audit_s": 0.0,
+      "prompt_version": "line-json-v2",
+      "configuration": {
+        "model": "qwen2.5-coder:0.5b",
+        "endpoint": "http://127.0.0.1:11434/api/generate",
+        "attempts": 2,
+        "temperature": 0.0,
+        "seed": 17,
+        "retrieval": false,
+        "verification": true,
+        "evidence_gate": false,
+        "confidence_floor": 0.4,
+        "timeout_s": 12.0
+      },
+      "mode": "E2_repairagent_style",
+      "model_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+    }
+  ],
+  "coverage_note": "If fewer than two successes exist, no success case is invented."
+}
