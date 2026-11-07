@@ -24,6 +24,8 @@ def main():
     source = (PAPER / "main.tex").read_text()
     if "[Author:" in source or "[Author to" in source:
         raise SystemExit("Write the original title and all captions before finalizing.")
+    if r"\nocite" in source:
+        raise SystemExit("Cite each discussed source in the paper text; do not use \\nocite to fill the bibliography.")
     abstract = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", source, re.S)
     if not abstract:
         raise SystemExit("Missing abstract.")
