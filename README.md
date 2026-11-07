@@ -57,6 +57,8 @@ python3 -m experiments.run_repairs --model qwen2.5-coder:0.5b --mode all
 python3 -m experiments.validate_results
 python3 -m experiments.aggregate
 python3 -m experiments.analyze_repairs
+python3 -m experiments.export_trace_samples
+python3 -m experiments.plot_failures
 python3 -m experiments.build_paper_tables
 ```
 

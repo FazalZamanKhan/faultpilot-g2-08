@@ -35,6 +35,8 @@ For the Phase 1 evidence-relevance target, `experiments.evidence_audit` selects 
 
 For the repair modes, `--limit N` selects the first N eligible case IDs in a fixed SHA-256 order. Without a limit, all 234 held-out records receive a trace: the agent attempts model repair on reproduced failures and records explicit blocked or already-passing states for the others. Any limited pilot must disclose N and must not be presented as a full test-set result. Outputs are line-oriented JSON and resumable by case ID. The model is deterministic by configuration, so three-run averaging is required only if a stochastic configuration is introduced; actual repeatability must still be checked before making a determinism claim.
 
+`experiments.export_trace_samples` reconstructs the exact prompt and full candidate source for the final-system representative cases from the pinned input and saved edit trajectory. The proposal and test outcome fields are copied from the original trace, and reconstruction is labelled in the exported JSON. The export is a reviewer aid, not a new model run.
+
 ## Base-paper comparison boundary
 
 [RepairAgent](https://github.com/sola-st/RepairAgent) was published for Java Defects4J. Its reported 164 correct fixes are from that setting and are **not** a directly comparable result on these Python MLDebugging tasks. The E2 code transfers the inspect/edit/test idea to the same local Python cases and budget as E3. Label E2 as a reproduced *adaptation*; never attribute its score to the original authors or equate the original reported count with Python pass rate.
