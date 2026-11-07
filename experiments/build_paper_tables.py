@@ -68,9 +68,9 @@ def main():
         r"\toprule",
         "Gap & Component & Metric & Base paper & Our result & Status " + end,
         r"\midrule",
-        f"1 & Evidence retrieval & Macro F1 & No Python result & Learned {learned['macro_f1']:.3f}; rules {base['macro_f1']:.3f}; fusion {fusion['macro_f1']:.3f} & Partial " + end,
-        f"2 & Test verification & Passing cases & No Python result & Full {e3['verified_passes']}; unverified audit {no_verify['offline_audit_passes_for_unverified_proposals']} & Partial " + end,
-        f"3 & Evidence gate & Pass / abstain & No Python result & Full {e3['verified_passes']} / {e3['status_counts'].get('abstained_insufficient_evidence', 0)}; no gate {no_gate['verified_passes']} / {no_gate['status_counts'].get('abstained_insufficient_evidence', 0)} & Partial " + end,
+        f"1 & Evidence retrieval & Macro F1 & No Python result & Learned {learned['macro_f1']:.3f}; rules {base['macro_f1']:.3f}; fusion {fusion['macro_f1']:.3f} & [Author: status] " + end,
+        f"2 & Test verification & Passing cases & No Python result & Full {e3['verified_passes']}; unverified audit {no_verify['offline_audit_passes_for_unverified_proposals']} & [Author: status] " + end,
+        f"3 & Evidence gate & Pass / abstain & No Python result & Full {e3['verified_passes']} / {e3['status_counts'].get('abstained_insufficient_evidence', 0)}; no gate {no_gate['verified_passes']} / {no_gate['status_counts'].get('abstained_insufficient_evidence', 0)} & [Author: status] " + end,
         r"\bottomrule", r"\end{tabular}", r"\end{table*}", "",
     ]
     output = Path(args.output)
