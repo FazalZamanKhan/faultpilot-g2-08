@@ -49,9 +49,13 @@ def main():
     log = (PAPER / "main.log").read_text()
     if "undefined references" in log.lower() or "citation" in log.lower() and "undefined" in log.lower():
         raise SystemExit("LaTeX reports unresolved citations or references.")
-    reference_count = len(re.findall(r"\\bibitem\b", (PAPER / "main.bbl").read_text()))
+    bibliography = (PAPER / "main.bbl").read_text()
+    entries = re.split(r"(?=\\bibitem\b)", bibliography)[1:]
+    reference_count = len(entries)
     if not 25 <= reference_count <= 30:
         raise SystemExit(f"Bibliography has {reference_count} cited works; required range is 25–30.")
+    if any(not re.search(r"\\url\{https?://", entry) for entry in entries):
+        raise SystemExit("At least one cited reference lacks a printed DOI or official URL.")
     metadata = run("pdfinfo", "main.pdf").stdout
     match = re.search(r"^Pages:\s+(\d+)", metadata, re.M)
     pages = int(match.group(1)) if match else -1
