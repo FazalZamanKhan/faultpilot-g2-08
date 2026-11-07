@@ -1,0 +1,325 @@
+{
+  "evaluated_repair_cases": 234,
+  "preflight_counts_all_held_out": {
+    "setup_error": 30,
+    "fail": 198,
+    "pass": 1,
+    "timeout": 5
+  },
+  "failure_category_counts_evaluated": {
+    "candidate_failed_tests": 54,
+    "evidence_gate_abstention": 33,
+    "all_edits_rejected": 40,
+    "candidate_did_not_load": 70,
+    "environment_blocked": 35,
+    "original_already_passes": 1,
+    "malformed_model_response": 1
+  },
+  "representative_successes": [],
+  "representative_failures": [
+    {
+      "case_id": "MLDebug1004",
+      "task_id": "BigCodeBench/7",
+      "truth_labels": [
+        "Data Transfer Issues"
+      ],
+      "diagnosis": {
+        "labels": [
+          "Requirement Misunderstanding"
+        ],
+        "confidence": 0.8001,
+        "evidence": [
+          {
+            "line": 4,
+            "text": "def task_func(csv_file_path):",
+            "overlap": 1
+          }
+        ],
+        "retrieved": [
+          {
+            "case_id": "MLDebug992",
+            "task_id": "BigCodeBench/664",
+            "similarity": 0.5189,
+            "labels": [
+              "Requirement Misunderstanding"
+            ]
+          },
+          {
+            "case_id": "MLDebug42",
+            "task_id": "BigCodeBench/627",
+            "similarity": 0.4488,
+            "labels": [
+              "Data Transfer Issues"
+            ]
+          },
+          {
+            "case_id": "MLDebug1084",
+            "task_id": "BigCodeBench/84",
+            "similarity": 0.4123,
+            "labels": [
+              "Requirement Misunderstanding"
+            ]
+          }
+        ]
+      },
+      "status": "exhausted",
+      "trace": [
+        {
+          "step": "reproduce",
+          "result": {
+            "case_id": "MLDebug1004",
+            "task_id": "BigCodeBench/7",
+            "split": "test",
+            "labels": [
+              "Data Transfer Issues"
+            ],
+            "status": "fail",
+            "tests_run": 7,
+            "failures": 0,
+            "errors": 1,
+            "details": {
+              "test_case_4": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 54, in test_case_4\n  File \"/work/__test__.py\", line 20, in task_func\nIndexError: list index out of range\n"
+            },
+            "duration_s": 0.138
+          }
+        },
+        {
+          "step": "propose",
+          "attempt": 1,
+          "proposal": {
+            "line": 4,
+            "new": "def task_func(csv_file_path):"
+          },
+          "usage": {
+            "latency_s": 23.044,
+            "prompt_tokens": 1074,
+            "output_tokens": 23,
+            "eval_duration_ns": 1976136000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 1,
+          "status": "unchanged_line"
+        },
+        {
+          "step": "propose",
+          "attempt": 2,
+          "proposal": {
+            "line": 1,
+            "new": "def task_func(csv_file_path):"
+          },
+          "usage": {
+            "latency_s": 2.567,
+            "prompt_tokens": 1099,
+            "output_tokens": 19,
+            "eval_duration_ns": 1447572000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 2,
+          "status": "applied"
+        },
+        {
+          "step": "test",
+          "attempt": 2,
+          "result": {
+            "status": "setup_error",
+            "tests_run": 0,
+            "failures": 0,
+            "errors": 1,
+            "details": {
+              "ALL": "IndentationError: expected an indented block after function definition on line 1 (__test__.py, line 2)"
+            },
+            "duration_s": 0.11
+          }
+        }
+      ],
+      "tool_calls": 1,
+      "prompt_tokens": 2173,
+      "output_tokens": 42,
+      "wall_s": 25.723,
+      "agent_wall_s": 25.723,
+      "offline_audit_s": 0.0,
+      "prompt_version": "line-json-v2",
+      "configuration": {
+        "model": "qwen2.5-coder:0.5b",
+        "endpoint": "http://127.0.0.1:11434/api/generate",
+        "attempts": 2,
+        "temperature": 0.0,
+        "seed": 17,
+        "retrieval": true,
+        "verification": true,
+        "evidence_gate": true,
+        "confidence_floor": 0.4,
+        "timeout_s": 12.0
+      },
+      "mode": "E3_full",
+      "model_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+    },
+    {
+      "case_id": "MLDebug10",
+      "task_id": "BigCodeBench/339",
+      "truth_labels": [
+        "Data Transfer Issues"
+      ],
+      "diagnosis": {
+        "labels": [
+          "Data Transfer Issues",
+          "Parameter Configuration Errors"
+        ],
+        "confidence": 0.5776,
+        "evidence": [
+          {
+            "line": 4,
+            "text": "import hmac",
+            "overlap": 1
+          },
+          {
+            "line": 6,
+            "text": "def task_func(req_data, secret_key):",
+            "overlap": 1
+          },
+          {
+            "line": 8,
+            "text": "raise TypeError(\"req_data must be a dictionary\")",
+            "overlap": 1
+          }
+        ],
+        "retrieved": [
+          {
+            "case_id": "MLDebug23",
+            "task_id": "BigCodeBench/505",
+            "similarity": 0.6608,
+            "labels": [
+              "Data Transfer Issues"
+            ]
+          },
+          {
+            "case_id": "MLDebug370",
+            "task_id": "BigCodeBench/505",
+            "similarity": 0.652,
+            "labels": [
+              "Parameter Configuration Errors"
+            ]
+          },
+          {
+            "case_id": "MLDebug15",
+            "task_id": "BigCodeBench/433",
+            "similarity": 0.623,
+            "labels": [
+              "Data Transfer Issues"
+            ]
+          }
+        ]
+      },
+      "status": "exhausted",
+      "trace": [
+        {
+          "step": "reproduce",
+          "result": {
+            "case_id": "MLDebug10",
+            "task_id": "BigCodeBench/339",
+            "split": "test",
+            "labels": [
+              "Data Transfer Issues"
+            ],
+            "status": "fail",
+            "tests_run": 7,
+            "failures": 0,
+            "errors": 6,
+            "details": {
+              "test_complex_data_structure": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 47, in test_complex_data_structure\n  File \"/work/__test__.py\", line 10, in task_func\n  File \"/usr/lib/python3.12/hmac.py\", line 184, in new\n    return HMAC(key, msg, digestmod)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/hmac.py\", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File \"/usr/lib/python3.12/hmac.py\", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Strings must be encoded before hashing\n",
+              "test_consistent_hash_with_same_input": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 68, in test_consistent_hash_with_same_input\n  File \"/work/__test__.py\", line 10, in task_func\n  File \"/usr/lib/python3.12/hmac.py\", line 184, in new\n    return HMAC(key, msg, digestmod)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/hmac.py\", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File \"/usr/lib/python3.12/hmac.py\", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Strings must be encoded before hashing\n",
+              "test_different_data_different_signatures": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 58, in test_different_data_different_signatures\n  File \"/work/__test__.py\", line 10, in task_func\n  File \"/usr/lib/python3.12/hmac.py\", line 184, in new\n    return HMAC(key, msg, digestmod)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/hmac.py\", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File \"/usr/lib/python3.12/hmac.py\", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Strings must be encoded before hashing\n",
+              "test_empty_data": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 41, in test_empty_data\n  File \"/work/__test__.py\", line 10, in task_func\n  File \"/usr/lib/python3.12/hmac.py\", line 184, in new\n    return HMAC(key, msg, digestmod)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/hmac.py\", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File \"/usr/lib/python3.12/hmac.py\", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Strings must be encoded before hashing\n",
+              "test_known_data_signature": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 37, in test_known_data_signature\n  File \"/work/__test__.py\", line 10, in task_func\n  File \"/usr/lib/python3.12/hmac.py\", line 184, in new\n    return HMAC(key, msg, digestmod)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/hmac.py\", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File \"/usr/lib/python3.12/hmac.py\", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Strings must be encoded before hashing\n",
+              "test_return_type": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 31, in test_return_type\n  File \"/work/__test__.py\", line 10, in task_func\n  File \"/usr/lib/python3.12/hmac.py\", line 184, in new\n    return HMAC(key, msg, digestmod)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/hmac.py\", line 60, in __init__\n    self._init_hmac(key, msg, digestmod)\n  File \"/usr/lib/python3.12/hmac.py\", line 67, in _init_hmac\n    self._hmac = _hashopenssl.hmac_new(key, msg, digestmod=digestmod)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Strings must be encoded before hashing\n"
+            },
+            "duration_s": 0.103
+          }
+        },
+        {
+          "step": "propose",
+          "attempt": 1,
+          "proposal": {
+            "line": 10,
+            "new": "import hmac"
+          },
+          "usage": {
+            "latency_s": 22.088,
+            "prompt_tokens": 1472,
+            "output_tokens": 17,
+            "eval_duration_ns": 1326273000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 1,
+          "status": "applied"
+        },
+        {
+          "step": "test",
+          "attempt": 1,
+          "result": {
+            "status": "fail",
+            "tests_run": 7,
+            "failures": 0,
+            "errors": 6,
+            "details": {
+              "test_complex_data_structure": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 47, in test_complex_data_structure\n  File \"/work/__test__.py\", line 11, in task_func\nNameError: name 'hmac_obj' is not defined\n",
+              "test_consistent_hash_with_same_input": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 68, in test_consistent_hash_with_same_input\n  File \"/work/__test__.py\", line 11, in task_func\nNameError: name 'hmac_obj' is not defined\n",
+              "test_different_data_different_signatures": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 58, in test_different_data_different_signatures\n  File \"/work/__test__.py\", line 11, in task_func\nNameError: name 'hmac_obj' is not defined\n",
+              "test_empty_data": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 41, in test_empty_data\n  File \"/work/__test__.py\", line 11, in task_func\nNameError: name 'hmac_obj' is not defined\n",
+              "test_known_data_signature": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 37, in test_known_data_signature\n  File \"/work/__test__.py\", line 11, in task_func\nNameError: name 'hmac_obj' is not defined\n",
+              "test_return_type": "Traceback (most recent call last):\n  File \"/work/__test__.py\", line 31, in test_return_type\n  File \"/work/__test__.py\", line 11, in task_func\nNameError: name 'hmac_obj' is not defined\n"
+            },
+            "duration_s": 0.164
+          }
+        },
+        {
+          "step": "propose",
+          "attempt": 2,
+          "proposal": {
+            "line": 4,
+            "new": "import hmac\nimport urllib.parse\nimport hmac\nimport hashlib\ndef task_func(req_data, secret_key):\n    if not isinstance(req_data, dict):\n        raise TypeError(\"req_data must be a dictionary\")\n    json_req_data = json.dumps(req_data, ensure_ascii=False)  # Ensure JSON is encoded before hashing\n    hmac_obj = hmac.new(secret_key.encode(), json_req_data.encode(), hashlib.sha256)  # Compute HMAC\n    hmac_signature = hmac_obj.hexdigest()  # Get the HMAC signature\n    url_encoded_signature = urllib.parse.quote_plus(hmac_signature)  # Encode the signature for URL\n    return url_encoded_signature"
+          },
+          "usage": {
+            "latency_s": 20.762,
+            "prompt_tokens": 1898,
+            "output_tokens": 150,
+            "eval_duration_ns": 13353789000
+          }
+        },
+        {
+          "step": "edit",
+          "attempt": 2,
+          "status": "invalid_replacement_line"
+        }
+      ],
+      "tool_calls": 1,
+      "prompt_tokens": 3370,
+      "output_tokens": 167,
+      "wall_s": 43.017,
+      "agent_wall_s": 43.017,
+      "offline_audit_s": 0.0,
+      "prompt_version": "line-json-v2",
+      "configuration": {
+        "model": "qwen2.5-coder:0.5b",
+        "endpoint": "http://127.0.0.1:11434/api/generate",
+        "attempts": 2,
+        "temperature": 0.0,
+        "seed": 17,
+        "retrieval": true,
+        "verification": true,
+        "evidence_gate": true,
+        "confidence_floor": 0.4,
+        "timeout_s": 12.0
+      },
+      "mode": "E3_full",
+      "model_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+    }
+  ],
+  "coverage_note": "If fewer than two successes exist, no success case is invented."
+}

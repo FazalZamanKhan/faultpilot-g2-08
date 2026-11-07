@@ -13,7 +13,7 @@ DEST = ROOT / "submission"
 STEM = "Phase2_G2-08_22I-2362"
 SOURCE_FILES = ("main.tex", "tables.tex", "references.bib", "IEEEtran.cls",
                 "IEEEtran.bst", "architecture.dot", "architecture.png",
-                "diagnosis_macro_f1.png")
+                "diagnosis_macro_f1.png", "failure_categories.png")
 
 
 def run(*args):
