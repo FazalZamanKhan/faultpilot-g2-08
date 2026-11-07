@@ -53,8 +53,10 @@ python3 -m experiments.check_determinism
 
 # E2, E3, E4, E5 and E6: paired repair modes and efficiency.
 python3 -m experiments.run_repairs --model qwen2.5-coder:0.5b --mode all
+python3 -m experiments.validate_results
 python3 -m experiments.aggregate
 python3 -m experiments.analyze_repairs
+python3 -m experiments.build_paper_tables
 ```
 
 The repair model argument must match the final result traces. `--limit N` on `run_repairs` is for a labelled pilot only; omitting it records all 234 held-out cases and asks the model to repair the 198 reproduced failures. Runs resume from JSONL. Single-case CLI:

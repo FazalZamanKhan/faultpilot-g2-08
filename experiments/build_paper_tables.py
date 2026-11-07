@@ -30,7 +30,7 @@ def main():
     rows = [
         "% Generated from saved results. Do not hand-edit measured values.",
         r"\begin{table}[t]", r"\centering",
-        r"\caption{Seven-label diagnosis on 234 held-out records.}",
+        r"\caption{[Author: write an original diagnosis-table caption.]}",
         r"\label{tab:diagnosis}", r"\begin{tabular}{lrr}", r"\toprule",
         "Method & Macro F1 & Exact match " + end, r"\midrule",
         f"Phase 1 rules & {base['macro_f1']:.3f} & {base['exact_match']:.3f} " + end,
@@ -38,7 +38,7 @@ def main():
         f"Retrieval fusion 0.2 & {fusion['macro_f1']:.3f} & {fusion['exact_match']:.3f} " + end,
         r"\bottomrule", r"\end{tabular}", r"\end{table}", "",
         r"\begin{table*}[t]", r"\centering",
-        r"\caption{Paired repair results. All 234 records are traced; 198 reproduced an original failure. Offline audit results were not shown to the no-verification agent.}",
+        r"\caption{[Author: write an original repair-results caption.]}",
         r"\label{tab:repair}", r"\begin{tabular}{lrrrrrr}", r"\toprule",
         r"Mode & Verified & Eligible rate (\%) & Abstained & Audit pass & Mean seconds & Mean tool calls " + end,
         r"\midrule",
@@ -62,7 +62,7 @@ def main():
     rows += [
         r"\bottomrule", r"\end{tabular}", r"\end{table*}", "",
         r"\begin{table*}[t]", r"\centering",
-        r"\caption{Gap resolution. The original RepairAgent Java result is not comparable on MLDebugging.}",
+        r"\caption{[Author: write an original gap-resolution caption.]}",
         r"\label{tab:gaps}",
         r"\begin{tabular}{p{0.5cm}p{2.6cm}p{2.0cm}p{2.1cm}p{4.5cm}p{1.0cm}}",
         r"\toprule",
