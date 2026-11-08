@@ -70,6 +70,8 @@ python3 -m faultpilot.repair_cli --case-id MLDebug476 --model qwen2.5-coder:0.5b
 
 See the [protocol](docs/phase2_protocol.md) for split, metrics, settings and comparability limits, and the [development log](docs/devlog.md) for measured iterations. The old four-case synthetic evaluation remains a plumbing check, not a research score.
 
+A one-page [measured-results brief](output/pdf/Phase2_G2-08_22I-2362_ResultsEvidence.pdf) summarizes the frozen outputs and can be rebuilt with `python3 -m experiments.build_results_brief`. It is supporting evidence for writing the paper, not a Phase 2 upload or a Turnitin report.
+
 ## Saved held-out results
 
 The source-task-grouped test set contains 234 records. The corrected 12-second preflight found 198 reproduced failures eligible for repair, 30 setup errors, five timeouts and one already passing case. These counts do not imply successful repairs.
