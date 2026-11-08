@@ -1,0 +1,11 @@
+{
+  "sample_size": 50,
+  "relevant": 19,
+  "relevant_fraction": 0.38,
+  "no_evidence": 11,
+  "selection": "First 50 held-out case IDs sorted by SHA-256 of case_id",
+  "reviewer_kind": "ai_assisted",
+  "judgment": "Item-by-item yes/no review against source code and runtime feedback",
+  "protocol_position": "Post-hoc review of frozen predictions; no model parameters or held-out outputs changed",
+  "note": "AI-assisted review is not independent human validation. This script only counts supplied judgments."
+}

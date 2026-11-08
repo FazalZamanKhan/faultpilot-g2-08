@@ -37,7 +37,7 @@ def prepare(path: Path, data: str, diagnoses: str):
           "and all other relevance judgments remain blank.")
 
 
-def score(path: Path, output: Path):
+def score(path: Path, output: Path, reviewer_kind: str = "human"):
     with path.open(newline="") as handle:
         rows = list(csv.DictReader(handle))
     if len(rows) != 50 or any(row["relevant_yes_no"].strip().lower() not in ("yes", "no")
@@ -54,8 +54,10 @@ def score(path: Path, output: Path):
     result = {"sample_size": 50, "relevant": relevant, "relevant_fraction": relevant / 50,
               "no_evidence": no_evidence,
               "selection": "First 50 held-out case IDs sorted by SHA-256 of case_id",
-              "judgment": "Manually entered yes/no; source span judged against code and runtime feedback",
-              "note": "The reviewer must provide the judgments; this script only counts them."}
+              "reviewer_kind": reviewer_kind,
+              "judgment": "Item-by-item yes/no review against source code and runtime feedback",
+              "protocol_position": "Post-hoc review of frozen predictions; no model parameters or held-out outputs changed",
+              "note": "AI-assisted review is not independent human validation. This script only counts supplied judgments."}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
@@ -68,9 +70,10 @@ def main():
     parser.add_argument("--sheet", default="results/evidence_audit_50.csv")
     parser.add_argument("--output", default="results/evidence_audit_score.json")
     parser.add_argument("--score", action="store_true", help="Score 50 manually completed yes/no judgments")
+    parser.add_argument("--reviewer-kind", choices=("human", "ai_assisted"), default="human")
     args = parser.parse_args()
     if args.score:
-        score(Path(args.sheet), Path(args.output))
+        score(Path(args.sheet), Path(args.output), args.reviewer_kind)
     else:
         prepare(Path(args.sheet), args.data, args.diagnoses)
 

@@ -103,7 +103,7 @@ These are descriptive single-run case statistics, not repeated full-run estimate
 
 These values are in `results/diagnostic_evaluation.json`. Retrieval examples did not improve macro F1. The evidence extractor returned at least one local code line for 194/234 records and retrieved development examples for all 234. Availability is not correctness because the benchmark lacks gold faulty lines.
 
-The fixed 50-case evidence-audit worksheet is `results/evidence_audit_50.csv`. Only 39/50 sampled records contain any extracted source span, so the Phase 1 target of at least 80% relevant spans cannot be reached on that sample even if all 39 are judged relevant. The 11 absent spans are automatically marked “no”; a reviewer must inspect the other 39 cases, enter yes/no, then run `python3 -m experiments.evidence_audit --score`.
+The fixed 50-case evidence-audit worksheet is `results/evidence_audit_50.csv`. Only 39/50 sampled records contain any extracted source span, so the Phase 1 target of at least 80% relevant spans cannot be reached on that sample even if all 39 are judged relevant. The 11 absent spans are automatically marked “no”. A separate, explicitly AI-assisted item-by-item review is saved in `results/evidence_audit_50_codex_review.csv`; its provisional score is 19/50 (38%) in `results/evidence_audit_codex_score.json`. This is not independent human validation. The original sheet retains its 39 blank judgments for a human reviewer if required by the course.
 
 ![Held-out diagnosis macro F1 with task-group bootstrap intervals](paper/diagnosis_macro_f1.png)
 
