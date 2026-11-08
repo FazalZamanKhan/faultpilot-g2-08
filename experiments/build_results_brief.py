@@ -4,11 +4,10 @@ import json
 from pathlib import Path
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.platypus import (
-    BaseDocTemplate, Frame, KeepTogether, PageTemplate, Paragraph, Spacer, Table,
+    BaseDocTemplate, Frame, PageTemplate, Paragraph, Spacer, Table,
     TableStyle,
 )
 
