@@ -1,0 +1,68 @@
+{
+  "test_cases": 234,
+  "repair_eligible": 198,
+  "modes": {
+    "E2_repairagent_style": {
+      "cases": 234,
+      "provider_retries": 0,
+      "statuses": {
+        "environment_blocked": 35,
+        "exhausted": 193,
+        "original_already_passes": 1,
+        "malformed_model_response": 5
+      },
+      "verified_passes": 0
+    },
+    "E3_full": {
+      "cases": 234,
+      "provider_retries": 1,
+      "statuses": {
+        "environment_blocked": 35,
+        "exhausted": 164,
+        "abstained_insufficient_evidence": 33,
+        "original_already_passes": 1,
+        "malformed_model_response": 1
+      },
+      "verified_passes": 0
+    },
+    "E5_no_retrieval": {
+      "cases": 234,
+      "provider_retries": 0,
+      "statuses": {
+        "environment_blocked": 35,
+        "exhausted": 162,
+        "abstained_insufficient_evidence": 33,
+        "malformed_model_response": 2,
+        "original_already_passes": 1,
+        "verified_by_supplied_tests": 1
+      },
+      "verified_passes": 1
+    },
+    "E5_no_verification": {
+      "cases": 234,
+      "provider_retries": 0,
+      "statuses": {
+        "environment_blocked": 35,
+        "unverified_proposal": 123,
+        "abstained_insufficient_evidence": 33,
+        "exhausted": 41,
+        "original_already_passes": 1,
+        "malformed_model_response": 1
+      },
+      "verified_passes": 0
+    },
+    "E5_no_gate": {
+      "cases": 234,
+      "provider_retries": 0,
+      "statuses": {
+        "environment_blocked": 35,
+        "exhausted": 197,
+        "original_already_passes": 1,
+        "malformed_model_response": 1
+      },
+      "verified_passes": 0
+    }
+  },
+  "model_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09",
+  "status": "passed"
+}

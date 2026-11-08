@@ -1,6 +1,6 @@
 # FaultPilot — G2-08
 
-Fazal Zaman Khan (22I-2362), solo project. FaultPilot diagnoses and attempts bounded repair of Python AI application faults. The Phase 2 implementation is under evaluation; saved measurements below are limited to completed runs.
+Fazal Zaman Khan (22I-2362), solo project. FaultPilot diagnoses and attempts bounded repair of Python AI application faults. The Phase 2 implementation and all five frozen 234-case repair modes are complete; the final research paper remains the student's original-writing deliverable.
 
 ## Research question and architecture
 
@@ -70,15 +70,27 @@ python3 -m faultpilot.repair_cli --case-id MLDebug476 --model qwen2.5-coder:0.5b
 
 See the [protocol](docs/phase2_protocol.md) for split, metrics, settings and comparability limits, and the [development log](docs/devlog.md) for measured iterations. The old four-case synthetic evaluation remains a plumbing check, not a research score.
 
-## Saved results so far
+## Saved held-out results
 
 The source-task-grouped test set contains 234 records. The corrected 12-second preflight found 198 reproduced failures eligible for repair, 30 setup errors, five timeouts and one already passing case. These counts do not imply successful repairs.
 
 The Phase 1 rules are diagnosis-only and make no edit; `results/E1_baseline_repair.json` records zero verified repair passes by design on the same fixed cases. Repair pass rates from E2 and E3 will use the 198 reproduced failures as their eligible denominator.
 
-The complete E2 Python RepairAgent-style adaptation produced **0/198 supplied-test passes**. This is a measured result for our adaptation, not a reproduction of the original paper's Java result. Its [failure analysis](results/E2_failure_analysis.json) records 123 candidate load failures, 47 rejected-edit cases, 23 candidates that loaded but failed tests, five malformed responses, 35 original environment blocks, and one original pass. Ablation outcomes will be added after their frozen runs finish.
+The complete E2 Python RepairAgent-style adaptation produced **0/198 supplied-test passes**. This is a measured result for our adaptation, not a reproduction of the original paper's Java result. Its [failure analysis](results/E2_failure_analysis.json) records 123 candidate load failures, 47 rejected-edit cases, 23 candidates that loaded but failed tests, five malformed responses, 35 original environment blocks, and one original pass.
 
 The complete E3 FaultPilot run also produced **0/198 supplied-test passes**, with all 234 records accounted for and one model-service retry preserved in the raw trace. The [final-system failure analysis](results/failure_analysis.json) records 70 candidate load failures, 54 candidates that loaded but failed tests, 40 rejected-edit cases, 33 evidence-gate abstentions, 35 original environment blocks, one malformed response, and one original pass. [Representative failed trajectories](results/trace_samples.json) include reconstructed prompts and candidate source. There are no held-out success cases to present; this is a limit of the completed experiment.
+
+All three E5 switch-off runs covered the same 234 records. No retrieval produced **1/198 supplied-test passes** (case `MLDebug130`); the one-line plotting change passed the supplied test but is not proven semantically correct. No verification produced 123 unverified proposals, **zero** of which passed a separate offline supplied-test audit. No evidence gate produced **0/198 passes** and no abstentions, versus 33 abstentions in E3. The [validator](results/repair_validation.json) passed for all five modes and checked the fixed IDs, original outcomes, switches, model digest, and retry handling.
+
+| Repair mode | Verified supplied-test passes / 198 | Mean agent-loop seconds ± case standard deviation | Mean tool calls | Prompt / output tokens |
+| --- | ---: | ---: | ---: | ---: |
+| E2 Python adaptation | 0 | 22.381 ± 15.143 | 1.034 | 475,367 / 13,109 |
+| E3 full | 0 | 21.189 ± 16.983 | 0.838 | 489,909 / 8,958 |
+| No retrieval | 1 | 22.466 ± 18.193 | 0.808 | 454,251 / 9,059 |
+| No verification | 0 verified; 0 offline audit | 17.951 ± 15.858, audit excluded | 0 | 318,348 / 5,801 |
+| No evidence gate | 0 | 10.170 ± 11.045 | 0.979 | 567,459 / 10,938 |
+
+These are descriptive single-run case statistics, not repeated full-run estimates. CPU and service conditions changed around machine restarts, so cross-mode latency differences should be treated cautiously. The paired task-group bootstrap for E3 minus no retrieval was −0.00505 on the eligible cases, with a 95% interval of [−0.01596, 0]. The other three E3 pass-rate differences and their intervals were zero. The interval does not cover model randomness or semantic correctness (`results/repair_aggregate.json`). Local inference incurred no billed API fee; electricity and hardware costs were not measured. The learned diagnosis took 3.849 seconds to fit once, then averaged 0.01563 seconds per held-out case (`results/diagnosis_latency.json`).
 
 | Diagnosis mode on 234 held-out records | Macro F1 | Exact match |
 | --- | ---: | ---: |
@@ -103,9 +115,9 @@ Three repetitions of one fixed development prompt returned identical proposals (
 
 | Gap | Method / switch | Metric | Base paper result | Our measured result | Addressed? |
 | --- | --- | --- | --- | --- | --- |
-| 1. Evidence-grounded diagnosis | `DiagnosticModel.diagnose(retrieval=...)` | Seven-label macro F1; evidence coverage | No same-data Python result | 0.31054 learned diagnosis versus 0.04082 Phase 1 rules; retrieval score fusion 0.29062; local evidence available for 194/234 | Partial: diagnosis improved, retrieval benefit unproven |
-| 2. Repair verification | `AgentSettings.verification` | Supplied-test pass and unverified proposal audit | No same-data Python result | Repair experiment in progress | Pending |
-| 3. Stop and abstain | `AgentSettings.evidence_gate` | Coverage, selective accuracy and tool calls | No same-data Python result | Diagnosis coverage 82.9%; selective exact match gain 0.00128; repair experiment in progress | Partial so far |
+| 1. Evidence-grounded diagnosis | `DiagnosticModel.diagnose(retrieval=...)` | Seven-label macro F1; evidence coverage; repair pass | No same-data Python result | Learned diagnosis 0.31054 versus rules 0.04082; retrieval score fusion 0.29062; local evidence 194/234; E3 0 passes versus no retrieval 1 | Partial: diagnosis improved; retrieval did not show a benefit |
+| 2. Repair verification | `AgentSettings.verification` | Supplied-test pass and unverified proposal audit | No same-data Python result | E3 0/198 passes; no verification 123 unverified proposals, 0/123 offline audit passes | Partial: verification is implemented; a correctness benefit was not demonstrated |
+| 3. Stop and abstain | `AgentSettings.evidence_gate` | Coverage, selective accuracy and tool calls | No same-data Python result | Diagnosis coverage 82.9%, selective exact-match gain 0.00128; E3 33 abstentions, 0 passes, 0.838 mean calls; no gate 0 abstentions, 0 passes, 0.979 mean calls | Partial: unnecessary calls were reduced; the accuracy target was missed |
 
 The original RepairAgent paper reported 164 correct Java fixes on its own benchmark. That number must not be compared numerically with Python rates. Negative and partial results are retained.
 
@@ -115,7 +127,7 @@ The original RepairAgent paper reported 164 correct Java fixes on its own benchm
 - `experiments/`: frozen setup, E1–E6 scripts and aggregation.
 - `results/`: manifests, per-case diagnoses, preflight, repair traces and summaries.
 - `tests/`: deterministic contract and sandbox tests.
-- `paper/`: IEEEtran source scaffold, architecture and result figures, [factual evidence notes](paper/evidence_notes.md), and 30 DOI-verified references. The assessed prose must be written by Fazal in his own words; this scaffold is not a final paper.
+- `paper/`: IEEEtran source scaffold, architecture and result figures, generated factual tables, [factual evidence notes](paper/evidence_notes.md), and 30 candidate references with DOI or official links. The assessed prose must be written by Fazal in his own words; this scaffold is not a final paper.
 
 Only the solo group head submits through Google Classroom by **Sunday, 8 November 2026, 11:55 PM PKT**. Upload the 8–10 page final paper `Phase2_G2-08_22I-2362_Paper.pdf`, Turnitin similarity report `Phase2_G2-08_22I-2362_Similarity.pdf`, Turnitin AI-writing report `Phase2_G2-08_22I-2362_AIReport.pdf`, and a ZIP of the final LaTeX/Overleaf project. Add this public repository URL and the `phase2-final` release or tag URL in the same submission. Both reports must be generated from the same final paper; without them the brief says no evaluation occurs.
 
